@@ -8,6 +8,7 @@ import BooksSection from './sections/BooksSection';
 import ShivaSection from './sections/ShivaSection';
 import MusicSection from './sections/MusicSection';
 import ContactSection from './sections/ContactSection';
+import DivineJourneySection from './sections/GallerySection';
 
 export default function HomePage() {
   return (
@@ -16,10 +17,11 @@ export default function HomePage() {
       <HeroSection />
       <ProphecySection />
       <ShivaSection />
+      <DivineJourneySection />
       <VisualsSection />
       <PodcastSection />
-      <BooksSection />
       <MusicSection />
+      <BooksSection />
       <ContactSection />
       <Footer />
     </main>

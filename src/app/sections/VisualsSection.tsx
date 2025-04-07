@@ -26,7 +26,7 @@ const visualsCategories: VisualsCategoryData[] = [
     id: 'cinematic',
     name: 'CINEMATIC',
     description:
-      'Immersive visual narratives that transcend conventional boundaries.',
+      'Immersive visual narratives that transcend conventional boundaries, offering a window into divine perspective.',
     videos: [
       {
         id: 'video-1',
@@ -59,7 +59,7 @@ const visualsCategories: VisualsCategoryData[] = [
     id: 'movement',
     name: 'MOVEMENT',
     description:
-      'The physical expression of spiritual principles through form and motion.',
+      'The physical expression of spiritual principles through form and motion, where discipline meets divine purpose.',
     videos: [
       {
         id: 'video-4',
@@ -92,7 +92,7 @@ const visualsCategories: VisualsCategoryData[] = [
     id: 'prophecy',
     name: 'PROPHECY',
     description:
-      'Visual revelations that pierce the veil between worlds and timelines.',
+      'Visual revelations that pierce the veil between worlds and timelines, offering glimpses of divine consciousness.',
     videos: [
       {
         id: 'video-7',
@@ -238,7 +238,7 @@ const VideoThumbnail: React.FC<{
 }> = ({ video, onClick, featured = false }) => {
   return (
     <motion.div
-      className={`relative overflow-hidden group cursor-pointer rounded-sm ${
+      className={`relative overflow-hidden group cursor-pointer rounded-sm sacred-glow ${
         featured ? 'md:col-span-2 md:row-span-2' : ''
       }`}
       initial={{ opacity: 0 }}
@@ -257,6 +257,14 @@ const VideoThumbnail: React.FC<{
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105"
           style={{ backgroundImage: `url(${video.thumbnail})` }}
         ></div>
+      </div>
+
+      {/* Divine frame */}
+      <div className="absolute inset-0 z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-gold/60"></div>
+        <div className="absolute top-0 right-0 w-5 h-5 border-t border-r border-gold/60"></div>
+        <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-gold/60"></div>
+        <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-gold/60"></div>
       </div>
 
       {/* Play Button */}
@@ -297,11 +305,71 @@ const VideoThumbnail: React.FC<{
   );
 };
 
+// Sacred flame particles component
+const FlameParticle: React.FC<{
+  delay?: number;
+  duration?: number;
+  size?: number;
+  left?: string;
+  opacity?: number;
+}> = ({ delay = 0, duration = 15, size = 20, left = '50%', opacity = 0.3 }) => (
+  <motion.div
+    className="absolute z-10"
+    style={{
+      left,
+      bottom: '-5%',
+      width: size,
+      height: size * 1.5,
+    }}
+    initial={{ y: 0, opacity: 0 }}
+    animate={{
+      y: [0, -400],
+      opacity: [0, opacity, opacity, 0],
+      rotate: [0, 10, -10, 5, -5, 0],
+    }}
+    transition={{
+      duration,
+      delay,
+      repeat: Infinity,
+      ease: [0.1, 0.25, 0.3, 1],
+    }}
+  >
+    <div
+      className="w-full h-full"
+      style={{
+        background:
+          'radial-gradient(circle at 50% 30%, rgba(255,85,0,0.5), rgba(157,11,11,0.5))',
+        borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+        filter: 'blur(4px)',
+      }}
+    />
+  </motion.div>
+);
+
 export default function VisualsSection() {
   const [activeCategory, setActiveCategory] = useState<string>('cinematic');
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   const [isPlayerOpen, setIsPlayerOpen] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useRef<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Simple IntersectionObserver for performance
+    if (typeof window !== 'undefined' && sectionRef.current) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          isInView.current = entry.isIntersecting;
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(sectionRef.current);
+      return () => observer.disconnect();
+    }
+  }, []);
 
   // Find the active category object
   const activeCategoryObj = visualsCategories.find(
@@ -326,63 +394,17 @@ export default function VisualsSection() {
     document.body.style.overflow = ''; // Re-enable scrolling
   };
 
-  // Sacred flame particles
-  const FlameParticle: React.FC<{
-    delay?: number;
-    duration?: number;
-    size?: number;
-    left?: string;
-    opacity?: number;
-  }> = ({
-    delay = 0,
-    duration = 15,
-    size = 20,
-    left = '50%',
-    opacity = 0.3,
-  }) => (
-    <motion.div
-      className="absolute z-10"
-      style={{
-        left,
-        bottom: '-5%',
-        width: size,
-        height: size * 1.5,
-      }}
-      initial={{ y: 0, opacity: 0 }}
-      animate={{
-        y: [0, -400],
-        opacity: [0, opacity, opacity, 0],
-        rotate: [0, 10, -10, 5, -5, 0],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: [0.1, 0.25, 0.3, 1],
-      }}
-    >
-      <div
-        className="w-full h-full"
-        style={{
-          background:
-            'radial-gradient(circle at 50% 30%, rgba(255,85,0,0.5), rgba(157,11,11,0.5))',
-          borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-          filter: 'blur(4px)',
-        }}
-      />
-    </motion.div>
-  );
-
   return (
     <section
       id="visuals"
       ref={sectionRef}
-      className="relative min-h-screen bg-black py-16 md:py-24 overflow-hidden"
+      className="relative py-16 md:py-24 bg-gradient-to-b from-black to-charcoal overflow-hidden"
+      aria-labelledby="visuals-section-title"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         {/* Dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-radial from-charcoal to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-charcoal/90 to-black"></div>
 
         {/* Animated texture overlay */}
         <div
@@ -394,17 +416,21 @@ export default function VisualsSection() {
         ></div>
       </div>
 
-      {/* Subtle flame particles */}
-      {[...Array(8)].map((_, i) => (
-        <FlameParticle
-          key={i}
-          delay={i * 0.5}
-          duration={12 + Math.random() * 8}
-          size={8 + Math.random() * 15}
-          left={`${5 + Math.random() * 90}%`}
-          opacity={0.15 + Math.random() * 0.15}
-        />
-      ))}
+      {/* Subtle flame particles - only render when mounted and section is in view */}
+      {mounted && (
+        <>
+          {[...Array(8)].map((_, i) => (
+            <FlameParticle
+              key={i}
+              delay={i * 0.5}
+              duration={12 + Math.random() * 8}
+              size={8 + Math.random() * 15}
+              left={`${5 + Math.random() * 90}%`}
+              opacity={0.15 + Math.random() * 0.15}
+            />
+          ))}
+        </>
+      )}
 
       {/* Section heading with luxury styling */}
       <div className="container mx-auto px-4 md:px-8 mb-12 relative z-10">
@@ -415,9 +441,14 @@ export default function VisualsSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="text-center"
         >
-          <h2 className="font-cinzel text-4xl md:text-5xl text-gold tracking-wider mb-4">
-            CINEMATIC VISUALS
+          <h2
+            id="visuals-section-title"
+            className="font-cinzel text-4xl md:text-5xl text-gold tracking-wider mb-4"
+          >
+            PROPHETIC CINEMA
           </h2>
+
+          {/* Decorative element */}
           <div className="flex items-center justify-center mb-6">
             <div className="h-px w-12 bg-gold/30"></div>
             <p className="text-ivory/80 font-cormorant-upright text-lg md:text-xl italic px-4">
@@ -425,10 +456,11 @@ export default function VisualsSection() {
             </p>
             <div className="h-px w-12 bg-gold/30"></div>
           </div>
-          <p className="text-ivory/70 font-inter max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            These visual narratives transcend the mundane, offering glimpses
-            into the divine play of consciousness through the lens of prophetic
-            vision.
+
+          <p className="text-ivory/70 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Beyond mere imagery, these cinematic experiences provide direct
+            transmission of divine consciousness. Each video offers a glimpse
+            into the intersection of human experience and prophetic revelation.
           </p>
         </motion.div>
 
@@ -449,6 +481,8 @@ export default function VisualsSection() {
                   : 'text-ivory/50 hover:text-ivory/80'
               }`}
               onClick={() => handleCategoryChange(category.id)}
+              aria-pressed={activeCategory === category.id}
+              aria-controls="video-grid"
             >
               {category.name}
               {activeCategory === category.id && (
@@ -475,7 +509,7 @@ export default function VisualsSection() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <p className="text-ivory/70 font-cormorant text-base md:text-lg italic max-w-2xl mx-auto">
+            <p className="text-ivory/70 font-cormorant-upright text-base md:text-lg italic max-w-2xl mx-auto">
               {activeCategoryObj?.description}
             </p>
           </motion.div>
@@ -483,7 +517,7 @@ export default function VisualsSection() {
       </div>
 
       {/* Video Grid */}
-      <div className="container mx-auto px-4 md:px-8">
+      <div id="video-grid" className="container mx-auto px-4 md:px-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -516,37 +550,47 @@ export default function VisualsSection() {
         >
           <div className="h-px w-24 bg-gold/30 mx-auto mb-8"></div>
           <h3 className="font-cinzel text-gold text-xl md:text-2xl mb-6">
-            JOIN THE VISUAL JOURNEY
+            WITNESS THE DIVINE NARRATIVE
           </h3>
-          <p className="text-ivory/70 font-inter text-base mb-8 max-w-xl mx-auto">
-            Subscribe to witness the unfolding of divine revelation through
-            cinematic expression, as new chapters of the eternal story are
-            revealed.
+          <p className="text-ivory/70 mb-8 max-w-xl mx-auto">
+            Explore these visual prophecies as they continue to unfold. Each
+            revelation provides a glimpse into dimensions beyond ordinary
+            perception, connecting viewers to the eternal flame of divine
+            consciousness.
           </p>
 
-          <a
-            href="https://www.youtube.com/@PaulRataul"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center group"
+          <motion.a
+            href="#contact"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal border border-gold/50 text-gold uppercase tracking-wider font-medium overflow-hidden flame-button focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal hover:bg-crimson/80 hover:text-ivory hover:border-crimson/60 transition-colors duration-300"
+            aria-label="Join the visual journey"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
-            <span className="relative inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold/90 to-gold/80 text-charcoal font-cinzel uppercase tracking-wider text-sm overflow-hidden group-hover:text-charcoal/90 transition-colors duration-300">
-              <span className="absolute inset-0 w-full h-0 transition-all duration-500 ease-out bg-gradient-to-t from-white/10 via-white/20 to-white/10 group-hover:h-full"></span>
-              <span className="relative">Subscribe to Channel</span>
+            {/* Flame animation on hover */}
+            <span
+              className="absolute bottom-0 left-0 right-0 h-0 bg-gradient-to-t from-crimson/40 via-gold/20 to-transparent group-hover:h-full transition-all duration-700 ease-in-out"
+              aria-hidden="true"
+            ></span>
+
+            <span className="relative flex items-center">
+              Join The Visual Journey
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 relative"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+                aria-hidden="true"
               >
                 <path
-                  fillRule="evenodd"
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                 />
               </svg>
             </span>
-          </a>
+          </motion.a>
         </motion.div>
       </div>
 
