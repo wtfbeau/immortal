@@ -1,0 +1,124 @@
+.
+├── README.md
+├── eslint.config.mjs
+├── frontend_structure.txt
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── images
+│   │   ├── Logo.png
+│   │   ├── amatrice-mirror.webp
+│   │   ├── artsy-3.webp
+│   │   ├── artsy-4.webp
+│   │   ├── artsy.webp
+│   │   ├── basketball-fash.webp
+│   │   ├── basketball-fashion.webp
+│   │   ├── beach-stones.webp
+│   │   ├── beautiful-doggy.webp
+│   │   ├── boar-white-2.webp
+│   │   ├── boat-white.webp
+│   │   ├── book1.webp
+│   │   ├── bros-2.webp
+│   │   ├── bros-fash.webp
+│   │   ├── bros.webp
+│   │   ├── burji-pic.webp
+│   │   ├── chill.webp
+│   │   ├── cool-pic-2.webp
+│   │   ├── cool-pic.webp
+│   │   ├── cute-selfie-doggy.webp
+│   │   ├── dior-night-2.webp
+│   │   ├── dior-night-3.webp
+│   │   ├── dior-soon.webp
+│   │   ├── doggy-green.webp
+│   │   ├── donkey.webp
+│   │   ├── dubai-pic.webp
+│   │   ├── fash.webp
+│   │   ├── fashion.webp
+│   │   ├── ferarri-jacket-2.webp
+│   │   ├── ferarri-jacket.webp
+│   │   ├── ferarri-night-2.webp
+│   │   ├── ferarri-night.webp
+│   │   ├── g-wagon-2.webp
+│   │   ├── g-wagon.webp
+│   │   ├── good-selfie.webp
+│   │   ├── gym-meditating.webp
+│   │   ├── gym-selfie.webp
+│   │   ├── indoor-doggy-cute-2.webp
+│   │   ├── indoor-doggy-cute-3.webp
+│   │   ├── indoor-doggy-cute.webp
+│   │   ├── knockout-training.webp
+│   │   ├── logo-3.jpeg
+│   │   ├── logo-3.webp
+│   │   ├── logo.jpg
+│   │   ├── marvel-1.webp
+│   │   ├── marvel-2.webp
+│   │   ├── marvel-3.webp
+│   │   ├── marvel-4.webp
+│   │   ├── meditating-bg.png
+│   │   ├── melbourne-fashion-festifval-3.webp
+│   │   ├── melbourne-fashion-festival-2.webp
+│   │   ├── melbourne-fashion-festival.webp
+│   │   ├── modelling-1.webp
+│   │   ├── modelling-2.webp
+│   │   ├── modelling-3.webp
+│   │   ├── modelling-4.webp
+│   │   ├── modelling-5.webp
+│   │   ├── modelling.webp
+│   │   ├── money-shot-bg.png
+│   │   ├── money-shot.webp
+│   │   ├── nature-free-12.webp
+│   │   ├── nature-free-2.webp
+│   │   ├── nature-free.webp
+│   │   ├── nature-selfie.webp
+│   │   ├── night-modelling.webp
+│   │   ├── river-group.webp
+│   │   ├── selfie-cute.webp
+│   │   ├── suite-cuite.webp
+│   │   └── wake-city.webp
+│   └── videos
+│       ├── balenciaga-ferrari.mp4
+│       ├── be-nice.mp4
+│       ├── beach-selfie.mp4
+│       ├── boat-new-home.mp4
+│       ├── burj-khalifa.mp4
+│       ├── concert.mp4
+│       ├── dancing-modeling.mp4
+│       ├── dubai-bathrooms.mp4
+│       ├── dubai-night-party.mp4
+│       ├── fam-selfie-mindset.mp4
+│       ├── gym-walk.mp4
+│       ├── gym-weights.mp4
+│       ├── modeling.mp4
+│       ├── modelling-catwalk.mp4
+│       └── modelling-f.mp4
+├── src
+│   └── app
+│       ├── components
+│       │   ├── Footer.tsx
+│       │   └── Navbar.tsx
+│       ├── favicon.ico
+│       ├── fonts
+│       ├── globals.css
+│       ├── hooks
+│       ├── layout.tsx
+│       ├── page.tsx
+│       ├── sections
+│       │   ├── BooksSection.tsx
+│       │   ├── ContactSection.tsx
+│       │   ├── GallerySection.tsx
+│       │   ├── HeroSection.tsx
+│       │   ├── MusicSection.tsx
+│       │   ├── PodcastSection.tsx
+│       │   ├── ProphecySection.tsx
+│       │   ├── ShivaSection.tsx
+│       │   └── VisualsSection.tsx
+│       └── styles
+│           ├── base-styles.css
+│           └── custom-effects.css
+├── tailwind.config.js
+└── tsconfig.json
+
+11 directories, 111 files

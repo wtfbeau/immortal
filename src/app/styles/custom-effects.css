@@ -1,0 +1,95 @@
+/* Custom CSS for Immortal Paul Rataul Website */
+
+/* Sacred Glow Effect for Prophetic Elements */
+.sacred-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transition: box-shadow 0.5s ease;
+}
+
+.sacred-glow:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+/* Animated Quote Styling */
+.prophetic-quote {
+  position: relative;
+  padding: 2rem;
+  font-family: 'Cormorant Upright', serif;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.prophetic-quote::before,
+.prophetic-quote::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #d4af37;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.prophetic-quote::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.prophetic-quote::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* Flame Animation for CTA Buttons */
+.flame-button {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.flame-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  z-index: -1;
+  transition: left 0.7s ease;
+}
+
+.flame-button:hover::before {
+  left: 100%;
+}
+
+/* Book Shine Effect */
+.book-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: left 0.7s ease;
+}
+
+.book-shine:hover::after {
+  left: 100%;
+}
