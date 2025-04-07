@@ -17,11 +17,11 @@ export default function HomePage() {
       <HeroSection />
       <ProphecySection />
       <ShivaSection />
+      <BooksSection />
+      <MusicSection />
+      <PodcastSection />
       <DivineJourneySection />
       <VisualsSection />
-      <PodcastSection />
-      <MusicSection />
-      <BooksSection />
       <ContactSection />
       <Footer />
     </main>
