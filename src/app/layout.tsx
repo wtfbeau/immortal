@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   title: 'Immortal Paul Rataul | Prophet. Artist. Warrior. Reformer',
   description:
     'The digital temple of Paul Rataul - artist, prophet, warrior, and global reformer. Join the flame of truth, fire, and revolution.',
+  icons: {
+    icon: '/images/favicon.webp',
+  },
 };
 
 export default function RootLayout({

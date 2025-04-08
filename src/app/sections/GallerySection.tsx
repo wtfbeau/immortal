@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import {
   motion,
@@ -16,6 +16,7 @@ interface JourneyMedia {
   alt: string;
   type: 'image' | 'video';
   position?: 'center' | 'top' | 'bottom';
+  description?: string;
 }
 
 interface JourneyFacet {
@@ -31,7 +32,7 @@ interface JourneyFacet {
   symbol: string;
 }
 
-// Video Player component for enhanced media playback
+// Video Player component for full-screen playback
 interface VideoPlayerProps {
   video: {
     src: string;
@@ -42,191 +43,315 @@ interface VideoPlayerProps {
   onClose: () => void;
 }
 
-// Enhanced video player component
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
   video,
   isOpen,
   onClose,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Handle video playback and keyboard controls
+    if (isOpen && modalRef.current) {
+      modalRef.current.focus();
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
     if (isOpen && videoRef.current && video) {
       videoRef.current.load();
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.error('Error playing video:', error);
+        playPromise.catch(() => {
+          console.log('Auto-play was prevented');
         });
       }
     }
+  }, [isOpen, video]);
 
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose, video]);
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isOpen, onClose]);
 
   if (!video) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-        className="relative w-full max-w-5xl aspect-video overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Video Frame Decoration */}
-        <div className="absolute inset-0 border border-gold/30 pointer-events-none z-10">
-          <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/60"></div>
-          <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-gold/60"></div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-gold/60"></div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/60"></div>
-        </div>
-
-        {/* Video */}
-        <video
-          ref={videoRef}
-          className="w-full h-full object-contain bg-black"
-          src={video.src}
-          controls
-          controlsList="nodownload"
-          playsInline
-        />
-
-        {/* Video Title Overlay */}
-        {(video.title || video.description) && (
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent z-20">
-            {video.title && (
-              <h3 className="font-cinzel text-xl text-gold mb-2">
-                {video.title}
-              </h3>
-            )}
-            {video.description && (
-              <p className="font-cormorant text-ivory/80 text-base">
-                {video.description}
-              </p>
-            )}
-          </div>
-        )}
-
-        {/* Close Button */}
-        <button
-          className="absolute top-4 right-4 text-ivory/80 hover:text-gold transition-colors duration-300 z-20 w-10 h-10 flex items-center justify-center bg-black/50 rounded-full"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
           onClick={onClose}
-          aria-label="Close video"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="video-title"
+          ref={modalRef}
+          tabIndex={-1}
         >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+            className="relative w-full max-w-5xl aspect-video overflow-hidden rounded-sm"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Video Frame Decoration */}
+            <div className="absolute inset-0 border border-gold/30 pointer-events-none z-10">
+              <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/60"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-gold/60"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-gold/60"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/60"></div>
+            </div>
+
+            {/* Video */}
+            <video
+              ref={videoRef}
+              className="w-full h-full object-contain bg-black"
+              src={video.src}
+              controls
+              controlsList="nodownload"
+              playsInline
+              aria-labelledby="video-title video-description"
+            />
+
+            {/* Video Title Overlay */}
+            {(video.title || video.description) && (
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent z-20">
+                {video.title && (
+                  <h3
+                    id="video-title"
+                    className="font-cinzel text-xl text-gold mb-2"
+                  >
+                    {video.title}
+                  </h3>
+                )}
+                {video.description && (
+                  <p
+                    id="video-description"
+                    className="font-cormorant text-ivory/80 text-base"
+                  >
+                    {video.description}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 text-ivory/80 hover:text-gold transition-colors duration-300 z-20 w-10 h-10 flex items-center justify-center bg-black/50 rounded-full"
+              onClick={onClose}
+              aria-label="Close video"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+// Video background component with autoplay
+interface VideoBackgroundProps {
+  src: string;
+  alt: string;
+  description?: string;
+  onClick: () => void;
+}
+
+const VideoBackground: React.FC<VideoBackgroundProps> = ({
+  src,
+  alt,
+  description,
+  onClick,
+}) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.log('Autoplay prevented:', err);
+      });
+    }
+  }, []);
+
+  return (
+    <motion.div
+      className="relative overflow-hidden rounded-sm aspect-[9/16] h-full cursor-pointer group"
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3 }}
+      role="button"
+      aria-label={`Play video: ${alt}`}
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
+
+      {/* Video element */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        src={src}
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      />
+
+      {/* Content overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
+        <motion.div
+          initial={{ y: 10, opacity: 0.8 }}
+          animate={{ y: isHovered ? 0 : 10, opacity: isHovered ? 1 : 0.8 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h3 className="font-cinzel text-xl md:text-2xl text-gold uppercase mb-2">
+            {alt}
+          </h3>
+          {description && (
+            <p className="font-cormorant text-ivory/90 text-base">
+              {description}
+            </p>
+          )}
+        </motion.div>
+      </div>
+
+      {/* Play button */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-gold/60">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            className="h-8 w-8 text-gold"
+            viewBox="0 0 20 20"
+            fill="currentColor"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M6 18L18 6M6 6l12 12"
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+              clipRule="evenodd"
             />
           </svg>
-        </button>
+        </div>
       </motion.div>
     </motion.div>
   );
 };
 
-// Enhanced thumbnail component with interactive elements
-interface MediaThumbnailProps {
-  media: JourneyMedia;
-  onClick: (media: JourneyMedia) => void;
+// Portrait image component with overlay
+interface PortraitImageProps {
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
   priority?: boolean;
-  featured?: boolean;
-  className?: string;
+  index: number;
 }
 
-const MediaThumbnail: React.FC<MediaThumbnailProps> = ({
-  media,
-  onClick,
+const PortraitImage: React.FC<PortraitImageProps> = ({
+  src,
+  alt,
+  title,
+  description,
   priority = false,
-  featured = false,
-  className = '',
+  index,
 }) => {
-  const [, setIsHovered] = useState(false);
-  const isVideo = media.type === 'video';
+  const [isHovered, setIsHovered] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(imageRef, { once: true, amount: 0.3 });
 
   return (
     <motion.div
-      className={`relative overflow-hidden group cursor-pointer rounded-sm sacred-glow ${
-        featured ? 'md:col-span-2 md:row-span-2' : ''
-      } ${className}`}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      ref={imageRef}
+      className="relative overflow-hidden rounded-sm aspect-[3/4] h-full w-full"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => onClick(media)}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent z-10"></div>
+      {/* Dark overlay */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"
+        initial={{ opacity: 0.7 }}
+        animate={{ opacity: isHovered ? 0.5 : 0.7 }}
+        transition={{ duration: 0.3 }}
+      />
 
-      {/* Media Image */}
-      <div className="relative aspect-video w-full overflow-hidden">
+      {/* Image */}
+      <div className="h-full w-full">
         <Image
-          src={media.src}
-          alt={media.alt}
-          width={800}
-          height={450}
-          className={`w-full h-full object-cover ${
-            media.position || ''
-          } transition-transform duration-700 ease-in-out group-hover:scale-105`}
+          src={src}
+          alt={alt}
+          width={500}
+          height={667}
+          quality={90}
           priority={priority}
+          className="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-105"
+          sizes="(max-width: 768px) 50vw, 25vw"
         />
       </div>
 
-      {/* Play Button for videos */}
-      {isVideo && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <motion.div
-            className="w-16 h-16 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center border border-gold/40 group-hover:border-gold/80 transition-all duration-300"
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-gold/80 group-hover:text-gold transition-colors duration-300"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </motion.div>
-        </div>
-      )}
-
-      {/* Media Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-        <div className="overflow-hidden">
-          <h4 className="font-cinzel text-gold text-lg md:text-xl mb-1 group-hover:text-gold/100 transition-colors duration-300">
-            {media.alt}
-          </h4>
-        </div>
+      {/* Content overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end p-4 z-20">
+        <motion.div
+          initial={{ y: 10, opacity: 0.8 }}
+          animate={{ y: isHovered ? 0 : 10, opacity: isHovered ? 1 : 0.8 }}
+          transition={{ duration: 0.3 }}
+        >
+          {title && (
+            <h3 className="font-cinzel text-base md:text-lg text-gold uppercase mb-1">
+              {title}
+            </h3>
+          )}
+          {description && (
+            <p className="font-cormorant text-ivory/90 text-sm line-clamp-2">
+              {description}
+            </p>
+          )}
+        </motion.div>
       </div>
     </motion.div>
   );
@@ -260,6 +385,7 @@ const FlameParticle: React.FC<{
       repeat: Infinity,
       ease: [0.1, 0.25, 0.3, 1],
     }}
+    aria-hidden="true"
   >
     <div
       className="w-full h-full"
@@ -287,22 +413,35 @@ const journeyFacets: JourneyFacet[] = [
       src: '/images/meditating-bg.png',
       alt: 'Paul in deep meditation, channeling divine wisdom',
       type: 'image',
+      description:
+        'Connecting with higher consciousness through dedicated meditation practice',
     },
     secondaryMedia: [
       {
         src: '/images/nature-free.webp',
         alt: 'Connection with nature',
         type: 'image',
+        description: 'Finding divine harmony in natural surroundings',
       },
       {
         src: '/images/gym-meditating.webp',
         alt: 'Disciplined spiritual practice',
         type: 'image',
+        description: 'Merging physical discipline with spiritual awakening',
       },
       {
         src: '/videos/beach-selfie.mp4',
         alt: 'Divine revelation journey',
         type: 'video',
+        description:
+          'Moments of clarity and vision at the threshold between elements',
+      },
+      {
+        src: '/videos/gym-weights.mp4',
+        alt: 'Physical temple cultivation',
+        type: 'video',
+        description:
+          'The dedicated strengthening of the vessel for its divine purpose',
       },
     ],
     color: '#D4AF37',
@@ -321,22 +460,32 @@ const journeyFacets: JourneyFacet[] = [
       src: '/images/modelling-1.webp',
       alt: 'Divine creative expression through modeling',
       type: 'image',
+      description: 'The vessel as a vehicle for artistic transcendence',
     },
     secondaryMedia: [
       {
         src: '/images/melbourne-fashion-festival.webp',
         alt: 'Fashion as prophecy',
         type: 'image',
+        description: 'Runway moments that transcend conventional fashion',
       },
       {
         src: '/images/modelling-2.webp',
         alt: 'The vessel as creative canvas',
         type: 'image',
+        description: 'Form and spirit united in creative expression',
       },
       {
         src: '/videos/modeling.mp4',
         alt: 'Movement as divine expression',
         type: 'video',
+        description: 'The fluidity of divine creativity captured in motion',
+      },
+      {
+        src: '/videos/modelling-catwalk.mp4',
+        alt: 'Fashion runway divine expression',
+        type: 'video',
+        description: 'Walking between worlds with purpose and presence',
       },
     ],
     color: '#9D0B0B',
@@ -356,22 +505,33 @@ const journeyFacets: JourneyFacet[] = [
       alt: "The warrior's physical discipline",
       type: 'image',
       position: 'top',
+      description: 'Forging the physical vessel through dedicated training',
     },
     secondaryMedia: [
       {
         src: '/images/basketball-fashion.webp',
         alt: 'Athletic expression',
         type: 'image',
+        description: 'Merging warrior discipline with artistic expression',
       },
       {
         src: '/images/knockout-training.webp',
         alt: 'Warrior training',
         type: 'image',
+        description: 'Combat training as spiritual practice',
       },
       {
         src: '/videos/gym-weights.mp4',
         alt: 'Physical temple cultivation',
         type: 'video',
+        description:
+          'The dedicated strengthening of the vessel for its divine purpose',
+      },
+      {
+        src: '/videos/gym-walk.mp4',
+        alt: "Warrior's path",
+        type: 'video',
+        description: 'Walking the path of physical mastery with purpose',
       },
     ],
     color: '#D4AF37',
@@ -390,22 +550,32 @@ const journeyFacets: JourneyFacet[] = [
       src: '/images/dubai-pic.webp',
       alt: 'Divine purpose meets worldly influence',
       type: 'image',
+      description: 'Ascending to influential heights to spread divine vision',
     },
     secondaryMedia: [
       {
         src: '/images/ferarri-night.webp',
         alt: 'Luxury as divine vessel',
         type: 'image',
+        description: 'Worldly excellence as a vehicle for higher purpose',
       },
       {
         src: '/images/burji-pic.webp',
         alt: 'Ascending between worlds',
         type: 'image',
+        description: 'Rising above conventional limitations',
       },
       {
         src: '/videos/burj-khalifa.mp4',
         alt: 'The Eternal Flame Awakens',
         type: 'video',
+        description: 'Vision from the heights of human achievement',
+      },
+      {
+        src: '/videos/balenciaga-ferrari.mp4',
+        alt: 'Luxury with Purpose',
+        type: 'video',
+        description: 'Material excellence as a vessel for divine mission',
       },
     ],
     color: '#9D0B0B',
@@ -424,22 +594,32 @@ const journeyFacets: JourneyFacet[] = [
       src: '/images/river-group.webp',
       alt: 'Authentic human connections',
       type: 'image',
+      description: 'Shared moments of genuine connection and joy',
     },
     secondaryMedia: [
       {
         src: '/images/good-selfie.webp',
         alt: 'The human behind the prophet',
         type: 'image',
+        description: 'Authentic moments of self-expression',
       },
       {
         src: '/images/bros.webp',
         alt: 'Friendship as spiritual practice',
         type: 'image',
+        description: 'Brotherhood and connection as sacred bonds',
       },
       {
         src: '/videos/be-nice.mp4',
         alt: 'Kindness Revolution',
         type: 'video',
+        description: 'Spreading humanity through simple authenticity',
+      },
+      {
+        src: '/videos/fam-selfie-mindset.mp4',
+        alt: 'Family Connection',
+        type: 'video',
+        description: 'Building authentic bonds that transcend the ordinary',
       },
     ],
     color: '#D4AF37',
@@ -475,7 +655,7 @@ export default function DivineJourneySection() {
   useEffect(() => {
     setMounted(true);
 
-    // Keyboard navigation
+    // Keyboard navigation for facets
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') {
         setActiveFacet((prev) =>
@@ -491,26 +671,55 @@ export default function DivineJourneySection() {
   }, []);
 
   // Handle media click
-  const handleMediaClick = (media: JourneyMedia) => {
+  const handleMediaClick = useCallback((media: JourneyMedia) => {
     if (media.type === 'video') {
       setCurrentVideo({
         src: media.src,
         title: media.alt,
+        description: media.description,
       });
       setVideoPlaying(true);
       document.body.style.overflow = 'hidden'; // Prevent scrolling
     }
-  };
+  }, []);
 
   // Close video player
-  const closeVideoPlayer = () => {
+  const closeVideoPlayer = useCallback(() => {
     setVideoPlaying(false);
     setCurrentVideo(null);
     document.body.style.overflow = ''; // Restore scrolling
-  };
+  }, []);
+
+  // Handle facet change
+  const handleFacetChange = useCallback((index: number) => {
+    setActiveFacet(index);
+  }, []);
 
   // Get current facet
   const currentFacet = journeyFacets[activeFacet];
+
+  // Preload images for better performance
+  useEffect(() => {
+    if (mounted) {
+      // Preload the next facet's images if not the last facet
+      if (activeFacet < journeyFacets.length - 1) {
+        const nextFacet = journeyFacets[activeFacet + 1];
+        const imagesToPreload = [
+          nextFacet.primaryMedia.src,
+          ...nextFacet.secondaryMedia
+            .filter((media) => media.type === 'image')
+            .slice(0, 2)
+            .map((media) => media.src),
+        ];
+
+        imagesToPreload.forEach((src) => {
+          // Create image element for preloading
+          const img = document.createElement('img');
+          img.src = src;
+        });
+      }
+    }
+  }, [activeFacet, mounted]);
 
   return (
     <section
@@ -529,6 +738,7 @@ export default function DivineJourneySection() {
           <motion.div
             className="absolute inset-0 opacity-10"
             style={{ y: backgroundY }}
+            aria-hidden="true"
           >
             {/* Subtle sacred patterns */}
             <div
@@ -626,11 +836,15 @@ export default function DivineJourneySection() {
           </p>
         </motion.div>
 
-        {/* Facet Navigation */}
+        {/* Facet Navigation - Enhanced Accessibility */}
         <div className="mb-16">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto overflow-x-auto no-scrollbar pb-4">
             {/* Journey timeline */}
-            <div className="relative flex justify-between items-center py-3">
+            <div
+              className="relative flex justify-between items-center py-3 min-w-max px-4"
+              role="tablist"
+              aria-label="Divine journey facets"
+            >
               {/* Timeline line */}
               <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-gold/30 -translate-y-1/2"></div>
 
@@ -638,13 +852,16 @@ export default function DivineJourneySection() {
               {journeyFacets.map((facet, index) => (
                 <motion.button
                   key={facet.id}
-                  className="relative z-10 flex flex-col items-center"
-                  onClick={() => setActiveFacet(index)}
+                  className="relative z-10 flex flex-col items-center mx-4"
+                  onClick={() => handleFacetChange(index)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                  aria-pressed={activeFacet === index}
-                  aria-label={`View ${facet.title} facet`}
+                  role="tab"
+                  id={`tab-${facet.id}`}
+                  aria-selected={activeFacet === index}
+                  aria-controls={`panel-${facet.id}`}
+                  tabIndex={activeFacet === index ? 0 : -1}
                 >
                   {/* Facet indicator */}
                   <div className="relative mb-2">
@@ -687,7 +904,7 @@ export default function DivineJourneySection() {
           </div>
         </div>
 
-        {/* Facet Content */}
+        {/* Facet Content with Tab Panel Structure */}
         <div ref={contentRef} className="max-w-6xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -696,26 +913,29 @@ export default function DivineJourneySection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col md:flex-row gap-8 md:gap-12"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12"
+              role="tabpanel"
+              id={`panel-${currentFacet.id}`}
+              aria-labelledby={`tab-${currentFacet.id}`}
             >
-              {/* Left Column - Content */}
-              <div className="w-full md:w-1/2 order-2 md:order-1">
-                {/* Subtitle */}
+              {/* Left Column - Content & Media */}
+              <div className="space-y-8">
+                {/* Section Title */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
-                  className="mb-3"
+                  transition={{ duration: 0.7, delay: 0.1 }}
                 >
                   <h3
-                    className="font-cinzel text-xl md:text-2xl lg:text-3xl"
+                    className="font-cinzel text-2xl md:text-3xl uppercase tracking-wider mb-4"
                     style={{ color: currentFacet.color }}
                   >
                     {currentFacet.subtitle}
                   </h3>
                   <div
-                    className="w-16 h-px mt-2"
+                    className="w-16 h-0.5 mb-6"
                     style={{ backgroundColor: currentFacet.color }}
+                    aria-hidden="true"
                   ></div>
                 </motion.div>
 
@@ -723,14 +943,13 @@ export default function DivineJourneySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.3 }}
-                  className="mb-6"
+                  transition={{ duration: 0.7, delay: 0.2 }}
                 >
                   <div
-                    className="prophetic-quote relative pl-4 border-l-2 mb-3 md:mb-4"
+                    className="prophetic-quote relative pl-4 border-l-2 mb-6"
                     style={{ borderColor: currentFacet.color }}
                   >
-                    <p className="font-cormorant-upright text-base md:text-lg italic text-ivory/90">
+                    <p className="font-cormorant-upright text-lg md:text-xl italic text-ivory/90">
                       {currentFacet.quote}
                     </p>
                   </div>
@@ -740,59 +959,77 @@ export default function DivineJourneySection() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.4 }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
                   className="mb-8"
                 >
-                  <p className="text-ivory/80 leading-relaxed">
+                  <p className="text-ivory/80 leading-relaxed text-lg">
                     {currentFacet.description}
                   </p>
                 </motion.div>
 
-                {/* Gallery Grid - Enhanced with MediaThumbnail component */}
+                {/* Media Items Grid */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.5 }}
-                  className="grid grid-cols-2 gap-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                  className="grid grid-cols-2 gap-4 h-[400px]"
                 >
-                  {currentFacet.secondaryMedia.map((media, i) => (
-                    <MediaThumbnail
-                      key={`${currentFacet.id}-media-${i}`}
-                      media={media}
-                      onClick={handleMediaClick}
-                      featured={i === 2}
-                      className={i === 2 ? 'col-span-2' : ''}
-                    />
-                  ))}
+                  {/* Two portrait images */}
+                  {currentFacet.secondaryMedia
+                    .filter((media) => media.type === 'image')
+                    .slice(0, 2)
+                    .map((media, i) => (
+                      <PortraitImage
+                        key={`${currentFacet.id}-image-${i}`}
+                        src={media.src}
+                        alt={media.alt}
+                        title={media.alt.toUpperCase()}
+                        description={media.description}
+                        index={i}
+                      />
+                    ))}
                 </motion.div>
               </div>
 
-              {/* Right Column - Feature Image */}
-              <div className="w-full md:w-1/2 order-1 md:order-2">
-                <div className="sticky top-24">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.7 }}
-                    className="relative"
-                  >
-                    {/* Primary Media - Enhanced with interactivity */}
-                    <MediaThumbnail
-                      media={currentFacet.primaryMedia}
-                      onClick={handleMediaClick}
-                      priority={true}
-                      featured={true}
-                    />
+              {/* Right Column - Feature Media */}
+              <div className="flex flex-col space-y-4">
+                {/* Main portrait image */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.7 }}
+                  className="flex-grow h-[400px]"
+                >
+                  <PortraitImage
+                    src={currentFacet.primaryMedia.src}
+                    alt={currentFacet.primaryMedia.alt}
+                    title="DIVINE PURPOSE MEETS WORLDLY INFLUENCE"
+                    description="Ascending to influential heights to spread divine vision"
+                    priority={true}
+                    index={0}
+                  />
+                </motion.div>
 
-                    {/* Facet Symbol */}
-                    <div
-                      className="absolute -bottom-4 -right-4 w-12 h-12 rounded-full bg-charcoal border border-gold/40 flex items-center justify-center text-2xl"
-                      aria-hidden="true"
-                    >
-                      <span>{currentFacet.symbol}</span>
-                    </div>
-                  </motion.div>
-                </div>
+                {/* Two autoplay videos */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="grid grid-cols-2 gap-4 h-[300px]"
+                >
+                  {currentFacet.secondaryMedia
+                    .filter((media) => media.type === 'video')
+                    .slice(0, 2)
+                    .map((media, i) => (
+                      <VideoBackground
+                        key={`${currentFacet.id}-video-${i}`}
+                        src={media.src}
+                        alt={media.alt.toUpperCase()}
+                        description={media.description}
+                        onClick={() => handleMediaClick(media)}
+                      />
+                    ))}
+                </motion.div>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -806,11 +1043,17 @@ export default function DivineJourneySection() {
                 ? 'text-gold/80 hover:text-gold'
                 : 'text-gold/30 cursor-not-allowed'
             }`}
-            onClick={() => activeFacet > 0 && setActiveFacet(activeFacet - 1)}
+            onClick={() =>
+              activeFacet > 0 && handleFacetChange(activeFacet - 1)
+            }
             disabled={activeFacet === 0}
             whileHover={activeFacet > 0 ? { x: -5 } : {}}
             transition={{ duration: 0.2 }}
-            aria-label="Previous facet"
+            aria-label={
+              activeFacet > 0
+                ? `Previous facet: ${journeyFacets[activeFacet - 1].title}`
+                : 'Beginning of journey'
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -821,6 +1064,7 @@ export default function DivineJourneySection() {
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-4 h-4"
+              aria-hidden="true"
             >
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
@@ -839,12 +1083,16 @@ export default function DivineJourneySection() {
             }`}
             onClick={() =>
               activeFacet < journeyFacets.length - 1 &&
-              setActiveFacet(activeFacet + 1)
+              handleFacetChange(activeFacet + 1)
             }
             disabled={activeFacet === journeyFacets.length - 1}
             whileHover={activeFacet < journeyFacets.length - 1 ? { x: 5 } : {}}
             transition={{ duration: 0.2 }}
-            aria-label="Next facet"
+            aria-label={
+              activeFacet < journeyFacets.length - 1
+                ? `Next facet: ${journeyFacets[activeFacet + 1].title}`
+                : 'End of journey'
+            }
           >
             <span>
               {activeFacet < journeyFacets.length - 1
@@ -860,6 +1108,7 @@ export default function DivineJourneySection() {
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-4 h-4"
+              aria-hidden="true"
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

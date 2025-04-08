@@ -228,6 +228,17 @@ export default function ProphecySection() {
                   alt="NZ Herald"
                   width={75}
                 />
+
+                <FeaturedLogo
+                  src="/images/logos/bloomberg.webp"
+                  alt="bloomberg"
+                  width={100}
+                />
+                <FeaturedLogo
+                  src="/images/logos/tedx.webp"
+                  alt="tedx"
+                  width={50}
+                />
                 <FeaturedLogo
                   src="/images/logos/google-scholar.webp"
                   alt="Google Scholar"
@@ -269,12 +280,7 @@ export default function ProphecySection() {
                   alt="NZ Post"
                   width={70}
                 />
-                <FeaturedLogo
-                  src="/images/logos/qld-gv.webp"
-                  alt="Queensland Government"
-                  width={100}
-                  className="hidden md:block"
-                />
+
                 <FeaturedLogo
                   src="/images/logos/asx.webp"
                   alt="ASX"

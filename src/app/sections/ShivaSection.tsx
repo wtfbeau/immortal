@@ -290,7 +290,7 @@ export default function ShivaSection() {
 
   return (
     <section
-      id="movement"
+      id="SHIVA"
       ref={sectionRef}
       className="relative py-16 md:py-24 bg-charcoal text-ivory overflow-hidden"
       aria-labelledby="shiva-movement-title"

@@ -2,7 +2,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HeroSection from './sections/HeroSection';
 import ProphecySection from './sections/ProphecySection';
-import VisualsSection from './sections/VisualsSection';
 import PodcastSection from './sections/PodcastSection';
 import BooksSection from './sections/BooksSection';
 import ShivaSection from './sections/ShivaSection';
@@ -21,7 +20,6 @@ export default function HomePage() {
       <MusicSection />
       <PodcastSection />
       <DivineJourneySection />
-      <VisualsSection />
       <ContactSection />
       <Footer />
     </main>

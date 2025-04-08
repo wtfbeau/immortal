@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 export default function ContactSection() {
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [formLoading, setFormLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: '',
     interests: {
       prophecy: false,
@@ -20,34 +20,23 @@ export default function ContactSection() {
   });
 
   const sectionRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px 0px' });
 
   // Social media links
   const socialLinks = [
     { name: 'Instagram', icon: 'instagram', url: '#' },
     { name: 'Twitter', icon: 'twitter', url: '#' },
-    { name: 'Facebook', icon: 'facebook', url: '#' },
     { name: 'YouTube', icon: 'youtube', url: '#' },
-    { name: 'LinkedIn', icon: 'linkedin', url: '#' },
     { name: 'TikTok', icon: 'tiktok', url: '#' },
   ];
 
   // Contact methods
   const contactMethods = [
     {
-      title: 'Email',
-      content: 'prophecy@paulrataul.com',
-      icon: 'mail',
-    },
-    {
       title: 'Headquarters',
       content: 'Dubai, UAE',
       icon: 'location',
-    },
-    {
-      title: 'Bookings',
-      content: 'bookings@paulrataul.com',
-      icon: 'calendar',
     },
   ];
 
@@ -83,29 +72,46 @@ export default function ContactSection() {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormSubmitted(true);
 
-    // Reset form after 5 seconds
+    setFormLoading(true);
+
+    // Simulate API call delay
     setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        interests: {
-          prophecy: false,
-          modeling: false,
-          business: false,
-          speaking: false,
-        },
-        subscribe: true,
-      });
-    }, 5000);
+      console.log('Form submitted:', formData);
+      setFormLoading(false);
+      setFormSubmitted(true);
+
+      // Scroll to top of form
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 1500);
   };
+
+  // Reset form after success
+  useEffect(() => {
+    if (formSubmitted) {
+      const timer = setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+          interests: {
+            prophecy: false,
+            modeling: false,
+            business: false,
+            speaking: false,
+          },
+          subscribe: true,
+        });
+      }, 8000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [formSubmitted]);
 
   // Function to render social icons
   const renderSocialIcon = (icon: string) => {
@@ -130,16 +136,6 @@ export default function ContactSection() {
             <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
           </svg>
         );
-      case 'facebook':
-        return (
-          <svg
-            className="w-5 h-5 text-[#D4AF37]"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
-          </svg>
-        );
       case 'youtube':
         return (
           <svg
@@ -148,16 +144,6 @@ export default function ContactSection() {
             fill="currentColor"
           >
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-          </svg>
-        );
-      case 'linkedin':
-        return (
-          <svg
-            className="w-5 h-5 text-[#D4AF37]"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z" />
           </svg>
         );
       case 'tiktok':
@@ -243,9 +229,17 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-24 bg-[#F5F5F5] text-[#1E1E1E]"
+      className="py-24 bg-gradient-to-b from-[#F5F5F5] to-[#F0F0F0] text-[#1E1E1E] relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-12">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-[#D4AF37]/0 via-[#D4AF37] to-[#D4AF37]/0"></div>
+        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-[#D4AF37]/0 via-[#D4AF37] to-[#D4AF37]/0"></div>
+        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-[#D4AF37]/0 via-[#D4AF37] to-[#D4AF37]/0"></div>
+        <div className="absolute bottom-1/4 left-0 right-0 h-px bg-gradient-to-r from-[#D4AF37]/0 via-[#D4AF37] to-[#D4AF37]/0"></div>
+      </div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <motion.div
           className="relative mb-16 text-center"
@@ -256,7 +250,11 @@ export default function ContactSection() {
           <h2 className="font-cinzel text-4xl md:text-5xl tracking-wider mb-4">
             JOIN THE CIRCLE
           </h2>
-          <div className="h-[1px] w-24 bg-[#9D0B0B] mx-auto"></div>
+          <div className="h-[2px] w-32 bg-gradient-to-r from-transparent via-[#9D0B0B] to-transparent mx-auto mb-6"></div>
+          <p className="max-w-2xl mx-auto text-lg text-[#1E1E1E]/80 font-cormorant-upright italic">
+            Connect with the movement and receive divine transmissions directly
+            from Paul
+          </p>
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
@@ -268,18 +266,42 @@ export default function ContactSection() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <div className="bg-[#1E1E1E] text-[#F5F5F5] p-8 mb-8">
-                <h3 className="font-cinzel text-2xl mb-6 text-[#D4AF37]">
+              <div className="bg-[#1E1E1E] text-[#F5F5F5] p-8 mb-8 border border-[#D4AF37]/20 relative">
+                {/* Golden corner accents */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#D4AF37]"></div>
+                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#D4AF37]"></div>
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#D4AF37]"></div>
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#D4AF37]"></div>
+
+                <h3 className="font-cinzel text-2xl mb-4 text-[#D4AF37]">
                   The Inner Circle
                 </h3>
-                <p className="text-[#F5F5F5]/80 mb-6">
-                  Join the select group of visionaries, seekers, and
-                  change-makers who receive direct messages, event invitations,
-                  and early access to movement initiatives.
+                <p className="text-[#F5F5F5]/90 mb-6 leading-relaxed">
+                  Join an elite community of visionaries, seekers, and
+                  change-makers who receive:
                 </p>
 
+                <ul className="mb-8 space-y-3 text-[#F5F5F5]/80">
+                  <li className="flex items-center">
+                    <span className="text-[#D4AF37] mr-2">•</span>
+                    <span>Exclusive prophecies and revelations</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-[#D4AF37] mr-2">•</span>
+                    <span>Early invitations to private events</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-[#D4AF37] mr-2">•</span>
+                    <span>Access to limited movement initiatives</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-[#D4AF37] mr-2">•</span>
+                    <span>Direct transmissions from Paul</span>
+                  </li>
+                </ul>
+
                 {/* Contact Methods */}
-                <div className="space-y-6">
+                <div className="space-y-6 border-t border-[#D4AF37]/20 pt-6">
                   {contactMethods.map((method, index) => (
                     <div key={index} className="flex items-start">
                       <div className="mr-4 text-[#D4AF37]">
@@ -297,7 +319,13 @@ export default function ContactSection() {
               </div>
 
               {/* Social Media */}
-              <div className="bg-[#1E1E1E] text-[#F5F5F5] p-8">
+              <div className="bg-[#1E1E1E] text-[#F5F5F5] p-8 border border-[#D4AF37]/20 relative">
+                {/* Golden corner accents */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#D4AF37]"></div>
+                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#D4AF37]"></div>
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#D4AF37]"></div>
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#D4AF37]"></div>
+
                 <h3 className="font-cinzel text-2xl mb-6 text-[#D4AF37]">
                   Follow The Flame
                 </h3>
@@ -307,14 +335,14 @@ export default function ContactSection() {
                     <a
                       key={index}
                       href={social.url}
-                      className="flex items-center py-3 px-4 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 transition-colors group"
+                      className="flex items-center py-3 px-4 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 transition-all duration-300 border border-[#D4AF37]/30 hover:border-[#D4AF37]/60 group"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <span className="mr-3">
+                      <span className="mr-3 transition-transform duration-300 group-hover:scale-110">
                         {renderSocialIcon(social.icon)}
                       </span>
-                      <span className="group-hover:text-[#D4AF37] transition-colors">
+                      <span className="group-hover:text-[#D4AF37] transition-colors duration-300">
                         {social.name}
                       </span>
                     </a>
@@ -330,173 +358,265 @@ export default function ContactSection() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-[#F5F5F5] border border-[#1E1E1E]/10 p-8 shadow-sm relative">
+                {/* Form submission success message */}
+                <AnimatePresence>
+                  {formSubmitted && (
+                    <motion.div
+                      className="absolute inset-0 bg-[#1E1E1E] text-[#F5F5F5] flex flex-col items-center justify-center p-8 z-20 text-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="w-16 h-16 rounded-full border-2 border-[#D4AF37] flex items-center justify-center mb-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-8 w-8 text-[#D4AF37]"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="font-cinzel text-2xl mb-4 text-[#D4AF37]">
+                        Message Received
+                      </h3>
+                      <p className="text-[#F5F5F5]/80 mb-6">
+                        Your message has been sent to Paul. Expect a response
+                        soon as divine timing allows.
+                      </p>
+                      <div className="h-1 w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <form
+                  ref={formRef}
+                  className="space-y-6"
+                  onSubmit={handleSubmit}
+                >
+                  <h3 className="font-cinzel text-xl mb-6 text-[#1E1E1E] border-b border-[#1E1E1E]/10 pb-4">
+                    Send A Direct Message
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block mb-2 font-cinzel text-[#1E1E1E]"
+                      >
+                        Your Name <span className="text-[#9D0B0B]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full p-3 bg-transparent border-b-2 border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block mb-2 font-cinzel text-[#1E1E1E]"
+                      >
+                        Your Email <span className="text-[#9D0B0B]">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full p-3 bg-transparent border-b-2 border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label
-                      htmlFor="name"
+                      htmlFor="message"
                       className="block mb-2 font-cinzel text-[#1E1E1E]"
                     >
-                      Name
+                      Your Message <span className="text-[#9D0B0B]">*</span>
                     </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
-                      className="w-full p-3 bg-[#F5F5F5] border border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors"
-                      placeholder="Your Name"
+                      rows={5}
+                      className="w-full p-3 bg-transparent border-2 border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors"
+                      placeholder="Share your message or inquiry for Paul"
                       required
-                    />
+                    ></textarea>
                   </div>
 
+                  {/* Interest Checkboxes */}
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block mb-2 font-cinzel text-[#1E1E1E]"
+                    <p className="font-cinzel text-[#1E1E1E] mb-3">
+                      Areas of Interest:
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <label className="flex items-center space-x-2 cursor-pointer group">
+                        <div className="relative w-5 h-5 border border-[#1E1E1E]/30 group-hover:border-[#9D0B0B] transition-colors">
+                          {formData.interests.prophecy && (
+                            <div className="absolute inset-0 m-0.5 bg-[#9D0B0B]"></div>
+                          )}
+                        </div>
+                        <input
+                          type="checkbox"
+                          name="prophecy"
+                          checked={formData.interests.prophecy}
+                          onChange={handleCheckboxChange}
+                          className="sr-only"
+                        />
+                        <span className="group-hover:text-[#9D0B0B] transition-colors">
+                          The Prophecy & Writings
+                        </span>
+                      </label>
+
+                      <label className="flex items-center space-x-2 cursor-pointer group">
+                        <div className="relative w-5 h-5 border border-[#1E1E1E]/30 group-hover:border-[#9D0B0B] transition-colors">
+                          {formData.interests.modeling && (
+                            <div className="absolute inset-0 m-0.5 bg-[#9D0B0B]"></div>
+                          )}
+                        </div>
+                        <input
+                          type="checkbox"
+                          name="modeling"
+                          checked={formData.interests.modeling}
+                          onChange={handleCheckboxChange}
+                          className="sr-only"
+                        />
+                        <span className="group-hover:text-[#9D0B0B] transition-colors">
+                          Modeling & Fashion
+                        </span>
+                      </label>
+
+                      <label className="flex items-center space-x-2 cursor-pointer group">
+                        <div className="relative w-5 h-5 border border-[#1E1E1E]/30 group-hover:border-[#9D0B0B] transition-colors">
+                          {formData.interests.business && (
+                            <div className="absolute inset-0 m-0.5 bg-[#9D0B0B]"></div>
+                          )}
+                        </div>
+                        <input
+                          type="checkbox"
+                          name="business"
+                          checked={formData.interests.business}
+                          onChange={handleCheckboxChange}
+                          className="sr-only"
+                        />
+                        <span className="group-hover:text-[#9D0B0B] transition-colors">
+                          Business & Investment
+                        </span>
+                      </label>
+
+                      <label className="flex items-center space-x-2 cursor-pointer group">
+                        <div className="relative w-5 h-5 border border-[#1E1E1E]/30 group-hover:border-[#9D0B0B] transition-colors">
+                          {formData.interests.speaking && (
+                            <div className="absolute inset-0 m-0.5 bg-[#9D0B0B]"></div>
+                          )}
+                        </div>
+                        <input
+                          type="checkbox"
+                          name="speaking"
+                          checked={formData.interests.speaking}
+                          onChange={handleCheckboxChange}
+                          className="sr-only"
+                        />
+                        <span className="group-hover:text-[#9D0B0B] transition-colors">
+                          Speaking & Events
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Newsletter Signup */}
+                  <div className="pt-4 border-t border-[#1E1E1E]/10">
+                    <label className="flex items-center space-x-3 cursor-pointer group">
+                      <div className="relative w-5 h-5 border border-[#1E1E1E]/30 group-hover:border-[#9D0B0B] transition-colors">
+                        {formData.subscribe && (
+                          <div className="absolute inset-0 m-0.5 bg-[#9D0B0B]"></div>
+                        )}
+                      </div>
+                      <input
+                        type="checkbox"
+                        name="subscribe"
+                        checked={formData.subscribe}
+                        onChange={handleCheckboxChange}
+                        className="sr-only"
+                      />
+                      <span className="text-[#1E1E1E]/80 group-hover:text-[#1E1E1E] transition-colors">
+                        Join the{' '}
+                        <span className="italic text-[#9D0B0B]">
+                          Flamebearers
+                        </span>
+                        : Receive exclusive prophecies, updates and early
+                        access.
+                      </span>
+                    </label>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={formLoading}
+                      className="relative w-full py-4 bg-[#1E1E1E] text-[#F5F5F5] uppercase tracking-wider font-medium hover:bg-[#9D0B0B] transition-colors overflow-hidden group"
                     >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full p-3 bg-[#F5F5F5] border border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors"
-                      placeholder="Your Email"
-                      required
-                    />
+                      <span
+                        className={`transition-all duration-300 ${
+                          formLoading ? 'opacity-0' : 'opacity-100'
+                        }`}
+                      >
+                        Send Message
+                      </span>
+
+                      {/* Loading indicator */}
+                      {formLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg
+                            className="animate-spin h-5 w-5 text-[#D4AF37]"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                        </div>
+                      )}
+
+                      {/* Button background animation */}
+                      <span className="absolute inset-x-0 bottom-0 h-1 bg-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                    </button>
                   </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block mb-2 font-cinzel text-[#1E1E1E]"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full p-3 bg-[#F5F5F5] border border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors"
-                    placeholder="Message Subject"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block mb-2 font-cinzel text-[#1E1E1E]"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
-                    className="w-full p-3 bg-[#F5F5F5] border border-[#1E1E1E]/20 focus:border-[#9D0B0B] outline-none transition-colors resize-none"
-                    placeholder="Your Message"
-                    required
-                  ></textarea>
-                </div>
-
-                {/* Interest Checkboxes */}
-                <div>
-                  <p className="font-cinzel text-[#1E1E1E] mb-3">
-                    I am interested in:
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <label className="flex items-center space-x-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="prophecy"
-                        checked={formData.interests.prophecy}
-                        onChange={handleCheckboxChange}
-                        className="form-checkbox text-[#9D0B0B] border-[#1E1E1E]/20"
-                      />
-                      <span>The Prophecy & Writings</span>
-                    </label>
-
-                    <label className="flex items-center space-x-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="modeling"
-                        checked={formData.interests.modeling}
-                        onChange={handleCheckboxChange}
-                        className="form-checkbox text-[#9D0B0B] border-[#1E1E1E]/20"
-                      />
-                      <span>Modeling & Fashion</span>
-                    </label>
-
-                    <label className="flex items-center space-x-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="business"
-                        checked={formData.interests.business}
-                        onChange={handleCheckboxChange}
-                        className="form-checkbox text-[#9D0B0B] border-[#1E1E1E]/20"
-                      />
-                      <span>Business & Investment</span>
-                    </label>
-
-                    <label className="flex items-center space-x-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="speaking"
-                        checked={formData.interests.speaking}
-                        onChange={handleCheckboxChange}
-                        className="form-checkbox text-[#9D0B0B] border-[#1E1E1E]/20"
-                      />
-                      <span>Speaking & Events</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Newsletter Signup */}
-                <div className="pt-4 border-t border-[#1E1E1E]/10">
-                  <label className="flex items-center space-x-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      name="subscribe"
-                      checked={formData.subscribe}
-                      onChange={handleCheckboxChange}
-                      className="form-checkbox text-[#9D0B0B] border-[#1E1E1E]/20"
-                    />
-                    <span className="text-[#1E1E1E]/80">
-                      Become a Flamebearer: Receive exclusive prophecies,
-                      updates and early access.
-                    </span>
-                  </label>
-                </div>
-
-                {/* Submit Button */}
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-[#1E1E1E] text-[#F5F5F5] uppercase tracking-wider font-medium hover:bg-[#9D0B0B] transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </div>
-
-                {/* Form submission message */}
-                {formSubmitted && (
-                  <div className="bg-[#9D0B0B]/10 border border-[#9D0B0B] p-4 text-[#9D0B0B] font-medium">
-                    Your message has been sent. Paul will respond to your
-                    inquiry soon.
-                  </div>
-                )}
-              </form>
+                </form>
+              </div>
             </motion.div>
           </div>
         </div>
