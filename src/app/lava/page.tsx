@@ -8,7 +8,6 @@ import About from '../lavaSections/AboutSection';
 import VipOutcomesSection from '../lavaSections/VipOutcomeSection';
 import CountdownTimer from '../lavaSections/CountDownTimer';
 import OfferingCard from '../lavaSections/OfferingCard';
-import BenefitsSection from '../lavaSections/BenefitsSection';
 import FAQSection from '../lavaSections/FAQsection';
 import CTASection from '../lavaSections/CTASection';
 import Footer from '../lavaSections/Bottom';
@@ -287,9 +286,6 @@ export default function Home() {
           />
         </div>
       </section>
-
-      {/* Benefits Section */}
-      <BenefitsSection />
 
       {/* Membership Offering */}
       <section
