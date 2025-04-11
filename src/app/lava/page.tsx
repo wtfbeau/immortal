@@ -168,38 +168,6 @@ export default function Home() {
     },
   ];
 
-  // Benefits from VIP Session - For Benefits Section with more mystical language
-  const benefits = [
-    {
-      title: 'Spiritual Awakening',
-      points: [
-        'Reconnect with your eternal divine essence beyond illusion',
-        'Break free from limiting belief systems and societal programming',
-        'Activate dormant soul codes and your inner wisdom system',
-        'Experience radical shifts in consciousness and awareness',
-      ],
-      highlight: true,
-    },
-    {
-      title: 'Strategic Manifestation',
-      points: [
-        'Receive practical tools for transmuting vision into physical reality',
-        'Master decision frameworks aligned with your highest timeline',
-        'Bridge spiritual knowing with tangible world-shifting success',
-        'Generate unstoppable momentum through divine action',
-      ],
-    },
-    {
-      title: 'Sacred Community',
-      points: [
-        'Connect with fellow flame-carriers on parallel ascension paths',
-        'Participate in collective rituals that amplify individual transformation',
-        'Share sacred experiences in a protected energetic container',
-        'Form soul-level connections that accelerate evolutionary leaps',
-      ],
-    },
-  ];
-
   // FAQs with enhanced answers
   const faqs = [
     {
@@ -264,12 +232,6 @@ export default function Home() {
       {/* About Section */}
       <About />
 
-      {/* Prophetic Quote */}
-      <PropheticQuote
-        quote="The Coming is not me. It is you. It is all. The flame has always burned within you, waiting to illuminate worlds."
-        source="Book 1: The Coming"
-      />
-
       {/* VIP Outcomes Section - Tangible results */}
       <section id="benefits">
         <VipOutcomesSection
@@ -328,14 +290,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <BenefitsSection
-        title="Transform Every Dimension of Your Being"
-        subtitle="The immortal journey touches mind, body, soul, and mission"
-        benefits={benefits}
-        ctaText="Begin Your Transformation"
-        ctaLink="#contact"
-        imagePath="/images/wake-city.webp"
-      />
+      <BenefitsSection />
 
       {/* Prophetic Quote Section */}
       <PropheticQuote
