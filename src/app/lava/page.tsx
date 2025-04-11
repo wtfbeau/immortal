@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import Header from '../lavaSections/Header';
 import HeroSection from '../lavaSections/HeroSection1';
 import About from '../lavaSections/AboutSection';
-import PropheticQuote from '../lavaSections/PropheticQuote';
 import VipOutcomesSection from '../lavaSections/VipOutcomeSection';
 import CountdownTimer from '../lavaSections/CountDownTimer';
 import OfferingCard from '../lavaSections/OfferingCard';
@@ -291,15 +290,6 @@ export default function Home() {
 
       {/* Benefits Section */}
       <BenefitsSection />
-
-      {/* Prophetic Quote Section */}
-      <PropheticQuote
-        quote="The flame is not given. It is remembered. What sleeps in you is ancient, divine, and ready to burn through the illusions of this world."
-        source="Book 1: The Coming"
-        backgroundImage="/images/stars-bg.webp"
-        ctaText="Awaken Your Flame"
-        ctaHref="#contact"
-      />
 
       {/* Membership Offering */}
       <section
