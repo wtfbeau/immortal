@@ -1,26 +1,11 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 export default function VIPOfferingSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
-
-  // Add animation to any shimmer-text elements
-  useEffect(() => {
-    const shimmerElements = document.querySelectorAll('.shimmer-text');
-    shimmerElements.forEach((element) => {
-      element.animate(
-        [{ backgroundPosition: '-100% 0' }, { backgroundPosition: '200% 0' }],
-        {
-          duration: 8000,
-          iterations: Infinity,
-          easing: 'linear',
-        }
-      );
-    });
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -159,25 +144,6 @@ export default function VIPOfferingSection() {
       title: 'Immortal Warrior Audio Pack',
       description: 'Sacred sonic tools for daily activation',
     },
-    {
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-          />
-        </svg>
-      ),
-      title: "Founder's Insignia Badge",
-      description: 'Recognition as a Flamebearer in the community',
-    },
   ];
 
   // VIP benefits
@@ -194,58 +160,19 @@ export default function VIPOfferingSection() {
     <section
       id="vip-activation"
       ref={sectionRef}
-      className="relative py-24 md:py-28 bg-charcoal text-ivory overflow-hidden"
+      className="relative py-20 md:py-28 bg-gradient-to-b from-ivory/95 to-ivory/85 text-charcoal overflow-hidden"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal/90"></div>
-
-      {/* Subtle sacred geometry background */}
-      <div className="absolute inset-0 opacity-5">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke="#D4AF37"
-            strokeWidth="0.1"
-            fill="none"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="35"
-            stroke="#D4AF37"
-            strokeWidth="0.1"
-            fill="none"
-          />
-          <polygon
-            points="50,5 95,80 5,80"
-            stroke="#D4AF37"
-            strokeWidth="0.1"
-            fill="none"
-          />
-          <polygon
-            points="50,95 5,20 95,20"
-            stroke="#D4AF37"
-            strokeWidth="0.1"
-            fill="none"
-          />
-        </svg>
-      </div>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 mystical-pattern opacity-20"></div>
 
       {/* Golden light effect */}
-      <div className="absolute top-0 left-0 right-0 h-40 opacity-20">
+      <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1/3 opacity-30">
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at top, rgba(212,175,55,0.3) 0%, transparent 70%)',
-            filter: 'blur(30px)',
+              'radial-gradient(ellipse at center, rgba(212,175,55,0.3) 0%, transparent 70%)',
+            filter: 'blur(60px)',
           }}
         ></div>
       </div>
@@ -259,8 +186,9 @@ export default function VIPOfferingSection() {
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-2 tracking-wide">
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <div className="h-0.5 w-20 bg-gold mx-auto mb-4"></div>
+            <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-3 tracking-wide">
               <span
                 className="shimmer-text"
                 style={{
@@ -280,75 +208,70 @@ export default function VIPOfferingSection() {
             <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4">
               VIP ACTIVATION
             </h3>
-            <div className="h-0.5 w-24 bg-gold/50 mx-auto my-6"></div>
-            <p className="font-cormorant-upright text-xl md:text-2xl text-ivory/80 italic max-w-3xl mx-auto">
+            <p className="font-cormorant-upright text-xl md:text-2xl text-charcoal/80 italic max-w-3xl mx-auto">
               A sacred immersion to awaken your inner flame, strip away
               illusions, and prepare you for divine remembrance and
               world-shifting action.
             </p>
           </motion.div>
 
-          {/* Price Tag - Premium design */}
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-center mb-16"
-          >
-            <div className="relative">
-              <div className="bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 px-8 py-4 rounded-sm border border-gold/40 sacred-glow">
-                <span className="font-cinzel text-3xl text-gold">$500</span>
-                <span className="text-ivory/80 ml-2">One-time investment</span>
-              </div>
-              {/* Decorative corner accents */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-gold/80"></div>
-              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-gold/80"></div>
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-gold/80"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-gold/80"></div>
-            </div>
-          </motion.div>
-
           {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left Column - Features */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+            {/* Left Column - Main Offering Details */}
             <motion.div variants={itemVariants}>
-              <h3 className="font-cinzel text-2xl text-gold mb-6 text-center lg:text-left">
-                What's Included:
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {vipFeatures.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="bg-charcoal/50 border border-gold/20 p-4 rounded-sm group hover:bg-gold/5 transition-all duration-300"
-                  >
-                    <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 mt-1 text-gold/80 group-hover:text-gold transition-colors duration-300">
-                        {feature.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-cinzel text-base text-gold/90 mb-1 group-hover:text-gold">
-                          {feature.title}
-                        </h4>
-                        <p className="font-inter text-sm text-ivory/80">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
+              {/* Price card - more prominent */}
+              <div className="bg-gradient-to-br from-white to-white/70 rounded-lg border-2 border-gold/30 p-6 shadow-xl mb-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div>
+                    <h3 className="font-cinzel text-2xl text-gold mb-2">
+                      Premium Package
+                    </h3>
+                    <p className="font-cormorant-upright text-lg text-charcoal/80 italic">
+                      One-time investment for lasting transformation
+                    </p>
                   </div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Right Column - Benefits & CTA */}
-            <motion.div variants={itemVariants}>
-              <div className="bg-charcoal/30 border border-gold/20 p-6 md:p-8 rounded-sm mb-8">
-                <h3 className="font-cinzel text-2xl text-gold mb-6 text-center">
-                  What You'll Gain:
+                  <div className="bg-gradient-to-r from-gold/20 to-gold/10 py-3 px-6 rounded-lg border-2 border-gold/40 sacred-glow">
+                    <span className="font-cinzel text-3xl text-gold">$500</span>
+                  </div>
+                </div>
+
+                <div className="mt-5 border-t border-gold/20 pt-5">
+                  <div className="bg-gold/10 px-4 py-3 rounded-lg">
+                    <p className="font-medium text-charcoal flex items-center">
+                      <svg
+                        className="w-5 h-5 text-gold mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      Schedule your session within 24 hours of purchase
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Benefits - Enhanced visual presentation */}
+              <div className="bg-white/80 border-2 border-gold/20 rounded-lg p-6 mb-8">
+                <h3 className="font-cinzel text-2xl text-gold mb-5 border-b border-gold/30 pb-2">
+                  What You&apos;ll Gain:
                 </h3>
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 gap-4">
                   {vipBenefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start space-x-3">
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 bg-gradient-to-r from-gold/5 to-transparent p-3 rounded-md"
+                    >
                       <div className="flex-shrink-0 mt-1">
                         <svg
-                          className="w-5 h-5 text-gold"
+                          className="w-6 h-6 text-gold"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -359,29 +282,20 @@ export default function VIPOfferingSection() {
                           />
                         </svg>
                       </div>
-                      <p className="font-inter text-ivory/90">{benefit}</p>
+                      <p className="font-inter text-charcoal/90 font-medium">
+                        {benefit}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* After Purchasing */}
-              <div className="bg-gold/5 border-l-4 border-gold p-5 rounded-r-sm mb-8">
-                <h4 className="font-cinzel text-xl text-gold mb-3">
-                  After Purchasing:
-                </h4>
-                <p className="font-inter text-ivory/90">
-                  You'll receive an email within 15 minutes to schedule your
-                  session and complete your preparation questionnaire.
-                </p>
-              </div>
-
-              {/* Divine Guarantee */}
-              <div className="bg-charcoal/30 border border-gold/20 p-6 rounded-sm mb-8">
+              {/* Divine Guarantee - Trust builder */}
+              <div className="bg-white/80 border-2 border-gold/20 rounded-lg p-6 mb-8">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     <svg
-                      className="w-8 h-8 text-gold"
+                      className="w-10 h-10 text-gold"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -395,56 +309,144 @@ export default function VIPOfferingSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-cinzel text-lg text-gold mb-2">
+                    <h4 className="font-cinzel text-xl text-gold mb-2">
                       Divine Guarantee:
                     </h4>
-                    <p className="font-inter text-ivory/80">
-                      If you don't experience breakthrough clarity and a clear
-                      path forward by the end of our session, you will receive a
-                      full refund. No questions asked.
+                    <p className="font-inter text-charcoal/90">
+                      If you don&apos;t experience breakthrough clarity and a
+                      clear path forward by the end of our session, you will
+                      receive a full refund. No questions asked.
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Main CTA Button */}
-              <div className="text-center">
+              <div className="text-center mb-8">
                 <motion.a
                   href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-                  className="inline-block px-10 py-4 bg-gradient-to-r from-gold/20 to-gold/10 text-gold border border-gold/30 rounded-sm font-cinzel text-lg uppercase tracking-wide shadow-lg hover:shadow-gold/20 hover:bg-gold/20 transition-all duration-300 flame-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-10 py-4 bg-gradient-to-r from-gold/40 to-gold/20 text-gold border-2 border-gold/40 rounded-lg font-cinzel text-xl uppercase tracking-wide shadow-lg hover:shadow-gold/20 hover:from-gold/50 hover:to-gold/30 transition-all duration-300 flame-button"
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                   ACTIVATE YOUR IMMORTAL FLAME
                 </motion.a>
               </div>
+
+              {/* Testimonial */}
+              <div className="bg-white/70 border-l-4 border-crimson rounded-r-lg p-5">
+                <p className="font-cormorant-upright text-lg text-charcoal/90 italic mb-3">
+                  &ldquo;After spinning my wheels for 2 years, one session with
+                  Paul helped me identify the true bottleneck in my business. I
+                  restructured my team based on his guidance and closed a
+                  $450,000 deal within 30 days.&rdquo;
+                </p>
+                <div className="flex justify-between items-center">
+                  <p className="font-cinzel text-crimson">
+                    — Jason M., E-commerce Founder
+                  </p>
+                  <span className="bg-gold/20 px-3 py-1 rounded-sm text-gold font-medium text-sm border border-gold/30">
+                    $450,000 deal
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Features Cards */}
+            <motion.div variants={itemVariants}>
+              <div className="bg-white/70 rounded-lg border-2 border-gold/20 p-6 shadow-xl mb-8">
+                <h3 className="font-cinzel text-2xl text-gold mb-5 border-b border-gold/30 pb-2 text-center">
+                  What&apos;s Included:
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {vipFeatures.map((feature, index) => (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-b from-white/80 to-white/40 border border-gold/10 p-4 rounded-lg group hover:border-gold/30 hover:shadow-md transition-all duration-300"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="flex-shrink-0 mt-1 text-gold/80 group-hover:text-gold">
+                          {feature.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-cinzel text-base text-gold/90 mb-1 group-hover:text-gold">
+                            {feature.title}
+                          </h4>
+                          <p className="font-inter text-sm text-charcoal/80">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* After Purchasing Info */}
+              <div className="bg-gold/10 border-2 border-gold/20 rounded-lg p-5 mb-8">
+                <h4 className="font-cinzel text-xl text-gold mb-3 text-center">
+                  After Purchasing:
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
+                      <span className="text-gold font-cinzel">1</span>
+                    </div>
+                    <p className="font-inter text-charcoal/90">
+                      You&apos;ll receive an email within 15 minutes with access
+                      to the scheduling system
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
+                      <span className="text-gold font-cinzel">2</span>
+                    </div>
+                    <p className="font-inter text-charcoal/90">
+                      Complete your brief preparation questionnaire
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
+                      <span className="text-gold font-cinzel">3</span>
+                    </div>
+                    <p className="font-inter text-charcoal/90">
+                      Have your transformative 1:1 session with Paul
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
+                      <span className="text-gold font-cinzel">4</span>
+                    </div>
+                    <p className="font-inter text-charcoal/90">
+                      Receive your customized Path Activation Map and resources
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action card */}
+              <div className="bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg border-2 border-gold/30 p-5 text-center">
+                <h4 className="font-cinzel text-xl text-gold mb-3">
+                  Limited Availability
+                </h4>
+                <p className="font-inter text-charcoal/90 mb-5">
+                  Paul only takes a select number of VIP clients each month to
+                  ensure the highest quality of service and attention.
+                </p>
+                <motion.a
+                  href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson/70 to-crimson/50 text-ivory font-medium rounded-lg border border-crimson/40 hover:from-crimson/80 hover:to-crimson/60 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  SECURE YOUR SPOT NOW
+                </motion.a>
+              </div>
             </motion.div>
           </div>
-
-          {/* Testimonial */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 max-w-3xl mx-auto bg-charcoal/50 border border-gold/20 rounded-sm p-6 md:p-8"
-          >
-            <div className="flex flex-col items-center">
-              <svg
-                className="w-10 h-10 text-gold/60 mb-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="font-cormorant-upright text-xl text-ivory/90 italic text-center mb-4">
-                "After spinning my wheels for 2 years, one session with Paul
-                helped me identify the true bottleneck in my business. I
-                restructured my team based on his guidance and closed a $450,000
-                deal within 30 days. The clarity was worth 10x what I paid."
-              </p>
-              <p className="font-cinzel text-gold">
-                — Jason M., E-commerce Founder
-              </p>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

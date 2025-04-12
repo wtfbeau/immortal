@@ -233,9 +233,9 @@ export default function MethodSection() {
                 </h2>
                 <div className="h-0.5 w-24 bg-gold mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
-                  Paul's proven approach is both methodical and transformative.
-                  This isn't abstract theory—this is a practical system that has
-                  worked for hundreds of clients.
+                  Paul&apos;s proven approach is both methodical and
+                  transformative. This isn&apos;t abstract theory—this is a
+                  practical system that has worked for hundreds of clients.
                 </p>
               </div>
 
@@ -269,7 +269,7 @@ export default function MethodSection() {
 
               {/* Proof Statement */}
               <motion.div variants={itemVariants} className="mt-10">
-                <div className="py-4 px-6 bg-gold/5 border border-gold/20 rounded-sm">
+                <div className="py-4 px-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border border-gold/30 rounded-sm">
                   <p className="font-inter text-lg text-ivory/90">
                     This method has been refined through years of work with
                     visionary entrepreneurs, executives, and creators who were
@@ -287,7 +287,7 @@ export default function MethodSection() {
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson to-crimson/90 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/30"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/40 shadow-md shadow-crimson/20"
                 >
                   <span className="relative z-10">EXPERIENCE THE METHOD</span>
                 </a>

@@ -595,11 +595,13 @@ export default function HeroSection() {
             {/* Main button */}
             <a
               href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-              className="relative block px-10 py-4 bg-gradient-to-r from-crimson via-crimson to-crimson/90 text-gold uppercase tracking-wider font-medium text-lg md:text-xl overflow-hidden border border-gold/30 flame-button rounded-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block px-10 py-4 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-gold uppercase tracking-wider font-medium text-lg md:text-xl overflow-hidden border border-gold/30 flame-button rounded-sm shadow-lg shadow-crimson/20"
               aria-label="Enter The Flame"
             >
               {/* Flame hover effect */}
-              <span className="absolute inset-0 w-full h-0 transition-all duration-700 ease-out bg-gradient-to-t from-gold/20 via-gold/10 to-transparent group-hover:h-full opacity-0 group-hover:opacity-100"></span>
+              <span className="absolute inset-0 w-full h-0 transition-all duration-700 ease-out bg-gradient-to-t from-gold/30 via-gold/20 to-transparent group-hover:h-full opacity-0 group-hover:opacity-100"></span>
 
               {/* Text with hover effect */}
               <span className="relative group-hover:text-gold/100 transition-colors duration-300 flex items-center justify-center font-cinzel">

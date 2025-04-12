@@ -124,58 +124,7 @@ export default function TestimonialsSection() {
           </motion.div>
 
           {/* Main Content - Following Headline > Subhead > Copy > Visual Structure */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
-            {/* Left Column - Portrait Video */}
-            <motion.div
-              variants={itemVariants}
-              className="md:col-span-6 relative"
-            >
-              <div className="relative book-shine">
-                {/* Featured Video element */}
-                <div className="relative rounded-lg overflow-hidden shadow-2xl sacred-glow">
-                  {/* Video aspect ratio container */}
-                  <div className="relative pb-[130%]">
-                    <video
-                      className="absolute inset-0 w-full h-full object-cover"
-                      poster="/images/gym-meditating.webp"
-                      controls
-                    >
-                      <source src="/videos/gym-walk.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-
-                    {/* Elegant frame overlay */}
-                    <div className="absolute inset-0 border border-gold/30 pointer-events-none"></div>
-
-                    {/* Corner accents */}
-                    <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/60"></div>
-                    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/60"></div>
-                    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/60"></div>
-                    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/60"></div>
-
-                    {/* Play button overlay - visible when video is not playing */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none group">
-                      <div className="w-20 h-20 rounded-full bg-crimson/80 flex items-center justify-center sacred-glow group-hover:scale-110 transition-transform duration-300">
-                        <svg
-                          className="w-10 h-10 text-gold"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z"></path>
-                        </svg>
-                      </div>
-                    </div>
-
-                    {/* Testimonial owner name */}
-                  </div>
-                </div>
-
-                {/* Artistic light effects */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-crimson/20 rounded-full blur-xl"></div>
-              </div>
-            </motion.div>
-
+          <div className="grid grid-cols-1  md:gap-16 items-start">
             {/* Right Column - Testimonial Cards */}
             <motion.div
               variants={itemVariants}
@@ -214,7 +163,7 @@ export default function TestimonialsSection() {
                   {/* Quote */}
                   <div className="ml-2 prophetic-quote">
                     <p className="font-cormorant-upright text-lg text-charcoal/90 italic leading-relaxed">
-                      "{testimonial.quote}"
+                      {testimonial.quote}
                     </p>
                   </div>
                 </div>

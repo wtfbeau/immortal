@@ -122,9 +122,10 @@ export default function IntroductionSection() {
                 , and building a world of truth, love, and mastery.
               </p>
 
-              <div className="prophetic-quote my-8 px-8 py-6 bg-charcoal/5 border-l-4 border-gold rounded-r-lg">
+              <div className="prophetic-quote my-6 px-8 py-6 bg-gradient-to-r from-charcoal/5 via-gold/5 to-charcoal/5 border-l-4 border-gold rounded-r-lg">
                 <p className="font-cormorant-upright text-2xl md:text-3xl text-crimson italic">
-                  I'm not here to play the game. I'm here to change it.
+                  &ldquo;I&apos;m not here to play the game. I&apos;m here to
+                  change it.&rdquo;
                 </p>
               </div>
 
@@ -139,7 +140,7 @@ export default function IntroductionSection() {
                 </span>
                 ,{' '}
                 <span className="font-medium">
-                  identifying what's holding you back
+                  identifying what&apos;s holding you back
                 </span>
                 , and then{' '}
                 <span className="font-medium">
@@ -151,17 +152,17 @@ export default function IntroductionSection() {
               {/* Social Proof */}
               <motion.div
                 variants={itemVariants}
-                className="mt-8 p-6 bg-charcoal/5 border-l-4 border-gold rounded-r-lg shadow-sm"
+                className="mt-6 p-6 bg-gradient-to-r from-gold/5 via-charcoal/5 to-gold/5 border-l-4 border-gold rounded-r-lg shadow-md"
               >
                 <p className="font-inter text-lg italic mb-3">
-                  "One session with Paul revealed patterns I'd been blind to for
-                  years. The clarity I gained was worth more than months of
-                  conventional coaching."
+                  &ldquo;One session with Paul revealed patterns I&apos;d been
+                  blind to for years. The clarity I gained was worth more than
+                  months of conventional coaching.&rdquo;
                 </p>
                 <p className="font-cinzel text-base text-crimson">
                   - Sarah J., Fintech Founder
                 </p>
-                <p className="text-sm text-charcoal/70">
+                <p className="text-sm font-semibold bg-gradient-to-r from-gold/80 to-crimson/80 bg-clip-text text-transparent">
                   ($2M raised after our work)
                 </p>
               </motion.div>
@@ -175,7 +176,7 @@ export default function IntroductionSection() {
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson to-crimson/90 text-ivory border border-gold/20 uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-ivory border border-gold/30 uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative shadow-md shadow-crimson/20"
                 >
                   <span className="relative z-10">
                     DISCOVER YOUR IMMORTAL PATH

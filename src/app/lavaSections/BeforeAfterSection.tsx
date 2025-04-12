@@ -75,7 +75,7 @@ export default function BeforeAfterSection() {
     <section
       id="transformation-comparison"
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-charcoal text-ivory overflow-hidden"
+      className="relative py-20 md:py-28 bg-gradient-to-b from-charcoal to-charcoal/90 text-ivory overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/90"></div>
@@ -156,14 +156,14 @@ export default function BeforeAfterSection() {
           className="max-w-7xl mx-auto"
         >
           {/* Following Headline > Subhead > Copy > Visual Structure */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
             {/* Left Column - Text Content */}
             <motion.div
               variants={itemVariants}
-              className="md:col-span-6 space-y-8 order-2 md:order-1"
+              className="md:col-span-6 space-y-6 order-2 md:order-1"
             >
               {/* Bold Headline */}
-              <div className="mb-8">
+              <div className="mb-6">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
                   What Becomes Possible{' '}
                   <span
@@ -182,30 +182,32 @@ export default function BeforeAfterSection() {
                     With Clarity
                   </span>
                 </h2>
-                <div className="h-0.5 w-24 bg-gold mt-6 mb-8"></div>
+                <div className="h-0.5 w-24 bg-gold mt-5 mb-6"></div>
                 <p className="font-cormorant-upright text-xl md:text-2xl text-gold/90 italic">
                   This is the difference between drifting and destiny.
                 </p>
               </div>
 
-              {/* Before & After Table - Highly Visual Comparison */}
+              {/* Before & After Table - Highly Visual Comparison with enhanced styling */}
               <motion.div
                 variants={itemVariants}
-                className="overflow-hidden rounded-sm border border-gold/30 bg-charcoal/50 shadow-xl"
+                className="overflow-hidden rounded-sm border-2 border-gold/40 bg-charcoal/50 shadow-xl"
               >
                 {/* Table Header */}
-                <div className="grid grid-cols-3 bg-gradient-to-r from-charcoal to-charcoal/90 text-ivory">
-                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/20">
-                    <h3 className="font-cinzel text-lg md:text-xl">Category</h3>
-                  </div>
-                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/20 bg-charcoal/90">
-                    <h3 className="font-cinzel text-lg md:text-xl text-crimson/90">
-                      Before
+                <div className="grid grid-cols-3 text-ivory">
+                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/20 bg-gradient-to-b from-charcoal/80 to-charcoal">
+                    <h3 className="font-cinzel text-lg md:text-xl text-gold">
+                      Category
                     </h3>
                   </div>
-                  <div className="py-4 px-4 md:px-6 text-center bg-gold/10">
-                    <h3 className="font-cinzel text-lg md:text-xl text-gold">
-                      After
+                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/20 bg-gradient-to-b from-crimson/90 to-crimson/70">
+                    <h3 className="font-cinzel text-lg md:text-xl text-ivory font-bold">
+                      <span className="opacity-60">❌</span> Before
+                    </h3>
+                  </div>
+                  <div className="py-4 px-4 md:px-6 text-center bg-gradient-to-b from-gold/30 to-gold/20">
+                    <h3 className="font-cinzel text-lg md:text-xl text-charcoal font-bold">
+                      <span className="opacity-80">✓</span> After
                     </h3>
                   </div>
                 </div>
@@ -215,7 +217,7 @@ export default function BeforeAfterSection() {
                   <div
                     key={index}
                     className={`grid grid-cols-3 ${
-                      index % 2 === 0 ? 'bg-charcoal/30' : 'bg-charcoal/20'
+                      index % 2 === 0 ? 'bg-charcoal/30' : 'bg-charcoal/10'
                     }`}
                   >
                     <div className="py-4 px-4 md:px-6 border-r border-gold/10 flex items-center">
@@ -223,13 +225,13 @@ export default function BeforeAfterSection() {
                         {item.category}
                       </h4>
                     </div>
-                    <div className="py-4 px-4 md:px-6 border-r border-gold/10">
-                      <p className="font-inter text-sm md:text-base text-ivory/70 text-center">
+                    <div className="py-4 px-4 md:px-6 border-r border-gold/10 bg-crimson/5">
+                      <p className="font-inter text-sm md:text-base text-ivory/80 text-center">
                         {item.before}
                       </p>
                     </div>
-                    <div className="py-4 px-4 md:px-6 bg-charcoal/10">
-                      <p className="font-inter text-sm md:text-base text-gold/90 font-medium text-center">
+                    <div className="py-4 px-4 md:px-6 bg-gold/5">
+                      <p className="font-inter text-sm md:text-base text-gold font-medium text-center">
                         {item.after}
                       </p>
                     </div>
@@ -240,13 +242,13 @@ export default function BeforeAfterSection() {
               {/* Section CTA - Single Clear Action */}
               <motion.div
                 variants={itemVariants}
-                className="pt-8"
+                className="pt-6"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/20 to-gold/10 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/40"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/40 to-gold/20 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/40"
                 >
                   <span className="relative z-10">
                     CLAIM YOUR TRANSFORMATION
@@ -277,13 +279,13 @@ export default function BeforeAfterSection() {
                     </video>
 
                     {/* Elegant frame overlay */}
-                    <div className="absolute inset-0 border border-gold/30 pointer-events-none"></div>
+                    <div className="absolute inset-0 border-2 border-gold/40 pointer-events-none"></div>
 
                     {/* Corner accents */}
-                    <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/60"></div>
-                    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/60"></div>
-                    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/60"></div>
-                    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/60"></div>
+                    <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/70"></div>
+                    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/70"></div>
+                    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/70"></div>
+                    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/70"></div>
 
                     {/* Video overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent"></div>
@@ -291,16 +293,16 @@ export default function BeforeAfterSection() {
                 </div>
 
                 {/* Inspirational quote overlay at the bottom */}
-                <div className="absolute bottom-6 left-6 right-6 bg-charcoal/70 backdrop-blur-sm p-4 rounded-sm border-l-3 border-gold">
+                <div className="absolute bottom-6 left-6 right-6 bg-charcoal/80 backdrop-blur-sm p-4 rounded-sm border-l-3 border-gold">
                   <p className="font-cormorant-upright text-lg text-ivory/95 italic">
-                    "The choice is yours: continue drifting, or step into your
-                    destiny."
+                    &ldquo;The choice is yours: continue drifting, or step into
+                    your destiny.&rdquo;
                   </p>
                 </div>
 
                 {/* Artistic light effects */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-crimson/20 rounded-full blur-xl"></div>
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/30 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-crimson/30 rounded-full blur-xl"></div>
               </div>
             </motion.div>
           </div>

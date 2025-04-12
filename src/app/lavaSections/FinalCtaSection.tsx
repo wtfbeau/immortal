@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 type FinalCTASectionProps = {
-  id: string;
+  id?: string;
 };
 
 export default function FinalCTASection({
@@ -56,43 +56,43 @@ export default function FinalCTASection({
     <section
       id={id}
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-gradient-to-b from-ivory/5 to-charcoal/95 text-ivory overflow-hidden"
+      className="relative py-24 md:py-28 bg-gradient-to-b from-charcoal/90 to-black text-ivory overflow-hidden"
     >
       {/* Ethereal background light effects */}
       <div className="absolute inset-0">
         {/* Center glow */}
         <div
-          className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 opacity-20"
+          className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 opacity-30"
           style={{
             background:
-              'radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(157,11,11,0.1) 60%, transparent 80%)',
+              'radial-gradient(circle, rgba(212,175,55,0.4) 0%, rgba(157,11,11,0.2) 60%, transparent 80%)',
             filter: 'blur(70px)',
           }}
         ></div>
 
         {/* Top glow */}
         <div
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-64 opacity-30"
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-64 opacity-40"
           style={{
             background:
-              'radial-gradient(ellipse at top, rgba(212,175,55,0.2) 0%, transparent 70%)',
+              'radial-gradient(ellipse at top, rgba(212,175,55,0.3) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         ></div>
 
         {/* Bottom glow */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-96 opacity-20"
+          className="absolute bottom-0 left-0 right-0 h-96 opacity-30"
           style={{
             background:
-              'linear-gradient(to top, rgba(157,11,11,0.2), transparent)',
+              'linear-gradient(to top, rgba(157,11,11,0.3), transparent)',
             filter: 'blur(80px)',
           }}
         ></div>
       </div>
 
       {/* Sacred geometry background element */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-15">
         <svg
           width="100%"
           height="100%"
@@ -168,8 +168,8 @@ export default function FinalCTASection({
           className="max-w-6xl mx-auto"
         >
           {/* Sacred Quote - Larger, more impactful */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="prophetic-quote mb-10 max-w-4xl mx-auto">
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <div className="prophetic-quote mb-8 max-w-4xl mx-auto">
               <h2
                 className="font-cinzel text-3xl sm:text-4xl md:text-5xl shimmer-text"
                 style={{
@@ -184,35 +184,35 @@ export default function FinalCTASection({
                   lineHeight: '1.3',
                 }}
               >
-                "The Coming is not me. It is you. It is all."
+                &ldquo;The Coming is not me. It is you. It is all.&rdquo;
               </h2>
             </div>
 
-            <p className="font-cormorant-upright text-xl md:text-2xl text-ivory/90 italic mt-8 mb-4">
+            <p className="font-cormorant-upright text-xl md:text-2xl text-ivory/90 italic mt-6 mb-3">
               The portal is open. This is where your journey begins.
             </p>
-            <p className="font-inter text-lg md:text-xl text-ivory/80 mb-6 max-w-2xl mx-auto">
+            <p className="font-inter text-lg md:text-xl text-ivory/80 mb-5 max-w-2xl mx-auto">
               If you feel the call — that subtle fire stirring in your chest —
-              trust it. That's the signal.
+              trust it. That&apos;s the signal.
             </p>
           </motion.div>
 
           {/* Offering Cards - Side by Side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
             {/* VIP Activation */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-lg border border-gold/30 bg-gradient-to-br from-charcoal/80 to-charcoal/40 p-8 shadow-xl overflow-hidden"
+              className="relative rounded-lg border-2 border-gold/40 bg-gradient-to-br from-charcoal/80 to-charcoal/40 p-8 shadow-xl overflow-hidden"
             >
               {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent opacity-50"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-gold/10 to-transparent opacity-70"></div>
 
               {/* Subtle flame animation at bottom */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-40 opacity-10"
+                className="absolute bottom-0 left-0 right-0 h-40 opacity-20"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(157,11,11,0.3), transparent)',
+                    'linear-gradient(to top, rgba(157,11,11,0.4), transparent)',
                   filter: 'blur(20px)',
                 }}
               ></div>
@@ -220,15 +220,17 @@ export default function FinalCTASection({
               {/* Card Content */}
               <div className="relative z-10">
                 {/* Title and Price */}
-                <div className="text-center mb-6">
-                  <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-2">
-                    THE IMMORTAL IGNITION
-                  </h3>
-                  <p className="font-cormorant-upright text-xl text-ivory/90 italic">
-                    VIP ACTIVATION
-                  </p>
+                <div className="text-center mb-5">
+                  <div className="bg-gold/15 py-2 px-4 rounded-sm mb-3 border border-gold/30 inline-block">
+                    <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-1">
+                      THE IMMORTAL IGNITION
+                    </h3>
+                    <p className="font-cormorant-upright text-lg text-ivory/90 italic">
+                      VIP ACTIVATION
+                    </p>
+                  </div>
 
-                  <div className="mt-4 inline-block bg-gold/10 border border-gold/30 rounded-sm py-3 px-6">
+                  <div className="inline-block bg-gold/20 border border-gold/40 rounded-sm py-3 px-6">
                     <span className="font-cinzel text-2xl text-gold">$500</span>
                     <span className="text-ivory/80 ml-2">
                       One-time investment
@@ -237,9 +239,9 @@ export default function FinalCTASection({
                 </div>
 
                 {/* Benefits */}
-                <div className="mb-8">
+                <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-gold mb-4 text-center">
-                    What You'll Gain:
+                    What You&apos;ll Gain:
                   </h4>
                   <div className="space-y-3">
                     {vipBenefits.map((benefit, index) => (
@@ -268,7 +270,7 @@ export default function FinalCTASection({
                             />
                           </svg>
                         </div>
-                        <p className="text-ivory/80">{benefit}</p>
+                        <p className="text-ivory/90">{benefit}</p>
                       </div>
                     ))}
                   </div>
@@ -278,7 +280,9 @@ export default function FinalCTASection({
                 <div className="text-center">
                   <motion.a
                     href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-                    className="inline-block px-10 py-4 bg-gradient-to-r from-gold/30 to-gold/20 border border-gold/50 text-gold hover:from-gold/40 hover:to-gold/30 uppercase tracking-wider font-medium text-lg rounded-sm transition-all duration-300 sacred-glow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-10 py-4 bg-gradient-to-r from-gold/40 to-gold/20 border-2 border-gold/50 text-gold hover:from-gold/50 hover:to-gold/30 uppercase tracking-wider font-medium text-lg rounded-sm transition-all duration-300 sacred-glow"
                     whileHover={{ scale: 1.03 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                   >
@@ -291,17 +295,17 @@ export default function FinalCTASection({
             {/* Monthly Membership */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-lg border border-crimson/30 bg-gradient-to-br from-charcoal/80 to-charcoal/40 p-8 shadow-xl overflow-hidden"
+              className="relative rounded-lg border-2 border-crimson/40 bg-gradient-to-br from-charcoal/80 to-charcoal/40 p-8 shadow-xl overflow-hidden"
             >
               {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-crimson/5 to-transparent opacity-50"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-crimson/10 to-transparent opacity-70"></div>
 
               {/* Subtle flame animation at bottom */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-40 opacity-10"
+                className="absolute bottom-0 left-0 right-0 h-40 opacity-20"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(157,11,11,0.3), transparent)',
+                    'linear-gradient(to top, rgba(157,11,11,0.4), transparent)',
                   filter: 'blur(20px)',
                 }}
               ></div>
@@ -309,15 +313,17 @@ export default function FinalCTASection({
               {/* Card Content */}
               <div className="relative z-10">
                 {/* Title and Price */}
-                <div className="text-center mb-6">
-                  <h3 className="font-cinzel text-2xl md:text-3xl text-crimson mb-2">
-                    THE IMMORTAL QUEST
-                  </h3>
-                  <p className="font-cormorant-upright text-xl text-ivory/90 italic">
-                    MONTHLY MEMBERSHIP
-                  </p>
+                <div className="text-center mb-5">
+                  <div className="bg-crimson/15 py-2 px-4 rounded-sm mb-3 border border-crimson/30 inline-block">
+                    <h3 className="font-cinzel text-2xl md:text-3xl text-crimson mb-1">
+                      THE IMMORTAL QUEST
+                    </h3>
+                    <p className="font-cormorant-upright text-lg text-ivory/90 italic">
+                      MONTHLY MEMBERSHIP
+                    </p>
+                  </div>
 
-                  <div className="mt-4 inline-block bg-crimson/10 border border-crimson/30 rounded-sm py-3 px-6">
+                  <div className="inline-block bg-crimson/20 border border-crimson/40 rounded-sm py-3 px-6">
                     <span className="font-cinzel text-2xl text-crimson">
                       $111
                     </span>
@@ -326,7 +332,7 @@ export default function FinalCTASection({
                 </div>
 
                 {/* Benefits */}
-                <div className="mb-8">
+                <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-crimson mb-4 text-center">
                     Practical Benefits:
                   </h4>
@@ -357,7 +363,7 @@ export default function FinalCTASection({
                             />
                           </svg>
                         </div>
-                        <p className="text-ivory/80">{benefit}</p>
+                        <p className="text-ivory/90">{benefit}</p>
                       </div>
                     ))}
                   </div>
@@ -367,7 +373,9 @@ export default function FinalCTASection({
                 <div className="text-center">
                   <motion.a
                     href="https://buy.stripe.com/bIY9Bt39L0QHdMceUV"
-                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson/30 to-crimson/20 border border-crimson/50 text-crimson hover:from-crimson/40 hover:to-crimson/30 uppercase tracking-wider font-medium text-lg rounded-sm transition-all duration-300 sacred-glow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson/40 to-crimson/20 border-2 border-crimson/50 text-crimson hover:from-crimson/50 hover:to-crimson/30 uppercase tracking-wider font-medium text-lg rounded-sm transition-all duration-300 sacred-glow"
                     whileHover={{ scale: 1.03 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                   >
@@ -383,13 +391,13 @@ export default function FinalCTASection({
             variants={itemVariants}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="bg-charcoal/40 border border-gold/20 rounded-sm p-6 md:p-8 mb-10">
+            <div className="bg-charcoal/40 border border-gold/30 rounded-sm p-6 md:p-8 mb-8">
               <h3 className="font-cinzel text-xl text-gold mb-3">
                 Vision Statement:
               </h3>
               <p className="font-inter text-lg text-ivory/90">
-                Join a global movement that's fusing ancient wisdom with modern
-                power, building a world of truth, love, and mastery.
+                Join a global movement that&apos;s fusing ancient wisdom with
+                modern power, building a world of truth, love, and mastery.
               </p>
             </div>
 

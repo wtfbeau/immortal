@@ -161,7 +161,7 @@ export default function TransformationSection() {
                       display: 'inline-block',
                     }}
                   >
-                    "You are not sheep.
+                    &ldquo;You are not sheep.
                   </span>
                 </h2>
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
@@ -178,15 +178,15 @@ export default function TransformationSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.3)',
                     }}
                   >
-                    You are stars clothed in skin."
+                    You are stars clothed in skin.&rdquo;
                   </span>
                 </h2>
                 <div className="h-0.5 w-24 bg-crimson mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-charcoal/90 leading-relaxed">
                   When you strip away illusions and awaken to your true
                   potential, everything changes. The transformation is not just
-                  external success—it's a complete realignment with your divine
-                  purpose.
+                  external success—it&apos;s a complete realignment with your
+                  divine purpose.
                 </p>
               </div>
 
@@ -223,7 +223,7 @@ export default function TransformationSection() {
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson to-crimson/90 text-ivory border border-gold/20 uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-ivory border border-gold/30 uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative shadow-md shadow-crimson/20"
                 >
                   <span className="relative z-10">
                     CLAIM YOUR TRANSFORMATION

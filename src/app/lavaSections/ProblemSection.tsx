@@ -144,7 +144,7 @@ export default function ProblemSection() {
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
                   The modern world has conditioned you to play small. To accept
                   limitations. To dim your flame. But deep down, you know
-                  there's more.
+                  there&apos;s more.
                 </p>
               </div>
 
@@ -153,7 +153,7 @@ export default function ProblemSection() {
                 {problemItems.map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start space-x-4 bg-charcoal/40 border border-gold/10 p-4 rounded-sm shadow-lg transform hover:translate-x-1 transition-transform duration-300"
+                    className="flex items-start space-x-4 bg-gradient-to-r from-charcoal/40 via-charcoal/50 to-charcoal/40 border border-gold/20 p-4 rounded-sm shadow-lg transform hover:translate-x-1 transition-transform duration-300"
                   >
                     <div className="flex-shrink-0 mt-1">
                       <svg
@@ -177,10 +177,10 @@ export default function ProblemSection() {
               </div>
 
               {/* Emotional Transition Statement */}
-              <div className="mt-10 py-4 border-t border-b border-gold/20">
+              <div className="mt-10 py-4 border-t border-b border-gold/30 bg-gradient-to-r from-transparent via-gold/10 to-transparent">
                 <p className="font-cormorant-upright text-xl md:text-2xl text-gold italic">
-                  These barriers aren't real. They're illusions — and Paul is
-                  here to help you shatter them.
+                  These barriers aren&apos;t real. They&apos;re illusions — and
+                  Paul is here to help you shatter them.
                 </p>
               </div>
 
@@ -193,7 +193,7 @@ export default function ProblemSection() {
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/20 to-gold/10 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/40"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/30 via-gold/20 to-gold/30 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/50 shadow-md shadow-gold/10"
                 >
                   <span className="relative z-10">
                     BREAK FREE FROM LIMITATIONS
