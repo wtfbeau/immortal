@@ -106,7 +106,7 @@ export default function HeroSection() {
       className="hero-section relative h-screen w-full overflow-hidden bg-charcoal"
       id="hero"
     >
-      {/* Darkened background for better contrast */}
+      {/* Dark overlay to improve text contrast */}
       <div className="absolute inset-0 z-0 bg-black/70"></div>
 
       {/* Mystical Background with gradient overlay */}
@@ -129,7 +129,7 @@ export default function HeroSection() {
           transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
         />
 
-        {/* Subtle golden vignette overlay for luxury feel */}
+        {/* Golden vignette overlay for luxury feel */}
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -197,175 +197,6 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Portal/Sacred Geometric Element */}
-      <div className="absolute inset-0 z-5 pointer-events-none">
-        {/* Sri Yantra-inspired sacred geometry */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center"
-          initial={{ opacity: 0, rotate: 0 }}
-          animate={{ opacity: [0.03, 0.05, 0.03], rotate: 360 }}
-          transition={{
-            opacity: { duration: 10, repeat: Infinity, ease: 'easeInOut' },
-            rotate: { duration: 120, repeat: Infinity, ease: 'linear' },
-          }}
-        >
-          <svg
-            viewBox="0 0 500 500"
-            width="150%"
-            height="150%"
-            className="absolute"
-            style={{ maxWidth: 'none' }}
-          >
-            {/* Outer circle */}
-            <circle
-              cx="250"
-              cy="250"
-              r="240"
-              stroke="#D4AF37"
-              strokeWidth="0.4"
-              fill="none"
-            />
-
-            {/* Middle circle */}
-            <circle
-              cx="250"
-              cy="250"
-              r="200"
-              stroke="#9D0B0B"
-              strokeWidth="0.2"
-              fill="none"
-            />
-
-            {/* Inner circle */}
-            <circle
-              cx="250"
-              cy="250"
-              r="160"
-              stroke="#D4AF37"
-              strokeWidth="0.4"
-              fill="none"
-            />
-
-            {/* Triangles - Sri Yantra inspired */}
-            <polygon
-              points="250,10 490,370 10,370"
-              stroke="#D4AF37"
-              strokeWidth="0.4"
-              fill="none"
-            />
-            <polygon
-              points="250,490 10,130 490,130"
-              stroke="#D4AF37"
-              strokeWidth="0.4"
-              fill="none"
-            />
-
-            {/* Inner triangles */}
-            <polygon
-              points="250,70 400,350 100,350"
-              stroke="#9D0B0B"
-              strokeWidth="0.2"
-              fill="none"
-            />
-            <polygon
-              points="250,430 100,150 400,150"
-              stroke="#9D0B0B"
-              strokeWidth="0.2"
-              fill="none"
-            />
-
-            {/* Center star */}
-            <polygon
-              points="250,180 270,230 325,230 280,260 300,315 250,285 200,315 220,260 175,230 230,230"
-              stroke="#D4AF37"
-              strokeWidth="0.5"
-              fill="none"
-            />
-
-            {/* Mystical sigil lines */}
-            <line
-              x1="10"
-              y1="250"
-              x2="490"
-              y2="250"
-              stroke="#D4AF37"
-              strokeWidth="0.2"
-            />
-            <line
-              x1="250"
-              y1="10"
-              x2="250"
-              y2="490"
-              stroke="#D4AF37"
-              strokeWidth="0.2"
-            />
-            <line
-              x1="100"
-              y1="100"
-              x2="400"
-              y2="400"
-              stroke="#D4AF37"
-              strokeWidth="0.2"
-            />
-            <line
-              x1="400"
-              y1="100"
-              x2="100"
-              y2="400"
-              stroke="#D4AF37"
-              strokeWidth="0.2"
-            />
-          </svg>
-        </motion.div>
-
-        {/* Spinning mandala elements */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center mix-blend-overlay"
-          initial={{ rotate: 0 }}
-          animate={{ rotate: -360 }}
-          transition={{
-            rotate: { duration: 180, repeat: Infinity, ease: 'linear' },
-          }}
-        >
-          <svg
-            viewBox="0 0 500 500"
-            width="120%"
-            height="120%"
-            className="absolute opacity-5"
-            style={{ maxWidth: 'none' }}
-          >
-            {Array.from({ length: 12 }).map((_, i) => (
-              <g key={i} transform={`rotate(${i * 30} 250 250)`}>
-                <path
-                  d="M250,100 L250,30 L270,100 Z"
-                  fill="#9D0B0B"
-                  fillOpacity="0.3"
-                />
-                <path
-                  d="M250,400 L250,470 L230,400 Z"
-                  fill="#9D0B0B"
-                  fillOpacity="0.3"
-                />
-              </g>
-            ))}
-            {Array.from({ length: 24 }).map((_, i) => (
-              <circle
-                key={`circle-${i}`}
-                cx="250"
-                cy="250"
-                r={100 + i * 8}
-                stroke={i % 2 === 0 ? '#D4AF37' : '#9D0B0B'}
-                strokeWidth="0.15"
-                strokeDasharray={
-                  i % 3 === 0 ? '1 10' : i % 3 === 1 ? '5 5' : '10 1'
-                }
-                fill="none"
-              />
-            ))}
-          </svg>
-        </motion.div>
-      </div>
-
       {/* Central Hero image */}
       <motion.div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-15 w-auto max-w-full"
@@ -409,75 +240,18 @@ export default function HeroSection() {
             priority
             className="object-contain w-full h-auto"
           />
+
+          {/* Image glow effect for better visibility */}
+          <div
+            className="absolute inset-0 rounded-full glow-effect"
+            style={{ boxShadow: '0 0 30px rgba(212,175,55,0.2)' }}
+          ></div>
         </div>
       </motion.div>
 
       {/* Hero Content - Improved contrast with background overlay */}
       <div className="absolute inset-x-0 bottom-24 sm:bottom-20 md:bottom-24 z-20 flex flex-col items-center justify-center text-center px-4 md:px-6">
-        {/* Sacred symbol above title */}
-        <motion.div
-          className="mb-4"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{
-            opacity: [0.7, 1, 0.7],
-            scale: [1, 1.05, 1],
-            rotateY: [0, 180, 360],
-          }}
-          transition={{
-            opacity: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-            scale: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-            rotateY: { duration: 10, repeat: Infinity, ease: 'easeInOut' },
-          }}
-        >
-          {/* Sacred symbol */}
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 60 60"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Outer circle */}
-            <circle cx="30" cy="30" r="28" stroke="#D4AF37" strokeWidth="0.7" />
-
-            {/* Inner circle */}
-            <circle cx="30" cy="30" r="20" stroke="#D4AF37" strokeWidth="0.5" />
-
-            {/* Cross */}
-            <path d="M30 2 L30 58" stroke="#D4AF37" strokeWidth="0.7" />
-            <path d="M2 30 L58 30" stroke="#D4AF37" strokeWidth="0.7" />
-
-            {/* Diagonal crosses */}
-            <path d="M10 10 L50 50" stroke="#D4AF37" strokeWidth="0.4" />
-            <path d="M50 10 L10 50" stroke="#D4AF37" strokeWidth="0.4" />
-
-            {/* Flame center */}
-            <path d="M30,22 Q33,17 30,12 Q27,17 30,22" fill="#9D0B0B" />
-            <path
-              d="M30,22 Q27,17 30,12 Q33,17 30,22"
-              fill="#D4AF37"
-              fillOpacity="0.5"
-            />
-
-            {/* Central dot */}
-            <circle cx="30" cy="30" r="3" fill="#D4AF37" />
-
-            {/* Subtle rays */}
-            {Array.from({ length: 8 }).map((_, i) => (
-              <path
-                key={i}
-                d={`M30,30 L${30 + 15 * Math.cos((i * Math.PI) / 4)},${
-                  30 + 15 * Math.sin((i * Math.PI) / 4)
-                }`}
-                stroke="#D4AF37"
-                strokeWidth="0.3"
-                strokeDasharray="1 2"
-              />
-            ))}
-          </svg>
-        </motion.div>
-
-        {/* Main Heading - Using the sparkly gold effect from brand guidelines */}
+        {/* Main Heading - With enhanced contrast */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -491,48 +265,25 @@ export default function HeroSection() {
             >
               Welcome to the
             </span>{' '}
-            <span className="relative">
-              {/* Sparkly gold text with shimmer for "Immortal Portal" */}
-              <span
-                className="text-gold shimmer-text"
-                style={{
-                  background:
-                    'linear-gradient(90deg, #D4AF37 0%, #fff6d9 25%, #D4AF37 50%, #fff6d9 75%, #D4AF37 100%)',
-                  backgroundSize: '200% auto',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  display: 'inline-block',
-                  textShadow: '0 0 10px rgba(212,175,55,0.5)',
-                }}
-              >
-                Immortal Portal
-              </span>
-
-              {/* Elegant golden underline effect */}
-              <motion.span
-                className="absolute -bottom-1 left-0 right-0 h-[2px]"
-                style={{
-                  background:
-                    'linear-gradient(90deg, transparent 0%, #D4AF37 30%, #D4AF37 70%, transparent 100%)',
-                  filter: 'blur(0.5px)',
-                }}
-                animate={{
-                  opacity: [0.6, 1, 0.6],
-                  width: ['95%', '100%', '95%'],
-                  left: ['2.5%', '0%', '2.5%'],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              />
+            <span
+              className="shimmer-text"
+              style={{
+                background:
+                  'linear-gradient(90deg, #D4AF37 0%, #fff6d9 25%, #D4AF37 50%, #fff6d9 75%, #D4AF37 100%)',
+                backgroundSize: '200% auto',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                display: 'inline-block',
+                textShadow: '0 0 10px rgba(212,175,55,0.5)',
+              }}
+            >
+              Immortal Portal
             </span>
           </h1>
         </motion.div>
 
-        {/* Enhanced subheadline with better contrast */}
+        {/* Subheadline with background for better readability */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -594,24 +345,12 @@ export default function HeroSection() {
 
             {/* Main button */}
             <a
-              href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#final-cta"
               className="relative block px-10 py-4 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-gold uppercase tracking-wider font-medium text-lg md:text-xl overflow-hidden border border-gold/30 flame-button rounded-sm shadow-lg shadow-crimson/20"
               aria-label="Enter The Flame"
             >
-              {/* Flame hover effect */}
-              <span className="absolute inset-0 w-full h-0 transition-all duration-700 ease-out bg-gradient-to-t from-gold/30 via-gold/20 to-transparent group-hover:h-full opacity-0 group-hover:opacity-100"></span>
-
-              {/* Text with hover effect */}
-              <span className="relative group-hover:text-gold/100 transition-colors duration-300 flex items-center justify-center font-cinzel">
-                <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  ✧
-                </span>
+              <span className="relative z-10 flex items-center justify-center font-cinzel">
                 ENTER THE FLAME
-                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  ✧
-                </span>
               </span>
             </a>
           </motion.div>

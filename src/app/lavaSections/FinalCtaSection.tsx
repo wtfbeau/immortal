@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 type FinalCTASectionProps = {
@@ -12,6 +12,21 @@ export default function FinalCTASection({
 }: FinalCTASectionProps) {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+
+  // Add animation to shimmer-text elements
+  useEffect(() => {
+    const shimmerElements = document.querySelectorAll('.shimmer-text');
+    shimmerElements.forEach((element) => {
+      element.animate(
+        [{ backgroundPosition: '-100% 0' }, { backgroundPosition: '200% 0' }],
+        {
+          duration: 8000,
+          iterations: Infinity,
+          easing: 'linear',
+        }
+      );
+    });
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,22 +48,22 @@ export default function FinalCTASection({
     },
   };
 
-  // Offering benefits
+  // Offering benefits - simplified for better scanning
   const vipBenefits = [
-    'Absolute clarity on your current situation and blocks',
+    'Crystal clear vision on your current situation',
     'A bold, specific 30-day action plan',
     'Strategic guidance from a world-class mind',
-    "Personal diagnosis of what's truly holding you back",
-    'Custom tools, practices, and recommendations',
+    'Custom tools and recommendations tailored to you',
+    "Personal diagnosis of what's holding you back",
     'Unfiltered answers to your most pressing questions',
   ];
 
   const questBenefits = [
     'Daily guidance to maintain clarity and focus',
-    'A structured 90-day system for real transformation',
+    'A structured 90-day system for transformation',
     'Community support from like-minded individuals',
-    'Weekly strategic insights on business, purpose, and performance',
-    'Tools to track your progress and celebrate victories',
+    'Weekly strategic insights on business and purpose',
+    'Tools to track your progress and celebrate wins',
     "Ongoing access to Paul's most powerful teachings",
   ];
 
@@ -58,7 +73,7 @@ export default function FinalCTASection({
       ref={sectionRef}
       className="relative py-24 md:py-28 bg-gradient-to-b from-charcoal to-black text-ivory overflow-hidden"
     >
-      {/* Ethereal background light effects - more vibrant */}
+      {/* Enhanced background effects for visual appeal */}
       <div className="absolute inset-0">
         {/* Center glow */}
         <div
@@ -89,74 +104,6 @@ export default function FinalCTASection({
             filter: 'blur(80px)',
           }}
         ></div>
-      </div>
-
-      {/* Sacred geometry background element - more visible */}
-      <div className="absolute inset-0 opacity-25">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          {/* Large sacred circle */}
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="35"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="25"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-
-          {/* Sacred triangles */}
-          <polygon
-            points="50,5 95,80 5,80"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-          <polygon
-            points="50,95 5,20 95,20"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-
-          {/* Center mandala */}
-          <circle
-            cx="50"
-            cy="50"
-            r="15"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="5"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-        </svg>
       </div>
 
       {/* Content Container */}
@@ -197,7 +144,7 @@ export default function FinalCTASection({
             </p>
           </motion.div>
 
-          {/* Offering Cards - Side by Side with more vibrant colors */}
+          {/* Offering Cards - Side by Side with more vibrant colors and better contrast */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
             {/* VIP Activation - Gold Theme */}
             <motion.div
@@ -222,7 +169,7 @@ export default function FinalCTASection({
 
               {/* Card Content */}
               <div className="relative z-10">
-                {/* Title and Price */}
+                {/* Title and Price - More scannable */}
                 <div className="text-center mb-5">
                   <div className="bg-gold/20 py-2 px-4 rounded-sm mb-3 border-2 border-gold inline-block">
                     <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-1">
@@ -239,7 +186,7 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* Benefits */}
+                {/* Benefits - Better formatted for scanning */}
                 <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-gold mb-4 text-center">
                     What You&apos;ll Gain:
@@ -280,13 +227,13 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button - More prominent */}
                 <div className="text-center">
                   <motion.a
                     href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-10 py-4 bg-gradient-to-r from-gold/60 to-gold/40 border-2 border-gold text-black font-bold uppercase tracking-wider font-cintext text-lg rounded-sm transition-all duration-300 sacred-glow"
+                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson to-crimson/80 border-2 border-crimson text-ivory uppercase tracking-wider font-medium font-cinzel text-lg rounded-sm transition-all duration-300 sacred-glow"
                     whileHover={{ scale: 1.03 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                   >
@@ -319,7 +266,7 @@ export default function FinalCTASection({
 
               {/* Card Content */}
               <div className="relative z-10">
-                {/* Title and Price */}
+                {/* Title and Price - More scannable */}
                 <div className="text-center mb-5">
                   <div className="bg-crimson/20 py-2 px-4 rounded-sm mb-3 border-2 border-crimson inline-block">
                     <h3 className="font-cinzel text-2xl md:text-3xl text-crimson mb-1">
@@ -338,7 +285,7 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* Benefits */}
+                {/* Benefits - Better formatted for scanning */}
                 <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-crimson mb-4 text-center">
                     Practical Benefits:
@@ -379,7 +326,7 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button - More prominent */}
                 <div className="text-center">
                   <motion.a
                     href="https://buy.stripe.com/bIY9Bt39L0QHdMceUV"
@@ -396,7 +343,7 @@ export default function FinalCTASection({
             </motion.div>
           </div>
 
-          {/* Final Message */}
+          {/* Final Message - More scannable with better contrast */}
           <motion.div
             variants={itemVariants}
             className="text-center max-w-3xl mx-auto"

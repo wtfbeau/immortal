@@ -18,12 +18,13 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navigation items
+  // Navigation items - updated for better user flow
   const navItems = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About Paul', href: '#introduction' },
-    { name: 'The Method', href: '#method' },
-    { name: 'Offerings', href: '#offerings' },
+    { name: 'Transformation', href: '#transformation' },
+    { name: 'Method', href: '#method' },
+    { name: 'Membership', href: '#quest-offering' },
+
+    { name: 'VIP Offering', href: '#vip-activation' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
   ];
@@ -90,7 +91,6 @@ export default function Header() {
                   backgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   display: 'inline-block',
-                  animation: 'textShimmer 8s linear infinite',
                 }}
               >
                 The Immortal Flame
@@ -112,7 +112,7 @@ export default function Header() {
               {/* CTA Button */}
               <Link
                 href="#final-cta"
-                className={`ml-2 px-4 py-2 bg-gradient-to-r from-crimson to-crimson/90 text-gold border border-gold/30 rounded-sm font-medium text-sm lg:text-base transition-all duration-300 hover:shadow-glow ${
+                className={`ml-2 px-4 py-2 bg-gradient-to-r from-crimson to-crimson/90 text-gold border border-gold/30 rounded-sm font-medium text-sm lg:text-base transition-all duration-300 hover:shadow-md ${
                   isScrolled ? 'sacred-glow' : ''
                 }`}
               >
