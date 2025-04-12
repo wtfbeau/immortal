@@ -277,7 +277,7 @@ export default function MembershipSection() {
               {/* Single, focused CTA for this section */}
               <motion.div variants={itemVariants} className="mt-10">
                 <a
-                  href="#final-cta"
+                  href="https://buy.stripe.com/bIY9Bt39L0QHdMceUV"
                   className="inline-block px-8 py-4 bg-gradient-to-r from-crimson to-crimson/90 text-ivory uppercase tracking-wider font-medium text-base rounded-sm relative overflow-hidden group"
                 >
                   {/* Button shine effect */}
@@ -286,7 +286,7 @@ export default function MembershipSection() {
                   </div>
 
                   <span className="relative z-10 flex items-center font-cinzel">
-                    BEGIN YOUR QUEST
+                    JOIN THE QUEST
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 ml-2"

@@ -7,7 +7,9 @@ type FinalCTASectionProps = {
   id: string;
 };
 
-export default function FinalCTASection({ id }: FinalCTASectionProps) {
+export default function FinalCTASection({
+  id = 'final-cta',
+}: FinalCTASectionProps) {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
 

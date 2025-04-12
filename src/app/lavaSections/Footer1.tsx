@@ -125,7 +125,7 @@ export default function Footer() {
           {/* Copyright */}
           <motion.div variants={itemVariants} className="text-center">
             <p className="text-xs font-inter text-ivory/60">
-              © 2025 The Immortal Flame |{' '}
+              © {new Date().getFullYear()} The Immortal Flame |{' '}
               <Link
                 href="#"
                 className="text-ivory/60 hover:text-gold transition-colors duration-300"

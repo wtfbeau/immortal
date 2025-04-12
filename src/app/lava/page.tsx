@@ -47,7 +47,7 @@ export default function Home() {
       <FaqSection />
 
       {/* Final CTA Section */}
-      <FinalCTASection />
+      <FinalCTASection id="final-cta" />
 
       {/* Footer */}
       <Footer />

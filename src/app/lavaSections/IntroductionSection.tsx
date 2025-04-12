@@ -124,7 +124,7 @@ export default function IntroductionSection() {
 
               <div className="prophetic-quote my-8 px-8 py-6 bg-charcoal/5 border-l-4 border-gold rounded-r-lg">
                 <p className="font-cormorant-upright text-2xl md:text-3xl text-crimson italic">
-                  "I'm not here to play the game. I'm here to change it."
+                  I'm not here to play the game. I'm here to change it.
                 </p>
               </div>
 
