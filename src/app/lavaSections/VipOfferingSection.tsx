@@ -1,11 +1,26 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 export default function VIPOfferingSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+
+  // Add animation to shimmer-text elements
+  useEffect(() => {
+    const shimmerElements = document.querySelectorAll('.shimmer-text');
+    shimmerElements.forEach((element) => {
+      element.animate(
+        [{ backgroundPosition: '-100% 0' }, { backgroundPosition: '200% 0' }],
+        {
+          duration: 8000,
+          iterations: Infinity,
+          easing: 'linear',
+        }
+      );
+    });
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -160,22 +175,30 @@ export default function VIPOfferingSection() {
     <section
       id="vip-activation"
       ref={sectionRef}
-      className="relative py-20 md:py-28 bg-gradient-to-b from-ivory/95 to-ivory/85 text-charcoal overflow-hidden"
+      className="relative py-24 md:py-32 bg-gradient-to-b from-ivory/95 to-ivory/85 text-charcoal overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 mystical-pattern opacity-20"></div>
+      {/* Enhanced Background Pattern with animated effect */}
+      <div className="absolute inset-0 mystical-pattern opacity-30"></div>
 
-      {/* Golden light effect */}
-      <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1/3 opacity-30">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, rgba(212,175,55,0.3) 0%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-        ></div>
-      </div>
+      {/* Enhanced golden light effect */}
+      <div
+        className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-1/2 opacity-40"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(212,175,55,0.4) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      ></div>
+
+      {/* Additional crimson accent light */}
+      <div
+        className="absolute bottom-1/4 left-1/4 w-1/3 h-1/3 opacity-30"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(157,11,11,0.3) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      ></div>
 
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -185,9 +208,9 @@ export default function VIPOfferingSection() {
           animate={isInView ? 'visible' : 'hidden'}
           className="max-w-7xl mx-auto"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <div className="h-0.5 w-20 bg-gold mx-auto mb-4"></div>
+          {/* Enhanced Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <div className="h-1 w-24 bg-gold mx-auto mb-4 rounded-full"></div>
             <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-3 tracking-wide">
               <span
                 className="shimmer-text"
@@ -215,12 +238,18 @@ export default function VIPOfferingSection() {
             </p>
           </motion.div>
 
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+          {/* Two Column Layout with enhanced visual effects */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Left Column - Main Offering Details */}
             <motion.div variants={itemVariants}>
-              {/* Price card - more prominent */}
-              <div className="bg-gradient-to-br from-white to-white/70 rounded-lg border-2 border-gold/30 p-6 shadow-xl mb-8">
+              {/* Enhanced Price card */}
+              <div
+                className="bg-gradient-to-br from-crimson to-crimson/80 rounded-lg p-6 mb-8"
+                style={{
+                  boxShadow: '0 0 30px rgba(212,175,55,0.2)',
+                  border: '2px solid rgba(212,175,55,0.4)',
+                }}
+              >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   <div>
                     <h3 className="font-cinzel text-2xl text-gold mb-2">
@@ -231,16 +260,27 @@ export default function VIPOfferingSection() {
                     </p>
                   </div>
 
-                  <div className="bg-gradient-to-r from-gold/20 to-gold/10 py-3 px-6 rounded-lg border-2 border-gold/40 sacred-glow">
+                  <div
+                    className="bg-gradient-to-r from-gold/40 to-gold/20 py-3 px-6 rounded-lg sacred-glow"
+                    style={{
+                      border: '2px solid rgba(212,175,55,0.5)',
+                      boxShadow: '0 0 15px rgba(212,175,55,0.3)',
+                    }}
+                  >
                     <span className="font-cinzel text-3xl text-gold">$500</span>
                   </div>
                 </div>
 
-                <div className="mt-5 border-t border-gold/20 pt-5">
-                  <div className="bg-gold/10 px-4 py-3 rounded-lg">
+                <div className="mt-5 border-t border-gold/30 pt-5">
+                  <div
+                    className="bg-gold/15 px-4 py-3 rounded-lg"
+                    style={{
+                      border: '1px solid rgba(212,175,55,0.3)',
+                    }}
+                  >
                     <p className="font-medium text-charcoal flex items-center">
                       <svg
-                        className="w-5 h-5 text-gold mr-2"
+                        className="w-5 h-5 text-gold mr-2 flex-shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -258,16 +298,28 @@ export default function VIPOfferingSection() {
                 </div>
               </div>
 
-              {/* Benefits - Enhanced visual presentation */}
-              <div className="bg-white/80 border-2 border-gold/20 rounded-lg p-6 mb-8">
-                <h3 className="font-cinzel text-2xl text-gold mb-5 border-b border-gold/30 pb-2">
+              {/* Enhanced Benefits */}
+              <div
+                className="bg-crimson/90 rounded-lg p-6 mb-8"
+                style={{
+                  boxShadow: '0 0 30px rgba(212,175,55,0.2)',
+                  border: '2px solid rgba(212,175,55,0.4)',
+                }}
+              >
+                <h3 className="font-cinzel text-2xl text-gold mb-5 border-b-2 border-gold/30 pb-2">
                   What You&apos;ll Gain:
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
                   {vipBenefits.map((benefit, index) => (
                     <div
                       key={index}
-                      className="flex items-start space-x-3 bg-gradient-to-r from-gold/5 to-transparent p-3 rounded-md"
+                      className="flex items-start space-x-3 p-3 rounded-md transition-all duration-300"
+                      style={{
+                        background:
+                          'linear-gradient(to right, rgba(212,175,55,0.15), rgba(212,175,55,0.05))',
+                        border: '1px solid rgba(212,175,55,0.3)',
+                        boxShadow: '0 0 10px rgba(212,175,55,0.1)',
+                      }}
                     >
                       <div className="flex-shrink-0 mt-1">
                         <svg
@@ -290,10 +342,21 @@ export default function VIPOfferingSection() {
                 </div>
               </div>
 
-              {/* Divine Guarantee - Trust builder */}
-              <div className="bg-white/80 border-2 border-gold/20 rounded-lg p-6 mb-8">
+              {/* Enhanced Divine Guarantee */}
+              <div
+                className="bg-crimson/90 rounded-lg p-6 mb-8"
+                style={{
+                  boxShadow: '0 0 20px rgba(212,175,55,0.15)',
+                  border: '2px solid rgba(212,175,55,0.3)',
+                }}
+              >
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
+                  <div
+                    className="flex-shrink-0 bg-gold/20 p-2 rounded-full"
+                    style={{
+                      border: '1px solid rgba(212,175,55,0.4)',
+                    }}
+                  >
                     <svg
                       className="w-10 h-10 text-gold"
                       fill="none"
@@ -321,22 +384,35 @@ export default function VIPOfferingSection() {
                 </div>
               </div>
 
-              {/* Main CTA Button */}
+              {/* Enhanced Main CTA Button */}
               <div className="text-center mb-8">
                 <motion.a
-                  href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-10 py-4 bg-gradient-to-r from-gold/40 to-gold/20 text-gold border-2 border-gold/40 rounded-lg font-cinzel text-xl uppercase tracking-wide shadow-lg hover:shadow-gold/20 hover:from-gold/50 hover:to-gold/30 transition-all duration-300 flame-button"
-                  whileHover={{ scale: 1.03 }}
+                  href="#final-cta"
+                  className="inline-block px-10 py-4 bg-gradient-to-r from-gold/60 to-gold/40 text-charcoal font-bold uppercase tracking-wider font-cinzel text-xl rounded-md transition-all duration-300"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 0 30px rgba(212,175,55,0.6)',
+                  }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                  style={{
+                    boxShadow: '0 0 20px rgba(212,175,55,0.4)',
+                    border: '2px solid rgba(212,175,55,0.5)',
+                  }}
                 >
                   ACTIVATE YOUR IMMORTAL FLAME
                 </motion.a>
               </div>
 
-              {/* Testimonial */}
-              <div className="bg-white/70 border-l-4 border-crimson rounded-r-lg p-5">
+              {/* Enhanced Testimonial */}
+              <div
+                className="p-5 rounded-lg"
+                style={{
+                  background:
+                    'linear-gradient(to right, rgba(157,11,11,0.1), rgba(157,11,11,0.05))',
+                  border: '2px solid rgba(157,11,11,0.3)',
+                  boxShadow: '0 0 15px rgba(157,11,11,0.15)',
+                }}
+              >
                 <p className="font-cormorant-upright text-lg text-charcoal/90 italic mb-3">
                   &ldquo;After spinning my wheels for 2 years, one session with
                   Paul helped me identify the true bottleneck in my business. I
@@ -347,7 +423,13 @@ export default function VIPOfferingSection() {
                   <p className="font-cinzel text-crimson">
                     — Jason M., E-commerce Founder
                   </p>
-                  <span className="bg-gold/20 px-3 py-1 rounded-sm text-gold font-medium text-sm border border-gold/30">
+                  <span
+                    className="px-3 py-1 rounded-sm text-gold font-medium text-sm"
+                    style={{
+                      background: 'rgba(212,175,55,0.15)',
+                      border: '1px solid rgba(212,175,55,0.4)',
+                    }}
+                  >
                     $450,000 deal
                   </span>
                 </div>
@@ -356,18 +438,32 @@ export default function VIPOfferingSection() {
 
             {/* Right Column - Features Cards */}
             <motion.div variants={itemVariants}>
-              <div className="bg-white/70 rounded-lg border-2 border-gold/20 p-6 shadow-xl mb-8">
-                <h3 className="font-cinzel text-2xl text-gold mb-5 border-b border-gold/30 pb-2 text-center">
+              <div
+                className="bg-crimson/90 rounded-lg p-6 mb-8"
+                style={{
+                  boxShadow: '0 0 30px rgba(212,175,55,0.2)',
+                  border: '2px solid rgba(212,175,55,0.4)',
+                }}
+              >
+                <h3 className="font-cinzel text-2xl text-gold mb-5 border-b-2 border-gold/30 pb-2 text-center">
                   What&apos;s Included:
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {vipFeatures.map((feature, index) => (
                     <div
                       key={index}
-                      className="bg-gradient-to-b from-white/80 to-white/40 border border-gold/10 p-4 rounded-lg group hover:border-gold/30 hover:shadow-md transition-all duration-300"
+                      className="group hover:shadow-lg transition-all duration-300 rounded-lg"
+                      style={{
+                        border: '1px solid rgba(212,175,55,0.3)',
+                      }}
                     >
-                      <div className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 mt-1 text-gold/80 group-hover:text-gold">
+                      <div className="flex items-start space-x-3 p-4">
+                        <div
+                          className="flex-shrink-0 mt-1 text-gold/80 group-hover:text-gold bg-gold/10 p-2 rounded-full"
+                          style={{
+                            border: '1px solid rgba(212,175,55,0.3)',
+                          }}
+                        >
                           {feature.icon}
                         </div>
                         <div>
@@ -384,50 +480,56 @@ export default function VIPOfferingSection() {
                 </div>
               </div>
 
-              {/* After Purchasing Info */}
-              <div className="bg-gold/10 border-2 border-gold/20 rounded-lg p-5 mb-8">
+              {/* Enhanced After Purchasing Info */}
+              <div
+                className="bg-gold/15 rounded-lg p-5 mb-8"
+                style={{
+                  border: '2px solid rgba(212,175,55,0.4)',
+                  boxShadow: '0 0 20px rgba(212,175,55,0.15)',
+                }}
+              >
                 <h4 className="font-cinzel text-xl text-gold mb-3 text-center">
                   After Purchasing:
                 </h4>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
-                      <span className="text-gold font-cinzel">1</span>
+                  {[
+                    "You'll receive an email within 15 minutes with access to the scheduling system",
+                    'Complete your brief preparation questionnaire',
+                    'Have your transformative 1:1 session with Paul',
+                    'Receive your customized Path Activation Map and resources',
+                  ].map((step, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 bg-crimson/40 p-3 rounded-md"
+                      style={{
+                        border: '1px solid rgba(212,175,55,0.3)',
+                      }}
+                    >
+                      <div
+                        className="flex-shrink-0 mt-1 w-8 h-8 flex items-center justify-center rounded-full"
+                        style={{
+                          background: 'rgba(212,175,55,0.2)',
+                          border: '1px solid rgba(212,175,55,0.4)',
+                        }}
+                      >
+                        <span className="text-gold font-cinzel">
+                          {index + 1}
+                        </span>
+                      </div>
+                      <p className="font-inter text-charcoal/90">{step}</p>
                     </div>
-                    <p className="font-inter text-charcoal/90">
-                      You&apos;ll receive an email within 15 minutes with access
-                      to the scheduling system
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
-                      <span className="text-gold font-cinzel">2</span>
-                    </div>
-                    <p className="font-inter text-charcoal/90">
-                      Complete your brief preparation questionnaire
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
-                      <span className="text-gold font-cinzel">3</span>
-                    </div>
-                    <p className="font-inter text-charcoal/90">
-                      Have your transformative 1:1 session with Paul
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 mt-1 bg-gold/20 w-8 h-8 flex items-center justify-center rounded-full">
-                      <span className="text-gold font-cinzel">4</span>
-                    </div>
-                    <p className="font-inter text-charcoal/90">
-                      Receive your customized Path Activation Map and resources
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Action card */}
-              <div className="bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg border-2 border-gold/30 p-5 text-center">
+              {/* Enhanced Action card */}
+              <div
+                className="bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg p-5 text-center"
+                style={{
+                  border: '2px solid rgba(212,175,55,0.4)',
+                  boxShadow: '0 0 20px rgba(212,175,55,0.2)',
+                }}
+              >
                 <h4 className="font-cinzel text-xl text-gold mb-3">
                   Limited Availability
                 </h4>
@@ -436,13 +538,18 @@ export default function VIPOfferingSection() {
                   ensure the highest quality of service and attention.
                 </p>
                 <motion.a
-                  href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson/70 to-crimson/50 text-ivory font-medium rounded-lg border border-crimson/40 hover:from-crimson/80 hover:to-crimson/60 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
+                  href="#final-cta"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson/80 to-crimson/60 text-ivory font-medium rounded-lg transition-all duration-300"
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: '0 0 20px rgba(157,11,11,0.4)',
+                  }}
+                  style={{
+                    border: '1px solid rgba(157,11,11,0.5)',
+                    boxShadow: '0 0 10px rgba(157,11,11,0.3)',
+                  }}
                 >
-                  SECURE YOUR SPOT NOW
+                  <span className="font-cinzel">SECURE YOUR SPOT NOW</span>
                 </motion.a>
               </div>
             </motion.div>

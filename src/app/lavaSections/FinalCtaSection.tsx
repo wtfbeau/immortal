@@ -71,39 +71,109 @@ export default function FinalCTASection({
     <section
       id={id}
       ref={sectionRef}
-      className="relative py-24 md:py-28 bg-gradient-to-b from-charcoal to-black text-ivory overflow-hidden"
+      className="relative py-24 md:py-32 bg-gradient-to-b from-charcoal to-black text-ivory overflow-hidden"
     >
-      {/* Enhanced background effects for visual appeal */}
+      {/* Vibrant background effects */}
       <div className="absolute inset-0">
-        {/* Center glow */}
+        {/* Center glow - more vibrant */}
         <div
-          className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 opacity-40"
+          className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 opacity-50"
           style={{
             background:
-              'radial-gradient(circle, rgba(212,175,55,0.5) 0%, rgba(157,11,11,0.3) 60%, transparent 80%)',
+              'radial-gradient(circle, rgba(212,175,55,0.6) 0%, rgba(157,11,11,0.4) 60%, transparent 80%)',
             filter: 'blur(70px)',
           }}
         ></div>
 
         {/* Top glow */}
         <div
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-64 opacity-50"
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-64 opacity-60"
           style={{
             background:
-              'radial-gradient(ellipse at top, rgba(212,175,55,0.4) 0%, transparent 70%)',
+              'radial-gradient(ellipse at top, rgba(212,175,55,0.5) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         ></div>
 
         {/* Bottom glow */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-96 opacity-40"
+          className="absolute bottom-0 left-0 right-0 h-96 opacity-50"
           style={{
             background:
-              'linear-gradient(to top, rgba(157,11,11,0.4), transparent)',
+              'linear-gradient(to top, rgba(157,11,11,0.5), transparent)',
             filter: 'blur(80px)',
           }}
         ></div>
+      </div>
+
+      {/* Sacred geometry background element - more vibrant */}
+      <div className="absolute inset-0 opacity-30">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          {/* Large sacred circle */}
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            stroke="#D4AF37"
+            strokeWidth="0.2"
+            fill="none"
+          />
+
+          <circle
+            cx="50"
+            cy="50"
+            r="35"
+            stroke="#9D0B0B"
+            strokeWidth="0.2"
+            fill="none"
+          />
+
+          <circle
+            cx="50"
+            cy="50"
+            r="25"
+            stroke="#D4AF37"
+            strokeWidth="0.2"
+            fill="none"
+          />
+
+          {/* Sacred triangles */}
+          <polygon
+            points="50,5 95,80 5,80"
+            stroke="#D4AF37"
+            strokeWidth="0.2"
+            fill="none"
+          />
+          <polygon
+            points="50,95 5,20 95,20"
+            stroke="#D4AF37"
+            strokeWidth="0.2"
+            fill="none"
+          />
+
+          {/* Center mandala */}
+          <circle
+            cx="50"
+            cy="50"
+            r="15"
+            stroke="#D4AF37"
+            strokeWidth="0.2"
+            fill="none"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="5"
+            stroke="#D4AF37"
+            strokeWidth="0.2"
+            fill="none"
+          />
+        </svg>
       </div>
 
       {/* Content Container */}
@@ -144,34 +214,35 @@ export default function FinalCTASection({
             </p>
           </motion.div>
 
-          {/* Offering Cards - Side by Side with more vibrant colors and better contrast */}
+          {/* Offering Cards - Side by Side with vibrant colors */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
             {/* VIP Activation - Gold Theme */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-lg border-2 border-gold bg-gradient-to-br from-[#1E1E1E] to-black p-8 shadow-xl overflow-hidden"
+              className="relative rounded-lg bg-gradient-to-br from-[#1E1E1E] to-black p-8 shadow-xl overflow-hidden"
               style={{
-                boxShadow: '0 0 25px rgba(212,175,55,0.3)',
+                boxShadow: '0 0 30px rgba(212,175,55,0.4)',
+                border: '2px solid rgba(212,175,55,0.5)',
               }}
             >
               {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gold/20 to-transparent opacity-70"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-gold/30 to-transparent opacity-70"></div>
 
               {/* Subtle flame animation at bottom */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-40 opacity-30"
+                className="absolute bottom-0 left-0 right-0 h-40 opacity-40"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(157,11,11,0.5), transparent)',
+                    'linear-gradient(to top, rgba(157,11,11,0.6), transparent)',
                   filter: 'blur(20px)',
                 }}
               ></div>
 
               {/* Card Content */}
               <div className="relative z-10">
-                {/* Title and Price - More scannable */}
+                {/* Title and Price */}
                 <div className="text-center mb-5">
-                  <div className="bg-gold/20 py-2 px-4 rounded-sm mb-3 border-2 border-gold inline-block">
+                  <div className="bg-gold/30 py-2 px-4 rounded-sm mb-3 inline-block">
                     <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-1">
                       THE IMMORTAL IGNITION
                     </h3>
@@ -180,13 +251,13 @@ export default function FinalCTASection({
                     </p>
                   </div>
 
-                  <div className="inline-block bg-gold/30 border-2 border-gold rounded-sm py-3 px-6">
+                  <div className="inline-block bg-gold/40 rounded-sm py-3 px-6">
                     <span className="font-cinzel text-2xl text-gold">$500</span>
                     <span className="text-ivory ml-2">One-time investment</span>
                   </div>
                 </div>
 
-                {/* Benefits - Better formatted for scanning */}
+                {/* Benefits */}
                 <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-gold mb-4 text-center">
                     What You&apos;ll Gain:
@@ -195,7 +266,7 @@ export default function FinalCTASection({
                     {vipBenefits.map((benefit, index) => (
                       <div
                         key={index}
-                        className="flex items-start space-x-3 bg-gold/5 p-2 rounded border border-gold/30"
+                        className="flex items-start space-x-3 bg-gold/10 p-2 rounded"
                       >
                         <div className="flex-shrink-0 mt-1">
                           <svg
@@ -227,15 +298,19 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* CTA Button - More prominent */}
+                {/* CTA Button - Enhanced for better visibility */}
                 <div className="text-center">
                   <motion.a
                     href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson to-crimson/80 border-2 border-crimson text-ivory uppercase tracking-wider font-medium font-cinzel text-lg rounded-sm transition-all duration-300 sacred-glow"
-                    whileHover={{ scale: 1.03 }}
+                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson/90 to-crimson/70 text-ivory uppercase tracking-wider font-medium font-cinzel text-lg rounded-sm transition-all duration-300"
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: '0 0 25px rgba(212,175,55,0.6)',
+                    }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    style={{ boxShadow: '0 0 15px rgba(212,175,55,0.4)' }}
                   >
                     ACTIVATE YOUR FLAME
                   </motion.a>
@@ -246,29 +321,30 @@ export default function FinalCTASection({
             {/* Monthly Membership - Crimson Theme */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-lg border-2 border-crimson bg-gradient-to-br from-[#1E1E1E] to-black p-8 shadow-xl overflow-hidden"
+              className="relative rounded-lg bg-gradient-to-br from-[#1E1E1E] to-black p-8 shadow-xl overflow-hidden"
               style={{
-                boxShadow: '0 0 25px rgba(157,11,11,0.3)',
+                boxShadow: '0 0 30px rgba(157,11,11,0.4)',
+                border: '2px solid rgba(157,11,11,0.5)',
               }}
             >
               {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-crimson/20 to-transparent opacity-70"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-crimson/30 to-transparent opacity-70"></div>
 
               {/* Subtle flame animation at bottom */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-40 opacity-30"
+                className="absolute bottom-0 left-0 right-0 h-40 opacity-40"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(157,11,11,0.5), transparent)',
+                    'linear-gradient(to top, rgba(157,11,11,0.6), transparent)',
                   filter: 'blur(20px)',
                 }}
               ></div>
 
               {/* Card Content */}
               <div className="relative z-10">
-                {/* Title and Price - More scannable */}
+                {/* Title and Price */}
                 <div className="text-center mb-5">
-                  <div className="bg-crimson/20 py-2 px-4 rounded-sm mb-3 border-2 border-crimson inline-block">
+                  <div className="bg-crimson/30 py-2 px-4 rounded-sm mb-3 inline-block">
                     <h3 className="font-cinzel text-2xl md:text-3xl text-crimson mb-1">
                       THE IMMORTAL QUEST
                     </h3>
@@ -277,7 +353,7 @@ export default function FinalCTASection({
                     </p>
                   </div>
 
-                  <div className="inline-block bg-crimson/30 border-2 border-crimson rounded-sm py-3 px-6">
+                  <div className="inline-block bg-crimson/40 rounded-sm py-3 px-6">
                     <span className="font-cinzel text-2xl text-crimson">
                       $111
                     </span>
@@ -285,7 +361,7 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* Benefits - Better formatted for scanning */}
+                {/* Benefits */}
                 <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-crimson mb-4 text-center">
                     Practical Benefits:
@@ -294,7 +370,7 @@ export default function FinalCTASection({
                     {questBenefits.map((benefit, index) => (
                       <div
                         key={index}
-                        className="flex items-start space-x-3 bg-crimson/5 p-2 rounded border border-crimson/30"
+                        className="flex items-start space-x-3 bg-crimson/10 p-2 rounded"
                       >
                         <div className="flex-shrink-0 mt-1">
                           <svg
@@ -326,15 +402,19 @@ export default function FinalCTASection({
                   </div>
                 </div>
 
-                {/* CTA Button - More prominent */}
+                {/* CTA Button - Enhanced for better visibility */}
                 <div className="text-center">
                   <motion.a
                     href="https://buy.stripe.com/bIY9Bt39L0QHdMceUV"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson to-crimson/80 border-2 border-crimson text-ivory uppercase tracking-wider font-medium font-cinzel text-lg rounded-sm transition-all duration-300 sacred-glow"
-                    whileHover={{ scale: 1.03 }}
+                    className="inline-block px-10 py-4 bg-gradient-to-r from-crimson/90 to-crimson/70 text-ivory uppercase tracking-wider font-medium font-cinzel text-lg rounded-sm transition-all duration-300"
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: '0 0 25px rgba(157,11,11,0.6)',
+                    }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    style={{ boxShadow: '0 0 15px rgba(157,11,11,0.4)' }}
                   >
                     JOIN THE QUEST
                   </motion.a>
@@ -343,12 +423,18 @@ export default function FinalCTASection({
             </motion.div>
           </div>
 
-          {/* Final Message - More scannable with better contrast */}
+          {/* Final Message */}
           <motion.div
             variants={itemVariants}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="bg-charcoal/60 border-2 border-gold/50 rounded-sm p-6 md:p-8 mb-8">
+            <div
+              className="bg-charcoal/60 rounded-sm p-6 md:p-8 mb-8"
+              style={{
+                boxShadow: '0 0 20px rgba(212,175,55,0.3)',
+                border: '2px solid rgba(212,175,55,0.3)',
+              }}
+            >
               <h3 className="font-cinzel text-xl text-gold mb-3">
                 Vision Statement:
               </h3>
@@ -367,30 +453,6 @@ export default function FinalCTASection({
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Initialize shimmer effect */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          document.addEventListener('DOMContentLoaded', function() {
-            const shimmerElements = document.querySelectorAll('.shimmer-text');
-            shimmerElements.forEach(element => {
-              element.animate(
-                [
-                  { backgroundPosition: '-100% 0' },
-                  { backgroundPosition: '200% 0' }
-                ],
-                {
-                  duration: 8000,
-                  iterations: Infinity,
-                  easing: 'linear'
-                }
-              );
-            });
-          });
-        `,
-        }}
-      />
     </section>
   );
 }

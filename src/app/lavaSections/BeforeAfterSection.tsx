@@ -77,11 +77,11 @@ export default function BeforeAfterSection() {
       ref={sectionRef}
       className="relative py-20 md:py-28 bg-gradient-to-b from-charcoal to-charcoal/90 text-ivory overflow-hidden"
     >
-      {/* Background Effects */}
+      {/* Enhanced Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/90"></div>
 
-      {/* Subtle glow and sacred geometry in background */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Enhanced glow and sacred geometry in background */}
+      <div className="absolute inset-0 opacity-20">
         <svg
           width="100%"
           height="100%"
@@ -147,6 +147,16 @@ export default function BeforeAfterSection() {
         </svg>
       </div>
 
+      {/* Enhanced energy glow effect */}
+      <div
+        className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1/3 opacity-30"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(212,175,55,0.4) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      ></div>
+
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
@@ -162,7 +172,7 @@ export default function BeforeAfterSection() {
               variants={itemVariants}
               className="md:col-span-6 space-y-6 order-2 md:order-1"
             >
-              {/* Bold Headline */}
+              {/* Bold Headline with enhanced shimmer effect */}
               <div className="mb-6">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
                   What Becomes Possible{' '}
@@ -176,61 +186,65 @@ export default function BeforeAfterSection() {
                       backgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       display: 'inline-block',
-                      textShadow: '0 0 10px rgba(212,175,55,0.3)',
+                      textShadow: '0 0 10px rgba(212,175,55,0.4)',
                     }}
                   >
                     With Clarity
                   </span>
                 </h2>
-                <div className="h-0.5 w-24 bg-gold mt-5 mb-6"></div>
+                <div className="h-1 w-24 bg-gold mt-5 mb-6 rounded-full"></div>
                 <p className="font-cormorant-upright text-xl md:text-2xl text-gold/90 italic">
                   This is the difference between drifting and destiny.
                 </p>
               </div>
 
-              {/* Before & After Table - Highly Visual Comparison with enhanced styling */}
+              {/* Before & After Table - Enhanced styling for more vibrancy */}
               <motion.div
                 variants={itemVariants}
-                className="overflow-hidden rounded-sm border-2 border-gold/40 bg-charcoal/50 shadow-xl"
+                className="overflow-hidden rounded-md shadow-2xl"
+                style={{
+                  boxShadow: '0 0 30px rgba(157,11,11,0.3)',
+                  border: '2px solid rgba(212,175,55,0.3)',
+                }}
               >
                 {/* Table Header */}
                 <div className="grid grid-cols-3 text-ivory">
-                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/20 bg-gradient-to-b from-charcoal/80 to-charcoal">
+                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/40 bg-gradient-to-b from-charcoal/90 to-charcoal">
                     <h3 className="font-cinzel text-lg md:text-xl text-gold">
                       Category
                     </h3>
                   </div>
-                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/20 bg-gradient-to-b from-crimson/90 to-crimson/70">
+                  <div className="py-4 px-4 md:px-6 text-center border-r border-gold/40 bg-gradient-to-b from-crimson to-crimson/80">
                     <h3 className="font-cinzel text-lg md:text-xl text-ivory font-bold">
-                      <span className="opacity-60">❌</span> Before
+                      <span className="opacity-80">❌</span> Before
                     </h3>
                   </div>
-                  <div className="py-4 px-4 md:px-6 text-center bg-gradient-to-b from-gold/30 to-gold/20">
+                  <div className="py-4 px-4 md:px-6 text-center bg-gradient-to-b from-gold/50 to-gold/30">
                     <h3 className="font-cinzel text-lg md:text-xl text-charcoal font-bold">
-                      <span className="opacity-80">✓</span> After
+                      <span className="opacity-90">✓</span> After
                     </h3>
                   </div>
                 </div>
 
-                {/* Table Rows */}
+                {/* Table Rows with enhanced contrast */}
                 {comparisonData.map((item, index) => (
                   <div
                     key={index}
                     className={`grid grid-cols-3 ${
-                      index % 2 === 0 ? 'bg-charcoal/30' : 'bg-charcoal/10'
+                      index % 2 === 0 ? 'bg-charcoal/40' : 'bg-charcoal/20'
                     }`}
                   >
-                    <div className="py-4 px-4 md:px-6 border-r border-gold/10 flex items-center">
+                    <div className="py-4 px-4 md:px-6 border-r border-gold/20 flex items-center bg-gradient-to-r from-transparent to-gold/5">
                       <h4 className="font-cinzel text-base md:text-lg text-gold text-center w-full">
                         {item.category}
                       </h4>
                     </div>
-                    <div className="py-4 px-4 md:px-6 border-r border-gold/10 bg-crimson/5">
-                      <p className="font-inter text-sm md:text-base text-ivory/80 text-center">
+                    <div className="py-4 px-4 md:px-6 border-r border-gold/20 bg-crimson/10">
+                      <p className="font-inter text-sm md:text-base text-ivory/90 text-center">
                         {item.before}
                       </p>
                     </div>
-                    <div className="py-4 px-4 md:px-6 bg-gold/5">
+                    <div className="py-4 px-4 md:px-6 bg-gold/10">
                       <p className="font-inter text-sm md:text-base text-gold font-medium text-center">
                         {item.after}
                       </p>
@@ -239,7 +253,7 @@ export default function BeforeAfterSection() {
                 ))}
               </motion.div>
 
-              {/* Section CTA - Single Clear Action */}
+              {/* Section CTA - Enhanced button */}
               <motion.div
                 variants={itemVariants}
                 className="pt-6"
@@ -248,23 +262,43 @@ export default function BeforeAfterSection() {
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/40 to-gold/20 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/40"
+                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/60 to-gold/40 text-charcoal uppercase tracking-wider font-bold text-base overflow-hidden rounded-sm relative"
+                  style={{
+                    boxShadow: '0 0 20px rgba(212,175,55,0.3)',
+                    border: '1px solid rgba(212,175,55,0.5)',
+                  }}
                 >
-                  <span className="relative z-10">
+                  <span className="relative z-10 font-cinzel">
                     CLAIM YOUR TRANSFORMATION
                   </span>
                 </a>
               </motion.div>
             </motion.div>
 
-            {/* Right Column - Portrait Video */}
+            {/* Right Column - Portrait Video with enhanced glow effects */}
             <motion.div
               variants={itemVariants}
               className="md:col-span-6 relative order-1 md:order-2"
             >
               <div className="relative book-shine">
+                {/* Enhanced glow behind video */}
+                <div
+                  className="absolute -inset-4 opacity-70 rounded-lg"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(212,175,55,0.3), rgba(157,11,11,0.2), transparent)',
+                    filter: 'blur(20px)',
+                  }}
+                ></div>
+
                 {/* Video element */}
-                <div className="relative rounded-lg overflow-hidden shadow-2xl sacred-glow">
+                <div
+                  className="relative rounded-lg overflow-hidden shadow-2xl"
+                  style={{
+                    boxShadow: '0 0 30px rgba(157,11,11,0.3)',
+                    border: '2px solid rgba(212,175,55,0.3)',
+                  }}
+                >
                   {/* Video aspect ratio container */}
                   <div className="relative pb-[130%]">
                     <video
@@ -278,31 +312,37 @@ export default function BeforeAfterSection() {
                       Your browser does not support the video tag.
                     </video>
 
-                    {/* Elegant frame overlay */}
-                    <div className="absolute inset-0 border-2 border-gold/40 pointer-events-none"></div>
+                    {/* Enhanced frame overlay */}
+                    <div className="absolute inset-0 border-2 border-gold/50 pointer-events-none"></div>
 
-                    {/* Corner accents */}
-                    <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/70"></div>
-                    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/70"></div>
-                    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/70"></div>
-                    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/70"></div>
+                    {/* Enhanced corner accents */}
+                    <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/90"></div>
+                    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/90"></div>
+                    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/90"></div>
+                    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/90"></div>
 
-                    {/* Video overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent"></div>
+                    {/* Enhanced video overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"></div>
                   </div>
                 </div>
 
-                {/* Inspirational quote overlay at the bottom */}
-                <div className="absolute bottom-6 left-6 right-6 bg-charcoal/80 backdrop-blur-sm p-4 rounded-sm border-l-3 border-gold">
+                {/* Enhanced inspirational quote overlay */}
+                <div
+                  className="absolute bottom-6 left-6 right-6 bg-charcoal/80 backdrop-blur-sm p-4 rounded-sm"
+                  style={{
+                    border: '2px solid rgba(212,175,55,0.5)',
+                    boxShadow: '0 0 15px rgba(212,175,55,0.3)',
+                  }}
+                >
                   <p className="font-cormorant-upright text-lg text-ivory/95 italic">
                     &ldquo;The choice is yours: continue drifting, or step into
                     your destiny.&rdquo;
                   </p>
                 </div>
 
-                {/* Artistic light effects */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/30 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-crimson/30 rounded-full blur-xl"></div>
+                {/* Enhanced artistic light effects */}
+                <div className="absolute -top-6 -right-6 w-28 h-28 bg-gold/40 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-crimson/40 rounded-full blur-xl"></div>
               </div>
             </motion.div>
           </div>

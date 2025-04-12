@@ -62,11 +62,21 @@ export default function FaqSection() {
       ref={sectionRef}
       className="relative py-20 md:py-28 bg-ivory text-charcoal overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 mystical-pattern opacity-30"></div>
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0 mystical-pattern opacity-40"></div>
 
-      {/* Golden decorative element - top */}
-      <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+      {/* Enhanced top decorative element */}
+      <div className="absolute top-0 left-0 w-full h-6 bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+
+      {/* Additional background glow effect */}
+      <div
+        className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1/3 opacity-30"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(157,11,11,0.2) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      ></div>
 
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -76,18 +86,18 @@ export default function FaqSection() {
           animate={isInView ? 'visible' : 'hidden'}
           className="max-w-4xl mx-auto"
         >
-          {/* Section Header */}
+          {/* Enhanced Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
             <div className="inline-block">
-              <div className="h-0.5 w-12 bg-crimson mx-auto mb-3"></div>
+              <div className="h-1 w-12 bg-crimson mx-auto mb-3 rounded-full"></div>
               <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-2 tracking-wide text-charcoal">
                 Common <span className="text-crimson">Questions</span>
               </h2>
-              <div className="h-0.5 w-12 bg-crimson mx-auto mt-3"></div>
+              <div className="h-1 w-12 bg-crimson mx-auto mt-3 rounded-full"></div>
             </div>
           </motion.div>
 
-          {/* FAQ Accordion */}
+          {/* Enhanced FAQ Accordion */}
           <div className="space-y-6">
             {faqItems.map((item, index) => (
               <motion.div
@@ -97,11 +107,17 @@ export default function FaqSection() {
               >
                 <div
                   onClick={() => toggleFaq(index)}
-                  className={`flex justify-between items-center p-5 cursor-pointer transition-colors duration-300 ${
+                  className={`flex justify-between items-center p-5 cursor-pointer transition-colors duration-300 rounded-md ${
                     activeIndex === index
-                      ? 'bg-gold/10 border-l-4 border-gold rounded-tl-sm'
-                      : 'bg-charcoal/5 hover:bg-charcoal/10 rounded-sm'
+                      ? 'bg-gold/20 border-l-4 border-gold rounded-tl-sm'
+                      : 'bg-charcoal/10 hover:bg-charcoal/15'
                   }`}
+                  style={{
+                    boxShadow:
+                      activeIndex === index
+                        ? '0 0 15px rgba(212,175,55,0.2)'
+                        : 'none',
+                  }}
                 >
                   <h3 className="font-cinzel text-lg md:text-xl text-charcoal">
                     {item.question}
@@ -149,9 +165,9 @@ export default function FaqSection() {
             ))}
           </div>
 
-          {/* Additional Question Prompt */}
+          {/* Enhanced Additional Question Prompt */}
           <motion.div variants={itemVariants} className="mt-12 text-center">
-            <div className="prophetic-quote inline-block max-w-2xl mx-auto">
+            <div className="prophetic-quote inline-block max-w-2xl mx-auto p-6 bg-gradient-to-r from-transparent via-gold/10 to-transparent rounded-md">
               <p className="font-cormorant-upright text-xl text-crimson/90 italic">
                 Have more questions? Book a session and get answers directly
                 from Paul.
@@ -159,7 +175,7 @@ export default function FaqSection() {
             </div>
           </motion.div>
 
-          {/* CTA */}
+          {/* Enhanced CTA */}
           <motion.div variants={itemVariants} className="text-center mt-10">
             <motion.div
               whileHover={{ scale: 1.03 }}
@@ -167,15 +183,20 @@ export default function FaqSection() {
               className="inline-block"
             >
               <div className="relative group">
-                {/* Glow effect */}
-                <span className="absolute -inset-0.5 bg-gradient-to-r from-crimson/70 via-gold/50 to-crimson/70 opacity-70 group-hover:opacity-90 blur-sm group-hover:blur rounded-sm transition-all duration-500"></span>
+                {/* Enhanced glow effect */}
+                <span
+                  className="absolute -inset-0.5 bg-gradient-to-r from-crimson/70 via-gold/50 to-crimson/70 opacity-80 group-hover:opacity-100 blur group-hover:blur-md rounded-sm transition-all duration-500"
+                  style={{
+                    boxShadow: '0 0 15px rgba(157,11,11,0.3)',
+                  }}
+                ></span>
 
                 {/* Main button */}
                 <a
-                  href="https://buy.stripe.com/8wMbJB5hTeHxgYoaEE"
-                  className="relative block px-8 py-3 bg-gradient-to-r from-crimson to-crimson/90 text-gold uppercase tracking-wider font-medium text-base overflow-hidden border border-gold/30 flame-button rounded-sm"
+                  href="#final-cta"
+                  className="relative block px-8 py-4 bg-gradient-to-r from-crimson to-crimson/90 text-gold uppercase tracking-wider font-bold text-base overflow-hidden border border-gold/30 rounded-sm"
                 >
-                  <span className="relative z-10 flex items-center justify-center">
+                  <span className="relative z-10 flex items-center justify-center font-cinzel">
                     BOOK YOUR SESSION NOW
                   </span>
                 </a>
@@ -185,8 +206,8 @@ export default function FaqSection() {
         </motion.div>
       </div>
 
-      {/* Golden decorative element - bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-4 bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+      {/* Enhanced bottom decorative element */}
+      <div className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
     </section>
   );
 }

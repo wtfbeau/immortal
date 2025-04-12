@@ -55,20 +55,33 @@ export default function ProblemSection() {
     <section
       id="problem"
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-charcoal text-ivory overflow-hidden"
+      className="relative py-24 md:py-32 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/90 text-ivory overflow-hidden"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/95"></div>
+      {/* Enhanced vibrant background effects */}
+      <div className="absolute inset-0">
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/95"></div>
 
-      {/* Subtle flame effect at bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 opacity-20"
-        style={{
-          background:
-            'linear-gradient(to top, rgba(157,11,11,0.3), transparent)',
-          filter: 'blur(40px)',
-        }}
-      ></div>
+        {/* Crimson flame glow */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-60 opacity-30"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(157,11,11,0.5), transparent)',
+            filter: 'blur(50px)',
+          }}
+        ></div>
+
+        {/* Gold accent light */}
+        <div
+          className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/3 opacity-20"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(212,175,55,0.4) 0%, transparent 70%)',
+            filter: 'blur(60px)',
+          }}
+        ></div>
+      </div>
 
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -86,8 +99,11 @@ export default function ProblemSection() {
               className="md:col-span-5 relative"
             >
               <div className="relative">
-                {/* Visual element - portrait image */}
-                <div className="relative rounded-lg overflow-hidden shadow-xl sacred-glow">
+                {/* Enhanced visual element - portrait image with glowing effect */}
+                <div
+                  className="relative rounded-lg overflow-hidden shadow-2xl"
+                  style={{ boxShadow: '0 0 30px rgba(157,11,11,0.3)' }}
+                >
                   <Image
                     src="/images/hero.webp"
                     alt="Trapped Potential"
@@ -96,22 +112,22 @@ export default function ProblemSection() {
                     className="w-full h-auto object-cover filter brightness-90"
                   />
 
-                  {/* Overlay effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent"></div>
+                  {/* Overlay effect with more vibrancy */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-crimson/40 via-charcoal/30 to-transparent"></div>
 
-                  {/* Artistic frame */}
-                  <div className="absolute inset-0 border border-crimson/30 pointer-events-none"></div>
+                  {/* Artistic frame - more visible */}
+                  <div className="absolute inset-0 border-2 border-gold/50 pointer-events-none"></div>
 
-                  {/* Corner accents */}
-                  <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-gold/50"></div>
-                  <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-gold/50"></div>
-                  <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-gold/50"></div>
-                  <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-gold/50"></div>
+                  {/* Corner accents - more prominent */}
+                  <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-gold/80"></div>
+                  <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-gold/80"></div>
+                  <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-gold/80"></div>
+                  <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-gold/80"></div>
                 </div>
 
-                {/* Artistic light effect */}
-                <div className="absolute -top-5 -right-5 w-24 h-24 bg-crimson/30 rounded-full blur-2xl"></div>
-                <div className="absolute top-1/2 -left-8 w-16 h-16 bg-gold/20 rounded-full blur-xl"></div>
+                {/* Enhanced artistic light effects */}
+                <div className="absolute -top-5 -right-5 w-32 h-32 bg-crimson/30 rounded-full blur-2xl"></div>
+                <div className="absolute top-1/2 -left-8 w-24 h-24 bg-gold/30 rounded-full blur-xl"></div>
               </div>
             </motion.div>
 
@@ -120,7 +136,7 @@ export default function ProblemSection() {
               variants={itemVariants}
               className="md:col-span-7 space-y-8"
             >
-              {/* Bold Headline */}
+              {/* Bold Headline with enhanced shimmer effect */}
               <div className="mb-8">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
                   You Are Not Seeing{' '}
@@ -134,13 +150,13 @@ export default function ProblemSection() {
                       backgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       display: 'inline-block',
-                      textShadow: '0 0 10px rgba(212,175,55,0.3)',
+                      textShadow: '0 0 10px rgba(212,175,55,0.4)',
                     }}
                   >
                     Your Full Power
                   </span>
                 </h2>
-                <div className="h-0.5 w-24 bg-gold mt-6 mb-8"></div>
+                <div className="h-1 w-24 bg-gold mt-6 mb-8 rounded-full"></div>
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
                   The modern world has conditioned you to play small. To accept
                   limitations. To dim your flame. But deep down, you know
@@ -148,16 +164,25 @@ export default function ProblemSection() {
                 </p>
               </div>
 
-              {/* Problem Statements - Highly scannable */}
+              {/* Problem Statements - Enhanced for better scanning with vibrant colors */}
               <div className="space-y-6">
                 {problemItems.map((item, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="flex items-start space-x-4 bg-gradient-to-r from-charcoal/40 via-charcoal/50 to-charcoal/40 border border-gold/20 p-4 rounded-sm shadow-lg transform hover:translate-x-1 transition-transform duration-300"
+                    className="flex items-start space-x-4 rounded-md transform hover:translate-x-1 transition-transform duration-300"
+                    style={{
+                      background:
+                        'linear-gradient(to right, rgba(157,11,11,0.3), rgba(30,30,30,0.6))',
+                      boxShadow: '0 0 15px rgba(157,11,11,0.2)',
+                      border: '1px solid rgba(212,175,55,0.3)',
+                    }}
+                    whileHover={{
+                      boxShadow: '0 0 20px rgba(212,175,55,0.3)',
+                    }}
                   >
-                    <div className="flex-shrink-0 mt-1">
+                    <div className="flex-shrink-0 bg-crimson/20 p-4">
                       <svg
-                        className="w-6 h-6 text-crimson"
+                        className="w-6 h-6 text-gold"
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -171,31 +196,37 @@ export default function ProblemSection() {
                         />
                       </svg>
                     </div>
-                    <p className="font-inter text-lg text-ivory/90">{item}</p>
-                  </div>
+                    <p className="font-inter text-lg text-ivory/90 py-4 pr-4">
+                      {item}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
 
-              {/* Emotional Transition Statement */}
-              <div className="mt-10 py-4 border-t border-b border-gold/30 bg-gradient-to-r from-transparent via-gold/10 to-transparent">
-                <p className="font-cormorant-upright text-xl md:text-2xl text-gold italic">
+              {/* Emotional Transition Statement - More vibrant */}
+              <div
+                className="mt-10 py-4 bg-gradient-to-r from-gold/10 via-gold/20 to-gold/10 rounded-md"
+                style={{ boxShadow: '0 0 15px rgba(212,175,55,0.2)' }}
+              >
+                <p className="font-cormorant-upright text-xl md:text-2xl text-gold italic text-center px-4">
                   These barriers aren&apos;t real. They&apos;re illusions — and
                   Paul is here to help you shatter them.
                 </p>
               </div>
 
-              {/* Section CTA - Single Clear Action */}
+              {/* Section CTA - Enhanced button */}
               <motion.div
                 variants={itemVariants}
-                className="pt-8"
+                className="pt-8 text-center md:text-left"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <a
                   href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-gold/30 via-gold/20 to-gold/30 text-gold uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/50 shadow-md shadow-gold/10"
+                  className="inline-block px-8 py-4 bg-gradient-to-r from-gold/50 via-gold/40 to-gold/50 text-charcoal font-bold uppercase tracking-wider text-base rounded-sm relative shadow-lg"
+                  style={{ boxShadow: '0 0 20px rgba(212,175,55,0.3)' }}
                 >
-                  <span className="relative z-10">
+                  <span className="relative z-10 font-cinzel">
                     BREAK FREE FROM LIMITATIONS
                   </span>
                 </a>
