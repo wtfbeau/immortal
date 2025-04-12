@@ -1,7 +1,7 @@
 .
 ├── README.md
 ├── eslint.config.mjs
-├── frontend_structure.txt
+├── frontend.txt
 ├── next-env.d.ts
 ├── next.config.ts
 ├── package-lock.json
@@ -9,7 +9,10 @@
 ├── postcss.config.mjs
 ├── public
 │   ├── images
-│   │   ├── Logo.png
+│   │   ├── Alexander_L_testimonial.webp
+│   │   ├── James_Holder_testimonial.webp
+│   │   ├── Leeor_Chabat_testimonial.webp
+│   │   ├── Logo.webp
 │   │   ├── amatrice-mirror.webp
 │   │   ├── artsy-3.webp
 │   │   ├── artsy-4.webp
@@ -20,15 +23,21 @@
 │   │   ├── beautiful-doggy.webp
 │   │   ├── boar-white-2.webp
 │   │   ├── boat-white.webp
+│   │   ├── book-upcoming.webp
 │   │   ├── book1.webp
+│   │   ├── book2.webp
 │   │   ├── bros-2.webp
 │   │   ├── bros-fash.webp
 │   │   ├── bros.webp
 │   │   ├── burji-pic.webp
 │   │   ├── chill.webp
+│   │   ├── closeup_cutie.webp
 │   │   ├── cool-pic-2.webp
 │   │   ├── cool-pic.webp
 │   │   ├── cute-selfie-doggy.webp
+│   │   ├── delluxe-ball-portrait.webp
+│   │   ├── delluxe_ball.webp
+│   │   ├── delluxe_ball_2.webp
 │   │   ├── dior-night-2.webp
 │   │   ├── dior-night-3.webp
 │   │   ├── dior-soon.webp
@@ -37,6 +46,7 @@
 │   │   ├── dubai-pic.webp
 │   │   ├── fash.webp
 │   │   ├── fashion.webp
+│   │   ├── favicon.webp
 │   │   ├── ferarri-jacket-2.webp
 │   │   ├── ferarri-jacket.webp
 │   │   ├── ferarri-night-2.webp
@@ -44,15 +54,30 @@
 │   │   ├── g-wagon-2.webp
 │   │   ├── g-wagon.webp
 │   │   ├── good-selfie.webp
+│   │   ├── graduation.webp
 │   │   ├── gym-meditating.webp
 │   │   ├── gym-selfie.webp
+│   │   ├── hero2.webp
 │   │   ├── indoor-doggy-cute-2.webp
 │   │   ├── indoor-doggy-cute-3.webp
 │   │   ├── indoor-doggy-cute.webp
 │   │   ├── knockout-training.webp
+│   │   ├── linkedin.webp
 │   │   ├── logo-3.jpeg
 │   │   ├── logo-3.webp
 │   │   ├── logo.jpg
+│   │   ├── logos
+│   │   │   ├── NZ-Post-Logo-w.webp
+│   │   │   ├── PepClothing.webp
+│   │   │   ├── RNZ-White.webp
+│   │   │   ├── Sage_logo_white.webp
+│   │   │   ├── UoA-Logo-Mono-Landscape.webp
+│   │   │   ├── asx.webp
+│   │   │   ├── bcg-logo.webp
+│   │   │   ├── bloomberg.webp
+│   │   │   ├── google-scholar.webp
+│   │   │   ├── nzh-logo.webp
+│   │   │   └── tedx.webp
 │   │   ├── marvel-1.webp
 │   │   ├── marvel-2.webp
 │   │   ├── marvel-3.webp
@@ -76,8 +101,12 @@
 │   │   ├── night-modelling.webp
 │   │   ├── river-group.webp
 │   │   ├── selfie-cute.webp
+│   │   ├── selfie-gf.webp
+│   │   ├── shiva.webp
 │   │   ├── suite-cuite.webp
-│   │   └── wake-city.webp
+│   │   ├── tedx.webp
+│   │   ├── wake-city.webp
+│   │   └── Sophia_testimonial.webp
 │   └── videos
 │       ├── balenciaga-ferrari.mp4
 │       ├── be-nice.mp4
@@ -96,13 +125,40 @@
 │       └── modelling-f.mp4
 ├── src
 │   └── app
+│       ├── VIP-consultation
+│       │   └── page.tsx
 │       ├── components
 │       │   ├── Footer.tsx
 │       │   └── Navbar.tsx
 │       ├── favicon.ico
+│       ├── flame
+│       │   └── page.tsx
 │       ├── fonts
 │       ├── globals.css
 │       ├── hooks
+│       ├── ir-components
+│       │   ├── MembershipBenefits.tsx
+│       │   ├── NextSteps.tsx
+│       │   ├── PromiseSection.tsx
+│       │   ├── RoomOfLightHero.tsx
+│       │   ├── RoomTestimonials.tsx
+│       │   ├── ValueComparison.tsx
+│       │   └── WhyThisWorks.tsx
+│       ├── lava
+│       │   └── page.tsx
+│       ├── lavaSections
+│       │   ├── AboutSection.tsx
+│       │   ├── Bottom.tsx
+│       │   ├── CTASection.tsx
+│       │   ├── CountDownTimer.tsx
+│       │   ├── FAQsection.tsx
+│       │   ├── Header.tsx
+│       │   ├── HeroSection1.tsx
+│       │   ├── OfferingCard.tsx
+│       │   ├── OfferingSection.tsx
+│       │   ├── Onboarding.tsx
+│       │   ├── Testimonials.tsx
+│       │   └── VipOutcomeSection.tsx
 │       ├── layout.tsx
 │       ├── page.tsx
 │       ├── sections
@@ -121,4 +177,4 @@
 ├── tailwind.config.js
 └── tsconfig.json
 
-11 directories, 111 files
+17 directories, 161 files
