@@ -19,9 +19,6 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Introduction Section */}
-      <IntroductionSection />
-
       {/* Problem Section */}
       <ProblemSection />
 
@@ -43,11 +40,14 @@ export default function Home() {
       {/* Before & After Transformation */}
       <BeforeAfterSection />
 
-      {/* FAQ Section */}
-      <FaqSection />
-
       {/* Final CTA Section */}
       <FinalCTASection id="final-cta" />
+
+      {/* Introduction Section */}
+      <IntroductionSection />
+
+      {/* FAQ Section */}
+      <FaqSection />
 
       {/* Footer */}
       <Footer />
