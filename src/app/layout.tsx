@@ -46,11 +46,44 @@ const cormorantUpright = Cormorant_Upright({
 });
 
 export const metadata: Metadata = {
-  title: 'Immortal Paul Rataul | Prophet. Artist. Warrior. Reformer',
+  title: 'Join Paul Rataul | Artist. Warrior. Reformer',
   description:
-    'The digital temple of Paul Rataul - artist, prophet, warrior, and global reformer. Join the flame of truth, fire, and revolution.',
+    'Welcome to the world of Paul Rataul — artist, creative force, and global voice for change. This is where bold ideas, raw truth, and artistic energy come to life.',
+  metadataBase: new URL('https://immortalpaul.com'),
+  openGraph: {
+    title: 'Immortal Paul Rataul | Artist. Warrior. Reformer',
+    description:
+      'Welcome to the world of Paul Rataul — artist, creative force, and global voice for change. This is where bold ideas, raw truth, and artistic rebellion come to life.',
+    url: 'https://immortalpaul.com',
+    siteName: 'Immortal Paul Rataul',
+    images: [
+      {
+        url: '/images/hero.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Immortal Paul Rataul',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Immortal Paul Rataul | Artist. Warrior. Reformer',
+    description:
+      'Welcome to the world of Paul Rataul — artist, creative force, and global voice for change. This is where bold ideas, raw truth, and artistic rebellion come to life.',
+    images: ['/images/hero.webp'],
+  },
   icons: {
     icon: '/images/favicon.webp',
+    apple: '/images/favicon.webp',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://immortalpaul.com',
   },
 };
 

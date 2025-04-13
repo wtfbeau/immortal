@@ -9,14 +9,18 @@ import OfferingQuestSection from '../lavaSections/OfferingQuestSection';
 import ProblemSection from '../lavaSections/ProblemSection';
 import TestimonialsSection from '../lavaSections/TestimonialsSection';
 import TransformationSection from '../lavaSections/TransformationSection';
-import OfferingVipSection from '../lavaSections/VipOfferingSection';
+import VipOfferingSection from '../lavaSections/VipOfferingSection';
 
 export default function Home() {
   return (
     <main>
       <Header />
+
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Introduction Section - Moved up for better context */}
+      <IntroductionSection />
 
       {/* Problem Section */}
       <ProblemSection />
@@ -27,23 +31,20 @@ export default function Home() {
       {/* Method Section */}
       <MethodSection />
 
+      {/* Before & After Transformation */}
+      <BeforeAfterSection />
+
       {/* VIP Offering Section */}
-      <OfferingQuestSection />
+      <VipOfferingSection />
 
       {/* Quest Offering Section */}
-      <OfferingVipSection />
+      <OfferingQuestSection />
 
       {/* Testimonials Section */}
       <TestimonialsSection />
 
-      {/* Before & After Transformation */}
-      <BeforeAfterSection />
-
       {/* Final CTA Section */}
       <FinalCTASection id="final-cta" />
-
-      {/* Introduction Section */}
-      <IntroductionSection />
 
       {/* Footer */}
       <Footer />
