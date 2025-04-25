@@ -48,23 +48,23 @@ export default function FinalCTASection({
     },
   };
 
-  // Offering benefits - simplified for better scanning
+  // Offering benefits - simplified for better scanning and more tangible outcomes
   const vipBenefits = [
-    'Crystal clear vision on your current situation',
-    'A bold, specific 30-day action plan',
-    'Strategic guidance from a world-class mind',
-    'Custom tools and recommendations tailored to you',
-    "Personal diagnosis of what's holding you back",
-    'Unfiltered answers to your most pressing questions',
+    'Comprehensive assessment of your current situation',
+    'Customized 30-day action plan with specific milestones',
+    'Strategic guidance from an elite business mind',
+    'Personalized tools and frameworks tailored to your needs',
+    'Clear diagnosis of your hidden performance blockers',
+    'Direct answers to your most pressing questions',
   ];
 
   const questBenefits = [
-    'Daily guidance to maintain clarity and focus',
-    'A structured 90-day system for transformation',
-    'Community support from like-minded individuals',
-    'Weekly strategic insights on business and purpose',
-    'Tools to track your progress and celebrate wins',
-    "Ongoing access to Paul's most powerful teachings",
+    'Weekly accountability check-ins to maintain momentum',
+    'Structured 90-day transformation system with clear metrics',
+    'Community support from like-minded high achievers',
+    'Strategic insights on business growth and leadership',
+    'Progress tracking tools to measure your advancement',
+    "Ongoing access to Paul's exclusive training materials",
   ];
 
   return (
@@ -73,7 +73,7 @@ export default function FinalCTASection({
       ref={sectionRef}
       className="relative py-24 md:py-32 bg-gradient-to-b from-charcoal to-black text-ivory overflow-hidden"
     >
-      {/* Vibrant background effects */}
+      {/* Background effects - simplified but still visually engaging */}
       <div className="absolute inset-0">
         {/* Center glow - more vibrant */}
         <div
@@ -106,76 +106,6 @@ export default function FinalCTASection({
         ></div>
       </div>
 
-      {/* Sacred geometry background element - more vibrant */}
-      <div className="absolute inset-0 opacity-30">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          {/* Large sacred circle */}
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-
-          <circle
-            cx="50"
-            cy="50"
-            r="35"
-            stroke="#9D0B0B"
-            strokeWidth="0.2"
-            fill="none"
-          />
-
-          <circle
-            cx="50"
-            cy="50"
-            r="25"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-
-          {/* Sacred triangles */}
-          <polygon
-            points="50,5 95,80 5,80"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-          <polygon
-            points="50,95 5,20 95,20"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-
-          {/* Center mandala */}
-          <circle
-            cx="50"
-            cy="50"
-            r="15"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="5"
-            stroke="#D4AF37"
-            strokeWidth="0.2"
-            fill="none"
-          />
-        </svg>
-      </div>
-
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
@@ -184,9 +114,9 @@ export default function FinalCTASection({
           animate={isInView ? 'visible' : 'hidden'}
           className="max-w-6xl mx-auto"
         >
-          {/* Sacred Quote - Larger, more impactful */}
+          {/* Compelling Headline */}
           <motion.div variants={itemVariants} className="text-center mb-14">
-            <div className="prophetic-quote mb-8 max-w-4xl mx-auto">
+            <div className="mb-8 max-w-4xl mx-auto">
               <h2
                 className="font-cinzel text-3xl sm:text-4xl md:text-5xl shimmer-text"
                 style={{
@@ -201,20 +131,20 @@ export default function FinalCTASection({
                   lineHeight: '1.3',
                 }}
               >
-                &ldquo;The Coming is not me. It is you. It is all.&rdquo;
+                Ready to Transform Your Results?
               </h2>
             </div>
 
             <p className="font-cormorant-upright text-xl md:text-2xl text-ivory italic mt-6 mb-3">
-              The portal is open. This is where your journey begins.
+              Take the first step toward the breakthrough you have been seeking.
             </p>
             <p className="font-inter text-lg md:text-xl text-ivory mb-5 max-w-2xl mx-auto">
-              If you feel the call — that subtle fire stirring in your chest —
-              trust it. That&apos;s the signal.
+              If you feel that pull toward something greater — that sense that
+              you are capable of so much more — trust it. It is time to act.
             </p>
           </motion.div>
 
-          {/* Offering Cards - Side by Side with vibrant colors */}
+          {/* Offering Cards - Side by Side with improved visibility and clarity */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
             {/* VIP Activation - Gold Theme */}
             <motion.div
@@ -244,10 +174,10 @@ export default function FinalCTASection({
                 <div className="text-center mb-5">
                   <div className="bg-gold/30 py-2 px-4 rounded-sm mb-3 inline-block">
                     <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-1">
-                      THE IMMORTAL IGNITION
+                      EXECUTIVE BREAKTHROUGH
                     </h3>
                     <p className="font-cormorant-upright text-lg text-ivory italic">
-                      VIP ACTIVATION
+                      1:1 PRIVATE COACHING
                     </p>
                   </div>
 
@@ -260,7 +190,7 @@ export default function FinalCTASection({
                 {/* Benefits */}
                 <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-gold mb-4 text-center">
-                    What You&apos;ll Gain:
+                    What You will Receive:
                   </h4>
                   <div className="space-y-3">
                     {vipBenefits.map((benefit, index) => (
@@ -312,7 +242,7 @@ export default function FinalCTASection({
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     style={{ boxShadow: '0 0 15px rgba(212,175,55,0.4)' }}
                   >
-                    ACTIVATE YOUR FLAME
+                    BOOK YOUR SESSION
                   </motion.a>
                 </div>
               </div>
@@ -346,10 +276,10 @@ export default function FinalCTASection({
                 <div className="text-center mb-5">
                   <div className="bg-crimson/30 py-2 px-4 rounded-sm mb-3 inline-block">
                     <h3 className="font-cinzel text-2xl md:text-3xl text-crimson mb-1">
-                      THE IMMORTAL QUEST
+                      EXECUTIVE MASTERY
                     </h3>
                     <p className="font-cormorant-upright text-lg text-ivory italic">
-                      MONTHLY MEMBERSHIP
+                      ONGOING COACHING
                     </p>
                   </div>
 
@@ -364,7 +294,7 @@ export default function FinalCTASection({
                 {/* Benefits */}
                 <div className="mb-7">
                   <h4 className="font-cinzel text-xl text-crimson mb-4 text-center">
-                    Practical Benefits:
+                    Key Benefits:
                   </h4>
                   <div className="space-y-3">
                     {questBenefits.map((benefit, index) => (
@@ -416,7 +346,7 @@ export default function FinalCTASection({
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     style={{ boxShadow: '0 0 15px rgba(157,11,11,0.4)' }}
                   >
-                    JOIN THE QUEST
+                    JOIN THE PROGRAM
                   </motion.a>
                 </div>
               </div>
@@ -436,19 +366,21 @@ export default function FinalCTASection({
               }}
             >
               <h3 className="font-cinzel text-xl text-gold mb-3">
-                Vision Statement:
+                My Promise to You:
               </h3>
               <p className="font-inter text-lg text-ivory">
-                Join a global movement that&apos;s fusing ancient wisdom with
-                modern power, building a world of truth, love, and mastery.
+                You will receive practical, actionable guidance that combines
+                strategic thinking with personal development – helping you
+                achieve both your business goals and personal fulfillment.
               </p>
             </div>
 
             <p className="font-cormorant-upright text-2xl text-gold italic mb-2">
-              Your transformation begins instantly.
+              Your transformation begins the moment you decide.
             </p>
             <p className="font-inter text-lg text-ivory italic">
-              The flame awaits. Your destiny calls.
+              The breakthrough you have been waiting for is just one decision
+              away.
             </p>
           </motion.div>
         </motion.div>

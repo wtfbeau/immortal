@@ -42,7 +42,7 @@ export default function VIPOfferingSection() {
     },
   };
 
-  // VIP features with icons
+  // VIP features with more concrete, tangible items
   const vipFeatures = [
     {
       icon: (
@@ -60,8 +60,8 @@ export default function VIPOfferingSection() {
           />
         </svg>
       ),
-      title: '1:1 Private Prophetic Session',
-      description: '60-90 mins with Paul Rataul',
+      title: '1:1 Coaching Session',
+      description: '90-minute deep-dive with Paul Rataul',
     },
     {
       icon: (
@@ -79,8 +79,8 @@ export default function VIPOfferingSection() {
           />
         </svg>
       ),
-      title: 'Custom Immortal Path Activation Map',
-      description: 'Your sacred blueprint across mind, body, soul, and mission',
+      title: 'Personalized Action Plan',
+      description: 'Custom roadmap for your specific goals and challenges',
     },
     {
       icon: (
@@ -98,7 +98,7 @@ export default function VIPOfferingSection() {
           />
         </svg>
       ),
-      title: '3 Days of Integration Support',
+      title: '3 Days of Follow-up Support',
       description: 'Voxer/Telegram access for questions and guidance',
     },
     {
@@ -117,9 +117,9 @@ export default function VIPOfferingSection() {
           />
         </svg>
       ),
-      title: 'Exclusive Access to the Immortal Vault',
+      title: 'Executive Resource Library',
       description:
-        'Premium teachings from The Path, The Warrior, and Worldcraft',
+        'Premium frameworks, tools, and templates for business growth',
     },
     {
       icon: (
@@ -137,8 +137,8 @@ export default function VIPOfferingSection() {
           />
         </svg>
       ),
-      title: 'Inner Circle Ritual Invitation',
-      description: 'One exclusive Zoom call with fellow initiates',
+      title: 'Leadership Group Invitation',
+      description: 'One exclusive Zoom call with fellow high-achievers',
     },
     {
       icon: (
@@ -156,19 +156,20 @@ export default function VIPOfferingSection() {
           />
         </svg>
       ),
-      title: 'Immortal Warrior Audio Pack',
-      description: 'Sacred sonic tools for daily activation',
+      title: 'Performance Audio Program',
+      description:
+        'Audio tools and resources for daily performance optimization',
     },
   ];
 
-  // VIP benefits
+  // VIP benefits with concrete outcomes
   const vipBenefits = [
-    'Absolute clarity on your current situation and blocks',
-    'A bold, specific 30-day action plan',
-    'Strategic guidance from a world-class mind',
-    "Personal diagnosis of what's truly holding you back",
-    'Custom tools, practices, and recommendations',
-    'Unfiltered answers to your most pressing questions',
+    'Comprehensive assessment of your current situation and blockers',
+    'Strategic 30-day action plan with specific milestones',
+    'Expert guidance from a former BCG consultant',
+    'Custom tools and frameworks tailored to your business',
+    'Clear diagnosis of what&apos;s truly holding you back',
+    'Direct answers to your most pressing questions',
   ];
 
   return (
@@ -225,16 +226,15 @@ export default function VIPOfferingSection() {
                   textShadow: '0 0 10px rgba(212,175,55,0.3)',
                 }}
               >
-                THE IMMORTAL IGNITION
+                EXECUTIVE BREAKTHROUGH
               </span>
             </h2>
             <h3 className="font-cinzel text-2xl md:text-3xl text-gold mb-4">
-              VIP ACTIVATION
+              1:1 PREMIUM COACHING
             </h3>
             <p className="font-cormorant-upright text-xl md:text-2xl text-charcoal/80 italic max-w-3xl mx-auto">
-              A sacred immersion to awaken your inner flame, strip away
-              illusions, and prepare you for divine remembrance and
-              world-shifting action.
+              A focused coaching experience to break through limitations and
+              create a clear path to exceptional results.
             </p>
           </motion.div>
 
@@ -256,7 +256,7 @@ export default function VIPOfferingSection() {
                       Premium Package
                     </h3>
                     <p className="font-cormorant-upright text-lg text-charcoal/80 italic">
-                      One-time investment for lasting transformation
+                      One-time investment for lasting results
                     </p>
                   </div>
 
@@ -307,7 +307,7 @@ export default function VIPOfferingSection() {
                 }}
               >
                 <h3 className="font-cinzel text-2xl text-gold mb-5 border-b-2 border-gold/30 pb-2">
-                  What You&apos;ll Gain:
+                  What You'll Gain:
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
                   {vipBenefits.map((benefit, index) => (
@@ -342,7 +342,7 @@ export default function VIPOfferingSection() {
                 </div>
               </div>
 
-              {/* Enhanced Divine Guarantee */}
+              {/* Enhanced Satisfaction Guarantee */}
               <div
                 className="bg-crimson/90 rounded-lg p-6 mb-8"
                 style={{
@@ -373,12 +373,12 @@ export default function VIPOfferingSection() {
                   </div>
                   <div>
                     <h4 className="font-cinzel text-xl text-gold mb-2">
-                      Divine Guarantee:
+                      Satisfaction Guarantee:
                     </h4>
                     <p className="font-inter text-charcoal/90">
-                      If you don&apos;t experience breakthrough clarity and a
-                      clear path forward by the end of our session, you will
-                      receive a full refund. No questions asked.
+                      If you don't experience breakthrough clarity and a clear
+                      path forward by the end of our session, you will receive a
+                      full refund. No questions asked.
                     </p>
                   </div>
                 </div>
@@ -399,7 +399,7 @@ export default function VIPOfferingSection() {
                     border: '2px solid rgba(212,175,55,0.5)',
                   }}
                 >
-                  ACTIVATE YOUR IMMORTAL FLAME
+                  BOOK YOUR SESSION
                 </motion.a>
               </div>
 
@@ -496,7 +496,7 @@ export default function VIPOfferingSection() {
                     "You'll receive an email within 15 minutes with access to the scheduling system",
                     'Complete your brief preparation questionnaire',
                     'Have your transformative 1:1 session with Paul',
-                    'Receive your customized Path Activation Map and resources',
+                    'Receive your customized Action Plan and resources',
                   ].map((step, index) => (
                     <div
                       key={index}
@@ -534,8 +534,8 @@ export default function VIPOfferingSection() {
                   Limited Availability
                 </h4>
                 <p className="font-inter text-charcoal/90 mb-5">
-                  Paul only takes a select number of VIP clients each month to
-                  ensure the highest quality of service and attention.
+                  Paul only takes a select number of coaching clients each month
+                  to ensure the highest quality of service and attention.
                 </p>
                 <motion.a
                   href="#final-cta"

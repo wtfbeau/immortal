@@ -42,32 +42,32 @@ export default function BeforeAfterSection() {
     },
   };
 
-  // Before and After comparison data
+  // Before and After comparison data - More tangible, real-world outcomes
   const comparisonData = [
     {
-      category: 'Vision',
-      before: 'Foggy, reactive, short-term',
-      after: 'Crystal clear, proactive, legacy-focused',
+      category: 'Strategy',
+      before: 'Scattered efforts, short-term thinking',
+      after: 'Focused plan, clear long-term vision',
     },
     {
-      category: 'Action',
-      before: 'Scattered efforts, burnout, overthinking',
-      after: 'Precise focus, calm execution, strategic moves',
+      category: 'Execution',
+      before: 'Overwhelm, burnout, missed opportunities',
+      after: 'Prioritized action, sustainable growth',
     },
     {
       category: 'Results',
-      before: 'Plateau, frustration, diminishing returns',
-      after: 'Breakthrough growth, recognition, expansion',
+      before: 'Plateau, inconsistent performance',
+      after: 'Breakthrough growth, consistent wins',
     },
     {
-      category: 'Energy',
-      before: 'Drained, conflicted, second-guessing',
-      after: 'Energized, aligned, confident in direction',
+      category: 'Mindset',
+      before: 'Self-doubt, second-guessing decisions',
+      after: 'Confidence, decisiveness, clarity',
     },
     {
       category: 'Impact',
-      before: 'Limited by self-doubt and unclear messaging',
-      after: 'Amplified by clarity and authentic power',
+      before: 'Limited reach, unclear messaging',
+      after: 'Expanded influence, compelling story',
     },
   ];
 
@@ -77,11 +77,11 @@ export default function BeforeAfterSection() {
       ref={sectionRef}
       className="relative py-20 md:py-28 bg-gradient-to-b from-charcoal to-charcoal/90 text-ivory overflow-hidden"
     >
-      {/* Enhanced Background Effects */}
+      {/* Background with improved contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/90"></div>
 
-      {/* Enhanced glow and sacred geometry in background */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Subtle background elements for visual interest but not distracting */}
+      <div className="absolute inset-0 opacity-10">
         <svg
           width="100%"
           height="100%"
@@ -112,7 +112,6 @@ export default function BeforeAfterSection() {
             strokeWidth="0.5"
             fill="none"
           />
-          {/* Connecting Lines */}
           <line
             x1="500"
             y1="100"
@@ -131,25 +130,12 @@ export default function BeforeAfterSection() {
             strokeWidth="0.5"
             strokeDasharray="5,5"
           />
-          {/* Sacred Triangles */}
-          <polygon
-            points="500,200 800,700 200,700"
-            stroke="#9D0B0B"
-            strokeWidth="0.5"
-            fill="none"
-          />
-          <polygon
-            points="500,800 200,300 800,300"
-            stroke="#9D0B0B"
-            strokeWidth="0.5"
-            fill="none"
-          />
         </svg>
       </div>
 
-      {/* Enhanced energy glow effect */}
+      {/* Subtle glow effect */}
       <div
-        className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1/3 opacity-30"
+        className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1/3 opacity-20"
         style={{
           background:
             'radial-gradient(circle, rgba(212,175,55,0.4) 0%, transparent 70%)',
@@ -172,10 +158,10 @@ export default function BeforeAfterSection() {
               variants={itemVariants}
               className="md:col-span-6 space-y-6 order-2 md:order-1"
             >
-              {/* Bold Headline with enhanced shimmer effect */}
+              {/* Bold Headline with enhanced clarity */}
               <div className="mb-6">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
-                  What Becomes Possible{' '}
+                  The Transformation{' '}
                   <span
                     className="shimmer-text"
                     style={{
@@ -189,16 +175,16 @@ export default function BeforeAfterSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.4)',
                     }}
                   >
-                    With Clarity
+                    You will Experience
                   </span>
                 </h2>
                 <div className="h-1 w-24 bg-gold mt-5 mb-6 rounded-full"></div>
                 <p className="font-cormorant-upright text-xl md:text-2xl text-gold/90 italic">
-                  This is the difference between drifting and destiny.
+                  This is what clients consistently achieve with my coaching.
                 </p>
               </div>
 
-              {/* Before & After Table - Enhanced styling for more vibrancy */}
+              {/* Before & After Table - Enhanced contrast for better readability */}
               <motion.div
                 variants={itemVariants}
                 className="overflow-hidden rounded-md shadow-2xl"
@@ -211,7 +197,7 @@ export default function BeforeAfterSection() {
                 <div className="grid grid-cols-3 text-ivory">
                   <div className="py-4 px-4 md:px-6 text-center border-r border-gold/40 bg-gradient-to-b from-charcoal/90 to-charcoal">
                     <h3 className="font-cinzel text-lg md:text-xl text-gold">
-                      Category
+                      Area
                     </h3>
                   </div>
                   <div className="py-4 px-4 md:px-6 text-center border-r border-gold/40 bg-gradient-to-b from-crimson to-crimson/80">
@@ -269,13 +255,13 @@ export default function BeforeAfterSection() {
                   }}
                 >
                   <span className="relative z-10 font-cinzel">
-                    CLAIM YOUR TRANSFORMATION
+                    START YOUR TRANSFORMATION
                   </span>
                 </a>
               </motion.div>
             </motion.div>
 
-            {/* Right Column - Portrait Video with enhanced glow effects */}
+            {/* Right Column - Portrait Video with enhanced visibility */}
             <motion.div
               variants={itemVariants}
               className="md:col-span-6 relative order-1 md:order-2"
@@ -326,7 +312,7 @@ export default function BeforeAfterSection() {
                   </div>
                 </div>
 
-                {/* Enhanced inspirational quote overlay */}
+                {/* Improved inspirational quote overlay */}
                 <div
                   className="absolute bottom-6 left-6 right-6 bg-charcoal/80 backdrop-blur-sm p-4 rounded-sm"
                   style={{
@@ -335,8 +321,8 @@ export default function BeforeAfterSection() {
                   }}
                 >
                   <p className="font-cormorant-upright text-lg text-ivory/95 italic">
-                    &ldquo;The choice is yours: continue drifting, or step into
-                    your destiny.&rdquo;
+                    &ldquo;The choice is simple: continue as you are, or
+                    transform into who you are meant to be.&rdquo;
                   </p>
                 </div>
 

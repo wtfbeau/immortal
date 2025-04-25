@@ -43,45 +43,47 @@ export default function MethodSection() {
     },
   };
 
-  // Method steps
+  // Method steps with clearer, more tangible descriptions
   const methodSteps = [
     {
       number: '1',
-      title: 'Starting Point Assessment',
+      title: 'Current Reality Assessment',
       description:
-        'Where are you now? Honest evaluation of your current reality',
+        'Comprehensive evaluation of where you stand today across all key domains',
     },
     {
       number: '2',
-      title: 'Vision Crafting',
-      description: 'Where do you truly want to go? Beyond superficial goals',
+      title: 'Vision Development',
+      description:
+        'Creating a clear, compelling vision that goes beyond surface goals',
     },
     {
       number: '3',
-      title: 'Pattern Recognition',
+      title: 'Pattern Identification',
       description:
-        "What's really holding you back? Identifying the core blockages",
+        'Uncovering the underlying patterns holding you back from breakthrough',
     },
     {
       number: '4',
-      title: 'Divine Mirror',
-      description: 'See yourself clearly, without illusion or limitation',
+      title: 'Honest Evaluation',
+      description: 'Seeing yourself clearly, without excuses or distortion',
     },
     {
       number: '5',
-      title: 'Strategic Roadmap',
-      description: 'Your 90-day path forward with precise first steps',
+      title: 'Strategic Planning',
+      description:
+        'Creating your 90-day roadmap with specific actionable steps',
     },
     {
       number: '6',
-      title: 'Path Activation',
+      title: 'Implementation Framework',
       description:
-        'Receiving your custom blueprint across mind, body, soul, and mission',
+        'Building your personal blueprint for mind, body, relationships, and business',
     },
     {
       number: '7',
-      title: 'World Impact',
-      description: 'Moving beyond personal success to create lasting change',
+      title: 'Leadership Amplification',
+      description: 'Moving beyond personal success to create meaningful impact',
     },
   ];
 
@@ -91,10 +93,10 @@ export default function MethodSection() {
       ref={sectionRef}
       className="relative py-24 md:py-32 bg-charcoal text-ivory overflow-hidden"
     >
-      {/* Background Effects */}
+      {/* Background Effects - simplified but still visually engaging */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-charcoal/90"></div>
 
-      {/* Subtle glow and sacred geometry in background */}
+      {/* Subtle background elements for depth without distraction */}
       <div className="absolute inset-0 opacity-10">
         <svg
           width="100%"
@@ -145,19 +147,6 @@ export default function MethodSection() {
             strokeWidth="0.5"
             strokeDasharray="5,5"
           />
-          {/* Sacred Triangles */}
-          <polygon
-            points="500,200 800,700 200,700"
-            stroke="#9D0B0B"
-            strokeWidth="0.5"
-            fill="none"
-          />
-          <polygon
-            points="500,800 200,300 800,300"
-            stroke="#9D0B0B"
-            strokeWidth="0.5"
-            fill="none"
-          />
         </svg>
       </div>
 
@@ -181,7 +170,7 @@ export default function MethodSection() {
                 <div className="relative rounded-lg overflow-hidden shadow-xl sacred-glow">
                   <Image
                     src="/images/shiva.webp"
-                    alt="The Immortal Method"
+                    alt="The Breakthrough Method"
                     width={600}
                     height={900}
                     className="w-full h-auto object-cover"
@@ -211,10 +200,10 @@ export default function MethodSection() {
               variants={itemVariants}
               className="md:col-span-8 space-y-6"
             >
-              {/* Bold Headline */}
+              {/* Bold Headline with improved clarity */}
               <div className="mb-8">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
-                  The Immortal Method:{' '}
+                  The Breakthrough Method:{' '}
                   <span
                     className="shimmer-text"
                     style={{
@@ -228,18 +217,18 @@ export default function MethodSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.3)',
                     }}
                   >
-                    Strategic Vision & Spiritual Awakening
+                    Strategy Meets Fulfillment
                   </span>
                 </h2>
                 <div className="h-0.5 w-24 bg-gold mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
-                  Paul&apos;s proven approach is both methodical and
-                  transformative. This isn&apos;t abstract theory—this is a
-                  practical system that has worked for hundreds of clients.
+                  Paul's approach is both systematic and transformative. This
+                  isn't abstract theory—this is a practical framework that has
+                  delivered results for hundreds of clients.
                 </p>
               </div>
 
-              {/* Method Steps - Presented in a clear, scannable way */}
+              {/* Method Steps - Enhanced for better readability and scanning */}
               <div className="space-y-6">
                 {methodSteps.map((step, index) => (
                   <motion.div
@@ -267,13 +256,14 @@ export default function MethodSection() {
                 ))}
               </div>
 
-              {/* Proof Statement */}
+              {/* Proof Statement - more credible and specific */}
               <motion.div variants={itemVariants} className="mt-10">
                 <div className="py-4 px-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border border-gold/30 rounded-sm">
                   <p className="font-inter text-lg text-ivory/90">
-                    This method has been refined through years of work with
-                    visionary entrepreneurs, executives, and creators who were
-                    ready to step into their true power.
+                    This method has been refined through years of working with
+                    leaders, entrepreneurs, and executives who were ready to
+                    break through their limitations and achieve their full
+                    potential.
                   </p>
                 </div>
               </motion.div>

@@ -1,4 +1,5 @@
 import BeforeAfterSection from '../lavaSections/BeforeAfterSection';
+import FaqSection from '../lavaSections/FaqSection';
 import FinalCTASection from '../lavaSections/FinalCtaSection';
 import Footer from '../lavaSections/Footer1';
 import Header from '../lavaSections/Header';
@@ -18,9 +19,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSection />
-
-      {/* Introduction Section - Moved up for better context */}
-      <IntroductionSection />
 
       {/* Problem Section */}
       <ProblemSection />
@@ -43,8 +41,12 @@ export default function Home() {
       {/* Testimonials Section */}
       <TestimonialsSection />
 
+      {/* Introduction Section - Moved up for better context */}
+      <IntroductionSection />
+
       {/* Final CTA Section */}
       <FinalCTASection id="final-cta" />
+      <FaqSection />
 
       {/* Footer */}
       <Footer />

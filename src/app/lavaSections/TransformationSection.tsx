@@ -42,7 +42,7 @@ export default function TransformationSection() {
     },
   };
 
-  // Transformation benefits with icons
+  // Transformation benefits with more practical, tangible outcomes
   const transformationItems = [
     {
       icon: (
@@ -59,9 +59,9 @@ export default function TransformationSection() {
           <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.7071-.7071M6.34315 6.34315l-.70711-.70711m12.72796.00005-.7071.70711M6.3432 17.6569l-.70711.7071M16 12c0 2.2091-1.7909 4-4 4-2.20914 0-4-1.7909-4-4 0-2.20914 1.79086-4 4-4 2.2091 0 4 1.79086 4 4Z" />
         </svg>
       ),
-      title: 'Crystal Clear Vision',
+      title: 'Strategic Clarity',
       description:
-        'Problems that seemed overwhelming dissolve in the light of clarity',
+        'Complex challenges become manageable with a clear strategic framework',
     },
     {
       icon: (
@@ -78,8 +78,8 @@ export default function TransformationSection() {
           <path d="m8.625 9-.75 3h3v10.5c0 .83.67 1.5 1.5 1.5h.75c.83 0 1.5-.67 1.5-1.5V18l2.25-9M12 4.5c1.2426 0 2.25 1.00736 2.25 2.25S13.2426 9 12 9m0-4.5c-1.24264 0-2.25 1.00736-2.25 2.25S10.7574 9 12 9" />
         </svg>
       ),
-      title: 'Unmistakable Path',
-      description: 'Your path forward becomes crystal clear and precise',
+      title: 'Decisive Action',
+      description: 'Replace overthinking with confident, purposeful action',
     },
     {
       icon: (
@@ -96,8 +96,8 @@ export default function TransformationSection() {
           <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
         </svg>
       ),
-      title: 'Effortless Energy',
-      description: 'Energy flows naturally toward what truly matters',
+      title: 'Sustainable Performance',
+      description: 'Maintain high output without burnout or exhaustion',
     },
     {
       icon: (
@@ -114,8 +114,8 @@ export default function TransformationSection() {
           <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
         </svg>
       ),
-      title: 'Divine Power',
-      description: 'You stop playing small and step into your true power',
+      title: 'Leadership Magnetism',
+      description: 'Attract better opportunities and talent to your mission',
     },
   ];
 
@@ -146,7 +146,7 @@ export default function TransformationSection() {
               variants={itemVariants}
               className="md:col-span-7 space-y-8 order-2 md:order-1"
             >
-              {/* Bold Headline */}
+              {/* Bold Headline with improved clarity and impact */}
               <div className="mb-8">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
                   <span
@@ -161,7 +161,7 @@ export default function TransformationSection() {
                       display: 'inline-block',
                     }}
                   >
-                    &ldquo;You are not sheep.
+                    "Your potential is far greater
                   </span>
                 </h2>
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
@@ -178,19 +178,19 @@ export default function TransformationSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.3)',
                     }}
                   >
-                    You are stars clothed in skin.&rdquo;
+                    than your current reality shows."
                   </span>
                 </h2>
                 <div className="h-0.5 w-24 bg-crimson mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-charcoal/90 leading-relaxed">
-                  When you strip away illusions and awaken to your true
-                  potential, everything changes. The transformation is not just
-                  external success—it&apos;s a complete realignment with your
-                  divine purpose.
+                  When you remove your limiting beliefs and align with your true
+                  capabilities, everything changes. The transformation isn't
+                  just about external success—it's about achieving both results
+                  and fulfillment.
                 </p>
               </div>
 
-              {/* Transformation Items - Presented clearly */}
+              {/* Transformation Items - Clear, scannable benefits */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
                 {transformationItems.map((item, index) => (
                   <div key={index} className="group">
@@ -214,7 +214,7 @@ export default function TransformationSection() {
                 ))}
               </div>
 
-              {/* Section CTA - Single Clear Action */}
+              {/* Section CTA - Clear action step */}
               <motion.div
                 variants={itemVariants}
                 className="pt-10"
@@ -226,7 +226,7 @@ export default function TransformationSection() {
                   className="inline-block px-8 py-3 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-ivory border border-gold/30 uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative shadow-md shadow-crimson/20"
                 >
                   <span className="relative z-10">
-                    CLAIM YOUR TRANSFORMATION
+                    START YOUR TRANSFORMATION
                   </span>
                 </a>
               </motion.div>

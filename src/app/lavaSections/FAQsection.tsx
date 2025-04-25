@@ -32,27 +32,27 @@ export default function FaqSection() {
     setActiveIndex(activeIndex === index ? -1 : index);
   };
 
-  // FAQ items
+  // FAQ items with more practical, grounded answers
   const faqItems = [
     {
-      question: 'Is this spiritual coaching or business strategy?',
+      question: 'Is this business coaching or personal development?',
       answer:
-        "It's both. Paul integrates his background in high-level business strategy with a profound understanding of personal transformation. The result is a holistic approach that addresses both your external success and inner fulfillment.",
+        "It's both. Paul integrates his background in high-level business strategy with a deep understanding of human psychology and performance. The result is a holistic approach that addresses both your professional success and personal fulfillment.",
     },
     {
-      question: 'Who is this for?',
+      question: 'Who is this coaching for?',
       answer:
-        "This is for visionaries, entrepreneurs, and seekers who know they're capable of far more than their current reality reflects. If you're ready to strip away illusions and step into your true power, this is for you.",
+        "This coaching is designed for leaders, entrepreneurs, and high-achievers who know they're capable of more than their current results show. If you're ready to break through plateaus and reach new levels of performance and fulfillment, this is for you.",
     },
     {
-      question: 'How is this different from other programs?',
+      question: 'How is this different from other coaching programs?',
       answer:
-        "Most coaches focus on either tactical business advice OR spiritual development. Paul's unique approach fuses world-class strategic thinking with profound inner work to create breakthroughs where conventional methods have failed.",
+        "Most coaches focus on either tactical business advice OR personal development. Paul's approach combines elite strategic thinking with psychological insights to create breakthroughs where conventional methods have failed. His background in business strategy and performance optimization sets his work apart.",
     },
     {
       question: 'What makes Paul qualified to guide me?',
       answer:
-        'Beyond his elite business background (BCG, private equity, advising billion-dollar companies), Paul has developed a proven system for helping people see their blind spots, recognize their true potential, and take aligned action that creates real-world results.',
+        'Beyond his elite business background (BCG, private equity, advising billion-dollar companies), Paul has developed a proven system for helping leaders identify blind spots, clarify their vision, and implement strategic action plans that create tangible, measurable results.',
     },
   ];
 
@@ -62,7 +62,7 @@ export default function FaqSection() {
       ref={sectionRef}
       className="relative py-20 md:py-28 bg-ivory text-charcoal overflow-hidden"
     >
-      {/* Enhanced Background Pattern */}
+      {/* Enhanced Background Pattern for subtle visual interest */}
       <div className="absolute inset-0 mystical-pattern opacity-40"></div>
 
       {/* Enhanced top decorative element */}
@@ -91,13 +91,13 @@ export default function FaqSection() {
             <div className="inline-block">
               <div className="h-1 w-12 bg-crimson mx-auto mb-3 rounded-full"></div>
               <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-2 tracking-wide text-charcoal">
-                Common <span className="text-crimson">Questions</span>
+                Frequently Asked <span className="text-crimson">Questions</span>
               </h2>
               <div className="h-1 w-12 bg-crimson mx-auto mt-3 rounded-full"></div>
             </div>
           </motion.div>
 
-          {/* Enhanced FAQ Accordion */}
+          {/* Enhanced FAQ Accordion with improved visual cues */}
           <div className="space-y-6">
             {faqItems.map((item, index) => (
               <motion.div
@@ -175,7 +175,7 @@ export default function FaqSection() {
             </div>
           </motion.div>
 
-          {/* Enhanced CTA */}
+          {/* Enhanced CTA with better visual prominence */}
           <motion.div variants={itemVariants} className="text-center mt-10">
             <motion.div
               whileHover={{ scale: 1.03 }}

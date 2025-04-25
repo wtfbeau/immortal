@@ -43,12 +43,12 @@ export default function ProblemSection() {
     },
   };
 
-  // Problem items with bold statements
+  // Problem items with more relatable, specific challenges
   const problemItems = [
-    "You're grinding on tasks that don't serve your highest purpose",
-    'Conventional thinking has trapped you in limited patterns',
-    "You sense a greater calling but can't fully grasp or articulate it",
-    'The noise of daily life has dimmed your inner flame',
+    "You're spending time on tasks that don't move the needle for your business or career",
+    'Conventional thinking has you trapped in the same patterns and results',
+    "You sense there's a bigger impact you could make, but can't fully articulate or achieve it",
+    'Daily pressures and distractions keep pulling you away from your highest priorities',
   ];
 
   return (
@@ -106,7 +106,7 @@ export default function ProblemSection() {
                 >
                   <Image
                     src="/images/hero.webp"
-                    alt="Trapped Potential"
+                    alt="Performance Barriers"
                     width={600}
                     height={800}
                     className="w-full h-auto object-cover filter brightness-90"
@@ -139,7 +139,7 @@ export default function ProblemSection() {
               {/* Bold Headline with enhanced shimmer effect */}
               <div className="mb-8">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
-                  You Are Not Seeing{' '}
+                  What's Holding You Back From{' '}
                   <span
                     className="shimmer-text"
                     style={{
@@ -153,14 +153,14 @@ export default function ProblemSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.4)',
                     }}
                   >
-                    Your Full Power
+                    Your Full Potential
                   </span>
                 </h2>
                 <div className="h-1 w-24 bg-gold mt-6 mb-8 rounded-full"></div>
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
-                  The modern world has conditioned you to play small. To accept
-                  limitations. To dim your flame. But deep down, you know
-                  there&apos;s more.
+                  The demands of modern business and life have conditioned us to
+                  play safe, avoid risk, and stay in our comfort zones. But deep
+                  down, you know there's untapped potential within you.
                 </p>
               </div>
 
@@ -203,14 +203,14 @@ export default function ProblemSection() {
                 ))}
               </div>
 
-              {/* Emotional Transition Statement - More vibrant */}
+              {/* Transition Statement - More concrete and solution-focused */}
               <div
                 className="mt-10 py-4 bg-gradient-to-r from-gold/10 via-gold/20 to-gold/10 rounded-md"
                 style={{ boxShadow: '0 0 15px rgba(212,175,55,0.2)' }}
               >
                 <p className="font-cormorant-upright text-xl md:text-2xl text-gold italic text-center px-4">
-                  These barriers aren&apos;t real. They&apos;re illusions — and
-                  Paul is here to help you shatter them.
+                  These barriers aren't permanent. With the right guidance, you
+                  can break through them and reach new heights.
                 </p>
               </div>
 
@@ -227,7 +227,7 @@ export default function ProblemSection() {
                   style={{ boxShadow: '0 0 20px rgba(212,175,55,0.3)' }}
                 >
                   <span className="relative z-10 font-cinzel">
-                    BREAK FREE FROM LIMITATIONS
+                    OVERCOME YOUR LIMITATIONS
                   </span>
                 </a>
               </motion.div>

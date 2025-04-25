@@ -42,36 +42,36 @@ export default function OfferingQuestSection() {
     },
   };
 
-  // Simplified membership features - focused on what matters most
+  // Membership features - simplified and focused on tangible benefits
   const membershipFeatures = [
     {
       icon: '📱',
-      title: 'Daily Prophetic Transmissions',
-      description: 'Insights from The Immortal Flame series',
+      title: 'Weekly Coaching Videos',
+      description: 'Strategic insights for business growth',
     },
     {
       icon: '📚',
-      title: 'Weekly Strategic Teachings',
-      description: 'Practical guidance to embody your power',
+      title: 'Leadership Training Library',
+      description: 'Practical frameworks for real-world challenges',
     },
     {
       icon: '🔥',
-      title: 'Monthly Live Ritual + Q&A',
-      description: 'Join Paul live for transformative guidance',
+      title: 'Monthly Group Coaching',
+      description: 'Live Q&A session with Paul for personalized guidance',
     },
     {
       icon: '🗺️',
-      title: "The Seeker's Map System",
-      description: 'Track your progress across all aspects of life',
+      title: 'Performance Tracking System',
+      description: 'Measure progress across all aspects of business and life',
     },
   ];
 
-  // Simplified practical benefits - clear outcomes
+  // Practical benefits - clear, measurable outcomes
   const practicalBenefits = [
-    'Daily guidance to maintain clarity and focus',
-    'A structured 90-day system for transformation',
-    'Community support from like-minded individuals',
-    'Tools to track progress and celebrate victories',
+    'Weekly accountability to maintain momentum',
+    'Structured 90-day system for measurable results',
+    'Community support from fellow high-achievers',
+    'Tools to track progress and celebrate wins',
   ];
 
   return (
@@ -119,15 +119,15 @@ export default function OfferingQuestSection() {
                   display: 'inline-block',
                 }}
               >
-                THE IMMORTAL QUEST
+                EXECUTIVE MASTERY
               </span>
             </h2>
             <h3 className="font-cinzel text-2xl md:text-3xl text-crimson mb-4">
-              MONTHLY MEMBERSHIP
+              MONTHLY COACHING PROGRAM
             </h3>
             <p className="font-cormorant-upright text-xl md:text-2xl text-ivory/90 italic max-w-3xl mx-auto">
-              Not just content — transformations. Not just community —
-              convergence.
+              Ongoing guidance, accountability, and community to ensure
+              consistent growth
             </p>
           </motion.div>
 
@@ -147,9 +147,9 @@ export default function OfferingQuestSection() {
                 }}
               >
                 <p className="font-inter text-lg text-ivory/90 mb-5 leading-relaxed">
-                  Your daily path of awakening, guided by prophecy, wisdom, and
-                  flame. This is a living scripture in motion — your rebirth,
-                  month by month.
+                  Receive regular guidance, frameworks, and accountability to
+                  ensure you stay on track and continue to break through to new
+                  levels of performance and fulfillment.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -171,7 +171,7 @@ export default function OfferingQuestSection() {
                       border: '1px solid rgba(157,11,11,0.3)',
                     }}
                   >
-                    Only 33 spots available
+                    Limited to 30 members
                   </div>
                 </div>
               </div>
@@ -217,8 +217,8 @@ export default function OfferingQuestSection() {
               >
                 <h4 className="font-cinzel text-xl text-gold mb-2">BONUS:</h4>
                 <p className="font-inter text-ivory/90">
-                  Join now and get immediate access to the upcoming April 25th
-                  Abundance Ritual + the complete archive of past ritual
+                  Join now and get immediate access to the upcoming Business
+                  Growth Workshop + the complete library of past coaching
                   recordings{' '}
                   <span className="font-semibold text-gold">($333 value)</span>
                 </p>
@@ -227,7 +227,7 @@ export default function OfferingQuestSection() {
               {/* Practical Benefits - Clean visual list */}
               <motion.div variants={itemVariants} className="mb-6">
                 <h3 className="font-cinzel text-2xl text-crimson mb-4 border-b border-crimson/30 pb-2">
-                  Practical Benefits:
+                  Key Benefits:
                 </h3>
                 <div className="space-y-3">
                   {practicalBenefits.map((benefit, index) => (
@@ -254,7 +254,7 @@ export default function OfferingQuestSection() {
                 </div>
               </motion.div>
 
-              {/* Divine Guarantee - Simple but effective */}
+              {/* Satisfaction Guarantee - Simple but effective */}
               <motion.div
                 variants={itemVariants}
                 className="p-5 rounded-lg bg-gradient-to-br from-charcoal/70 via-charcoal/50 to-charcoal/70"
@@ -281,12 +281,13 @@ export default function OfferingQuestSection() {
                   </div>
                   <div>
                     <h4 className="font-cinzel text-xl text-gold mb-2">
-                      Divine Guarantee:
+                      Satisfaction Guarantee:
                     </h4>
                     <p className="font-inter text-ivory/90">
                       If after your first 30 days, you do not experience a
-                      profound shift in clarity, purpose, or momentum, you will
-                      receive a full refund. No questions asked.
+                      significant improvement in your focus, clarity, or
+                      results, you will receive a full refund. No questions
+                      asked.
                     </p>
                   </div>
                 </div>
@@ -305,7 +306,7 @@ export default function OfferingQuestSection() {
                   }}
                 >
                   <span className="relative z-10 flex items-center font-cinzel">
-                    JOIN THE QUEST NOW
+                    JOIN THE PROGRAM
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 ml-2"
@@ -359,11 +360,11 @@ export default function OfferingQuestSection() {
                         border: '1px solid rgba(157,11,11,0.4)',
                       }}
                     >
-                      Join by April 25th
+                      Join by April 30th
                     </div>
 
                     <h3 className="font-cinzel text-2xl text-gold mb-3">
-                      Complete Package
+                      Complete Program
                     </h3>
 
                     <div className="mb-4 border-t border-b border-crimson/30 py-4">
@@ -383,10 +384,10 @@ export default function OfferingQuestSection() {
                         BONUS VALUE:
                       </p>
                       <p className="text-ivory font-medium">
-                        $333 of Exclusive Content
+                        $333 of Premium Content
                       </p>
                       <p className="text-ivory/70 text-sm">
-                        Abundance Ritual + Archive Access
+                        Business Growth Workshop + Archives
                       </p>
                     </div>
 
@@ -410,7 +411,7 @@ export default function OfferingQuestSection() {
 
                   <div className="bg-charcoal/50 px-5 py-3 text-center">
                     <p className="text-ivory/90 text-sm font-medium">
-                      Only <span className="text-crimson">33 spots</span>{' '}
+                      Only <span className="text-crimson">30 spots</span>{' '}
                       available for the next cohort
                     </p>
                   </div>
@@ -425,9 +426,9 @@ export default function OfferingQuestSection() {
                   }}
                 >
                   <p className="font-cormorant-upright text-lg text-ivory/95 italic mb-2">
-                    &ldquo;The daily guidance keeps me focused, and the
+                    &ldquo;The weekly guidance keeps me focused, and the
                     community has led to multiple five-figure collaborations.
-                    Within 90 days, I launched my first sold-out retreat.&rdquo;
+                    Within 90 days, I launched my first sold-out event.&rdquo;
                   </p>
                   <p className="font-cinzel text-crimson text-sm">
                     — Sophia T., Wellness Entrepreneur

@@ -234,7 +234,7 @@ export default function HeroSection() {
 
           <Image
             src="/images/hero.webp"
-            alt="The Immortal Portal"
+            alt="Executive Coaching with Paul Rataul"
             width={800}
             height={800}
             priority
@@ -263,7 +263,7 @@ export default function HeroSection() {
               className="text-ivory"
               style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
             >
-              Welcome to the
+              Strategic Coaching for
             </span>{' '}
             <span
               className="shimmer-text"
@@ -278,7 +278,7 @@ export default function HeroSection() {
                 textShadow: '0 0 10px rgba(212,175,55,0.5)',
               }}
             >
-              Immortal Portal
+              Exceptional Leaders
             </span>
           </h1>
         </motion.div>
@@ -289,16 +289,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="mb-5"
-        >
-          <div className="relative inline-block px-6 py-2">
-            {/* Background blur overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-lg -z-10"></div>
-
-            <h2 className="font-cormorant-upright text-xl md:text-2xl lg:text-3xl text-ivory/95 font-medium">
-              This is where you remember who you are.
-            </h2>
-          </div>
-        </motion.div>
+        ></motion.div>
 
         {/* Power Statement with shimmer effect */}
         <motion.div
@@ -308,7 +299,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.8 }}
         >
           <h2 className="text-gold">
-            Weaponize Your Genius. Rewire Your Destiny.
+            Strategic Clarity. Decisive Action. Exceptional Results.
           </h2>
         </motion.div>
 
@@ -323,8 +314,8 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-lg -z-10"></div>
 
           <p className="font-inter text-base md:text-lg lg:text-xl text-ivory font-medium">
-            Transform vision into reality. Strip away illusions. Step into your
-            true power.
+            Former BCG consultant helping high-achievers bridge the gap between
+            external success and internal fulfillment
           </p>
         </motion.div>
 
@@ -347,10 +338,10 @@ export default function HeroSection() {
             <a
               href="#final-cta"
               className="relative block px-10 py-4 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-gold uppercase tracking-wider font-medium text-lg md:text-xl overflow-hidden border border-gold/30 flame-button rounded-sm shadow-lg shadow-crimson/20"
-              aria-label="Enter The Flame"
+              aria-label="Book Your Strategy Session"
             >
               <span className="relative z-10 flex items-center justify-center font-cinzel">
-                ENTER THE FLAME
+                BOOK YOUR STRATEGY SESSION
               </span>
             </a>
           </motion.div>

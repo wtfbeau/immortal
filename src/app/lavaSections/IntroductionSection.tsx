@@ -83,12 +83,12 @@ export default function IntroductionSection() {
                   textShadow: '0 0 10px rgba(212,175,55,0.3)',
                 }}
               >
-                The Immortal
+                Executive Coach
               </span>
             </h2>
             <div className="h-0.5 w-24 bg-gold mx-auto my-6"></div>
             <p className="font-cormorant-upright text-xl md:text-2xl text-crimson/90 italic max-w-3xl mx-auto font-medium">
-              Prophet. Warrior. Artist. Reformer.
+              Strategic Advisor. Mindset Expert. Results Catalyst.
             </p>
           </motion.div>
 
@@ -101,31 +101,29 @@ export default function IntroductionSection() {
             >
               <p className="font-inter text-lg md:text-xl leading-relaxed">
                 Paul Rataul walked away from{' '}
-                <span className="font-semibold">millions</span>. VC deals,
-                investment banking offers, private equity roles, and elite
-                strategy consulting jobs across the globe — all turned down.
+                <span className="font-semibold">millions</span> in potential
+                income. Elite strategy consulting roles, investment banking
+                offers, and private equity positions across the globe — all
+                declined.
               </p>
 
               <p className="font-inter text-lg md:text-xl leading-relaxed">
                 <span className="font-bold text-crimson">
-                  Why? Because Paul chose destiny over dollars.
+                  Why? Because Paul chose purpose over paycheck.
                 </span>
               </p>
 
               <p className="font-inter text-lg md:text-xl leading-relaxed">
                 A former BCG consultant and private equity investor who advised
-                CEOs and CFOs of billion-dollar companies, Paul now leads a new
-                global movement under The Immortal Brand —{' '}
-                <span className="italic">
-                  fusing ancient wisdom with modern power
-                </span>
-                , and building a world of truth, love, and mastery.
+                CEOs and CFOs of billion-dollar companies, Paul now helps
+                high-achieving professionals and entrepreneurs bridge the gap
+                between their external success and internal fulfillment.
               </p>
 
               <div className="prophetic-quote my-6 px-8 py-6 bg-gradient-to-r from-charcoal/5 via-gold/5 to-charcoal/5 border-l-4 border-gold rounded-r-lg">
                 <p className="font-cormorant-upright text-2xl md:text-3xl text-crimson italic">
-                  &ldquo;I&apos;m not here to play the game. I&apos;m here to
-                  change it.&rdquo;
+                  &ldquo;I am not here to help you play the game better. I am
+                  here to help you change the rules.&rdquo;
                 </p>
               </div>
 
@@ -140,7 +138,7 @@ export default function IntroductionSection() {
                 </span>
                 ,{' '}
                 <span className="font-medium">
-                  identifying what&apos;s holding you back
+                  identifying what is holding you back
                 </span>
                 , and then{' '}
                 <span className="font-medium">
@@ -155,7 +153,7 @@ export default function IntroductionSection() {
                 className="mt-6 p-6 bg-gradient-to-r from-gold/5 via-charcoal/5 to-gold/5 border-l-4 border-gold rounded-r-lg shadow-md"
               >
                 <p className="font-inter text-lg italic mb-3">
-                  &ldquo;One session with Paul revealed patterns I&apos;d been
+                  &ldquo;One session with Paul revealed patterns I had been
                   blind to for years. The clarity I gained was worth more than
                   months of conventional coaching.&rdquo;
                 </p>
@@ -178,9 +176,7 @@ export default function IntroductionSection() {
                   href="#final-cta"
                   className="inline-block px-8 py-3 bg-gradient-to-r from-crimson via-crimson/90 to-crimson text-ivory border border-gold/30 uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative shadow-md shadow-crimson/20"
                 >
-                  <span className="relative z-10">
-                    DISCOVER YOUR IMMORTAL PATH
-                  </span>
+                  <span className="relative z-10">WORK WITH PAUL</span>
                 </a>
               </motion.div>
             </motion.div>
@@ -198,7 +194,7 @@ export default function IntroductionSection() {
                 <div className="relative rounded-lg overflow-hidden shadow-xl sacred-glow">
                   <Image
                     src="/images/gym-meditating.webp"
-                    alt="Paul Rataul - The Immortal"
+                    alt="Paul Rataul - Executive Coach"
                     width={600}
                     height={800}
                     className="w-full h-auto object-cover"

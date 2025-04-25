@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
     },
   };
 
-  // Testimonial data
+  // Testimonial data with more specific, measurable outcomes
   const testimonials = [
     {
       name: 'Jason M.',
@@ -57,21 +57,21 @@ export default function TestimonialsSection() {
       title: 'Creative Director',
       image: '/images/Sophia_testimonial.webp',
       quote:
-        "I was burnt out, uninspired, and considering leaving my dream career. Paul's Immortal Ignition session revealed the exact patterns keeping me stuck. Within 3 months of following his roadmap, I launched my own agency and doubled my income while working fewer hours.",
+        "I was burnt out, uninspired, and considering leaving my dream career. Paul's coaching revealed the exact patterns keeping me stuck. Within 3 months of following his roadmap, I launched my own agency and doubled my income while working fewer hours.",
     },
     {
       name: 'David R.',
       title: 'Investment Banker',
       image: '/images/Alexander_L_testimonial.webp',
       quote:
-        "I was skeptical about the spiritual aspects, but Paul's strategic mind won me over completely. His insights into my leadership patterns helped me secure a promotion I'd been chasing for years. The ROI is immeasurable.",
+        "I was skeptical about the mindset aspects, but Paul's strategic mind won me over completely. His insights into my leadership patterns helped me secure a promotion I'd been chasing for years. The ROI is immeasurable.",
     },
     {
       name: 'Sophia T.',
       title: 'Wellness Entrepreneur',
       image: '/images/Leeor_Chabat_testimonial.webp',
       quote:
-        'The Immortal Quest membership has transformed not just my business but my entire approach to life. The daily guidance keeps me focused, and the community has led to multiple five-figure collaborations. Within 90 days, I launched my first sold-out retreat.',
+        "Paul's coaching program has transformed not just my business but my entire approach to leadership. The weekly guidance keeps me focused, and the community has led to multiple five-figure collaborations. Within 90 days, I launched my first sold-out retreat.",
     },
   ];
 
@@ -101,7 +101,7 @@ export default function TestimonialsSection() {
             className="text-center mb-16 md:mb-20"
           >
             <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide text-charcoal">
-              Flames Awakened,{' '}
+              Client Success{' '}
               <span
                 className="shimmer-text"
                 style={{
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
                   display: 'inline-block',
                 }}
               >
-                Lives Transformed
+                Stories
               </span>
             </h2>
             <div className="h-0.5 w-24 bg-gold mx-auto my-6"></div>
@@ -123,70 +123,63 @@ export default function TestimonialsSection() {
             </p>
           </motion.div>
 
-          {/* Main Content - Following Headline > Subhead > Copy > Visual Structure */}
-          <div className="grid grid-cols-1  md:gap-16 items-start">
-            {/* Right Column - Testimonial Cards */}
-            <motion.div
-              variants={itemVariants}
-              className="md:col-span-6 space-y-6"
-            >
-              {testimonials.slice(0, 3).map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-charcoal/5 to-charcoal/10 p-5 md:p-6 rounded-sm border border-gold/10 shadow-xl mystical-card group hover:border-gold/30 transition-all duration-300"
-                >
-                  <div className="flex items-start space-x-4 mb-4">
-                    {/* Profile Image */}
-                    <div className="flex-shrink-0">
-                      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gold/30 sacred-glow">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          width={64}
-                          height={64}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Name and Title */}
-                    <div>
-                      <h4 className="font-cinzel text-xl text-crimson mb-0.5">
-                        {testimonial.name}
-                      </h4>
-                      <p className="font-inter text-charcoal/70">
-                        {testimonial.title}
-                      </p>
+          {/* Testimonial Grid - 2 columns on desktop for better visibility */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 lg:gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-gradient-to-br from-charcoal/5 to-charcoal/10 p-5 md:p-6 rounded-sm border border-gold/10 shadow-xl mystical-card group hover:border-gold/30 transition-all duration-300"
+              >
+                <div className="flex items-start space-x-4 mb-4">
+                  {/* Profile Image */}
+                  <div className="flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gold/30 sacred-glow">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
 
-                  {/* Quote */}
-                  <div className="ml-2 prophetic-quote">
-                    <p className="font-cormorant-upright text-lg text-charcoal/90 italic leading-relaxed">
-                      {testimonial.quote}
+                  {/* Name and Title */}
+                  <div>
+                    <h4 className="font-cinzel text-xl text-crimson mb-0.5">
+                      {testimonial.name}
+                    </h4>
+                    <p className="font-inter text-charcoal/70">
+                      {testimonial.title}
                     </p>
                   </div>
                 </div>
-              ))}
 
-              {/* Section CTA - Single Clear Action */}
-              <motion.div
-                variants={itemVariants}
-                className="pt-8"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                <a
-                  href="#final-cta"
-                  className="inline-block px-8 py-3 bg-gradient-to-r from-crimson to-crimson/90 text-ivory uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/20"
-                >
-                  <span className="relative z-10">
-                    BE THE NEXT SUCCESS STORY
-                  </span>
-                </a>
+                {/* Quote */}
+                <div className="ml-2 prophetic-quote">
+                  <p className="font-cormorant-upright text-lg text-charcoal/90 italic leading-relaxed">
+                    {testimonial.quote}
+                  </p>
+                </div>
               </motion.div>
-            </motion.div>
+            ))}
           </div>
+
+          {/* Section CTA - Single Clear Action */}
+          <motion.div
+            variants={itemVariants}
+            className="pt-12 text-center"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          >
+            <a
+              href="#final-cta"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-crimson to-crimson/90 text-ivory uppercase tracking-wider font-medium text-base overflow-hidden flame-button rounded-sm relative border border-gold/20"
+            >
+              <span className="relative z-10">JOIN THESE SUCCESS STORIES</span>
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
