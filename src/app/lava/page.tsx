@@ -1,5 +1,4 @@
 import BeforeAfterSection from '../lavaSections/BeforeAfterSection';
-import FaqSection from '../lavaSections/FaqSection';
 import FinalCTASection from '../lavaSections/FinalCtaSection';
 import Footer from '../lavaSections/Footer1';
 import Header from '../lavaSections/Header';
@@ -46,7 +45,6 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <FinalCTASection id="final-cta" />
-      <FaqSection />
 
       {/* Footer */}
       <Footer />
