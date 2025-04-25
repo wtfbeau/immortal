@@ -105,11 +105,11 @@ export default function ProblemSection() {
                   style={{ boxShadow: '0 0 30px rgba(157,11,11,0.3)' }}
                 >
                   <Image
-                    src="/images/hero.webp"
+                    src="/images/beautiful-doggy.webp"
                     alt="Performance Barriers"
-                    width={600}
-                    height={800}
-                    className="w-full h-auto object-cover filter brightness-90"
+                    width={1000}
+                    height={1600}
+                    className="w-auto h-full object-cover filter brightness-90"
                   />
 
                   {/* Overlay effect with more vibrancy */}

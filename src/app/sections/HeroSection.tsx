@@ -497,7 +497,7 @@ export default function HeroSection() {
         >
           <span className="relative">
             <span className="relative z-10 px-2">
-              The Immortal Flame. Prophet. Artist. Warrior. Reformer.
+              The immortal flame. Artist. Warrior. Reformer.
             </span>
             {/* Subtle blur behind text */}
             <span className="absolute inset-0 bg-charcoal/50 backdrop-blur-md -z-0 rounded-lg"></span>

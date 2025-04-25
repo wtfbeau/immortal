@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 
 export default function TransformationSection() {
@@ -161,7 +162,7 @@ export default function TransformationSection() {
                       display: 'inline-block',
                     }}
                   >
-                    Your potential is far greater
+                    &ldquo;Your potential is far greater
                   </span>
                 </h2>
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
@@ -178,15 +179,15 @@ export default function TransformationSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.3)',
                     }}
                   >
-                    than your current reality shows.
+                    than your current reality shows.&rdquo;
                   </span>
                 </h2>
                 <div className="h-0.5 w-24 bg-crimson mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-charcoal/90 leading-relaxed">
                   When you remove your limiting beliefs and align with your true
-                  capabilities, everything changes. The transformation is not
-                  just about external success — it is about achieving both
-                  results and fulfillment.
+                  capabilities, everything changes. The transformation
+                  isn&apos;t just about external success—it&apos;s about
+                  achieving both results and fulfillment.
                 </p>
               </div>
 
@@ -238,23 +239,16 @@ export default function TransformationSection() {
               className="md:col-span-5 relative order-1 md:order-2"
             >
               <div className="relative book-shine">
-                {/* Video element */}
+                {/* Image element */}
                 <div className="relative rounded-lg overflow-hidden shadow-2xl sacred-glow">
-                  {/* Video aspect ratio container */}
+                  {/* Image aspect ratio container */}
                   <div className="relative pb-[130%]">
-                    <video
+                    <Image
+                      src="/images/boat-white.webp"
+                      alt="Leadership Transformation"
+                      fill
                       className="absolute inset-0 w-full h-full object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    >
-                      <source
-                        src="/videos/fam-selfie-mindset.mp4"
-                        type="video/mp4"
-                      />
-                      Your browser does not support the video tag.
-                    </video>
+                    />
 
                     {/* Elegant frame overlay */}
                     <div className="absolute inset-0 border border-gold/30 pointer-events-none"></div>
@@ -265,7 +259,7 @@ export default function TransformationSection() {
                     <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/60"></div>
                     <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/60"></div>
 
-                    {/* Video overlay gradient */}
+                    {/* Image overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent"></div>
                   </div>
                 </div>
