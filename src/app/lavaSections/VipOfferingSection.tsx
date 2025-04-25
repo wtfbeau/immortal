@@ -307,7 +307,7 @@ export default function VIPOfferingSection() {
                 }}
               >
                 <h3 className="font-cinzel text-2xl text-gold mb-5 border-b-2 border-gold/30 pb-2">
-                  What You'll Gain:
+                  What You will Gain:
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
                   {vipBenefits.map((benefit, index) => (
@@ -376,9 +376,9 @@ export default function VIPOfferingSection() {
                       Satisfaction Guarantee:
                     </h4>
                     <p className="font-inter text-charcoal/90">
-                      If you don't experience breakthrough clarity and a clear
-                      path forward by the end of our session, you will receive a
-                      full refund. No questions asked.
+                      If you don&apos;t experience breakthrough clarity and a
+                      clear path forward by the end of our session, you will
+                      receive a full refund. No questions asked.
                     </p>
                   </div>
                 </div>

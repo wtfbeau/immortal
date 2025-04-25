@@ -45,9 +45,9 @@ export default function ProblemSection() {
 
   // Problem items with more relatable, specific challenges
   const problemItems = [
-    "You're spending time on tasks that don't move the needle for your business or career",
+    "You're spending time on tasks that don&apos;t move the needle for your business or career",
     'Conventional thinking has you trapped in the same patterns and results',
-    "You sense there's a bigger impact you could make, but can't fully articulate or achieve it",
+    'You sense there&apos;s a bigger impact you could make, but can&apos;t fully articulate or achieve it',
     'Daily pressures and distractions keep pulling you away from your highest priorities',
   ];
 
@@ -139,7 +139,7 @@ export default function ProblemSection() {
               {/* Bold Headline with enhanced shimmer effect */}
               <div className="mb-8">
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
-                  What's Holding You Back From{' '}
+                  What is holding you back from{' '}
                   <span
                     className="shimmer-text"
                     style={{
@@ -153,14 +153,14 @@ export default function ProblemSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.4)',
                     }}
                   >
-                    Your Full Potential
+                    your full potential
                   </span>
                 </h2>
                 <div className="h-1 w-24 bg-gold mt-6 mb-8 rounded-full"></div>
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
                   The demands of modern business and life have conditioned us to
                   play safe, avoid risk, and stay in our comfort zones. But deep
-                  down, you know there's untapped potential within you.
+                  down, you know there is untapped potential within you.
                 </p>
               </div>
 
@@ -209,8 +209,8 @@ export default function ProblemSection() {
                 style={{ boxShadow: '0 0 15px rgba(212,175,55,0.2)' }}
               >
                 <p className="font-cormorant-upright text-xl md:text-2xl text-gold italic text-center px-4">
-                  These barriers aren't permanent. With the right guidance, you
-                  can break through them and reach new heights.
+                  These barriers aren&apos;t permanent. With the right guidance,
+                  you can break through them and reach new heights.
                 </p>
               </div>
 

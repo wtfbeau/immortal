@@ -161,7 +161,7 @@ export default function TransformationSection() {
                       display: 'inline-block',
                     }}
                   >
-                    "Your potential is far greater
+                    Your potential is far greater
                   </span>
                 </h2>
                 <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide">
@@ -178,15 +178,15 @@ export default function TransformationSection() {
                       textShadow: '0 0 10px rgba(212,175,55,0.3)',
                     }}
                   >
-                    than your current reality shows."
+                    than your current reality shows.
                   </span>
                 </h2>
                 <div className="h-0.5 w-24 bg-crimson mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-charcoal/90 leading-relaxed">
                   When you remove your limiting beliefs and align with your true
-                  capabilities, everything changes. The transformation isn't
-                  just about external success—it's about achieving both results
-                  and fulfillment.
+                  capabilities, everything changes. The transformation is not
+                  just about external success — it is about achieving both
+                  results and fulfillment.
                 </p>
               </div>
 

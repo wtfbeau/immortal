@@ -222,9 +222,9 @@ export default function MethodSection() {
                 </h2>
                 <div className="h-0.5 w-24 bg-gold mt-6 mb-8"></div>
                 <p className="font-inter text-lg md:text-xl text-ivory/90 leading-relaxed">
-                  Paul's approach is both systematic and transformative. This
-                  isn't abstract theory—this is a practical framework that has
-                  delivered results for hundreds of clients.
+                  Paul&apos;s approach is both systematic and transformative.
+                  This isn&apos;t abstract theory—this is a practical framework
+                  that has delivered results for hundreds of clients.
                 </p>
               </div>
 
